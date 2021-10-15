@@ -1,0 +1,99 @@
+html::-webkit-scrollbar-track {
+    background-color: inherit;
+    border-radius: 8px;
+}
+
+html::-webkit-scrollbar {
+    width: 8px;
+    background-color: inherit;
+}
+
+html::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #009ba1;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background-color: #008ba1;
+}
+
+img {
+    border-radius: 8px;
+}
+
+a {
+    color: #009ba1;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+body {
+    font-family:
+        "Helvetica Neue",
+        Helvetica, Arial,
+        "Microsoft Yahei",
+        "Hiragino Sans GB",
+        "Heiti SC",
+        "WenQuanYi Micro Hei",
+        sans-serif;
+    transition: background-color 0.5s ease;
+}
+
+body.light-mode {
+    background-color: #fff;
+    color: #333;
+}
+
+body.dark-mode {
+    background-color: #212121;
+    color: #999;
+}
+
+blockquote {
+    margin-left: -1.75rem;
+    margin-right: 1.75rem;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 1.42188rem;
+    padding-right: 0;
+    padding-top: 0;
+    margin-bottom: 1.75rem;
+    font-size: 1.20112rem;
+    line-height: 1.75rem;
+    color: hsla(0, 0%, 0%, 0.59);
+    font-style: italic;
+    border-left: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
+}
+
+.dark-mode blockquote {
+    color: #999;
+    border-left: 0.32813rem solid #999;
+}
+
+.dark-mode #gh path {
+    fill: #fff;
+}
+
+.dark-mode #sun-icon {
+    display: none;
+}
+
+.light-mode #moon-icon {
+    display: none;
+}
+
+.gatsby-highlight {
+    margin-bottom: 1.75rem;
+    margin-left: -1.3125rem;
+    margin-right: -1.3125rem;
+    border-radius: 10px;
+    background: #2d2d2d;
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+}
+
+@media (max-width: 672px) {
+    .gatsby-highlight {
+        border-radius: 0;
+    }
+}
