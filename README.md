@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.snow-mountain.life/">
-    <img alt="Taozc" src="https://www.snow-mountain.life/icons/icon-96x96.png" width="60" />
+    <img alt="Taozc" src="./src/images/icon.png" width="60" />
   </a>
 </p>
 <h1 align="center">
