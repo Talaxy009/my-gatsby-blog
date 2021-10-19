@@ -27,7 +27,7 @@ img: "img.png"
 
 - 安装所需插件
 
-```bash
+```shell
 npm install gatsby-plugin-use-dark-mode use-dark-mode
 npm install gatsby-plugin-material-ui @material-ui/core @material-ui/icons
 ```

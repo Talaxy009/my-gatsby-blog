@@ -80,14 +80,14 @@ frp 能做的事有很多，你可以查看[这里](https://gofrp.org/docs/examp
 
 如果你的路由器没有`nohup`，就去安装它（废话）：
 
-```bash
+```shell
 opkg update
 opkg install coreutils-nohup
 ```
 
 然后执行：
 
-```bash
+```shell
 nohup ./frpc -c ./frpc.ini &
 ```
 
@@ -95,7 +95,7 @@ nohup ./frpc -c ./frpc.ini &
 
 如果想结束 frpc 则：
 
-```bash
+```shell
 killall -9 frpc
 ```
 

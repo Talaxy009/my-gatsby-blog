@@ -1,5 +1,5 @@
 ---
-title: 利用Material UI为Gatsby站点增加Tabs实现友链功能
+title: 利用 Material UI 为 Gatsby 站点增加 Tabs 实现友链功能
 date: "2020-03-19T18:14:00.000Z"
 description: "好马配好鞍，研究了两天总算是摸清楚了，现将步骤记录在此"
 img: "img.png"
@@ -7,17 +7,17 @@ img: "img.png"
 
 ## 一些有用的资料
 
-[Material UI 官网](https://material-ui.com/zh/)
+[Material UI 官网](https://mui.com/zh/)
 
-[Material UI 的一些 Tabs 样式](https://material-ui.com/zh/components/tabs/)
+[Material UI 的一些 Tabs 样式](https://mui.com/zh/components/tabs/)
 
-[Material UI 的 API](https://material-ui.com/zh/api/tab/)
+[Material UI 的 API](https://mui.com/zh/api/tab/)
 
 ## 准备步骤
 
 - 安装 Material UI
 
-```bash
+```shell
 npm install gatsby-plugin-material-ui @material-ui/core
 ```
 
@@ -96,8 +96,8 @@ friendship: [...friendship],
 const friendship = [];
 const push = (name, url, image = "") => friendship.push({ name, url, image });
 
-push("友链名称", "友链网址", "友链Logo");
-push("友链名称", "友链网址", "友链Logo");
+push("友链名称", "友链网址", "友链 Logo");
+push("友链名称", "友链网址", "友链 Logo");
 
 module.exports = friendship;
 ```
@@ -254,7 +254,7 @@ import RouterTabs from "../components/RouterTabs";
 
 这里是让友链的 Logo 和名字并排显示并隔出一点距离
 
-至此你的网页应该可以完美的显示 Tabs 和友链界面了(=v=)b
+至此你的网页应该可以完美的显示 Tabs 和友链界面了 (=v=)b
 
 如果还是觉得不够的话？可继续进行如下操作
 
@@ -269,19 +269,19 @@ const StyledTabs = withStyles({
   indicator: {
     display: "flex",
     justifyContent: "center",
-    backgroundColor: "#009ba1" //Tabs光标颜色(自行修改，下同)
+    backgroundColor: "#009ba1" //Tabs 光标颜色 (自行修改，下同)
   }
 })(props => <Tabs {...props} TabIndicatorProps={{ children: <div /> }} />);
 
 const StyledTab = withStyles({
   root: {
     textTransform: "none",
-    color: "inherit", //未选中Tab的颜色
+    color: "inherit", //未选中 Tab 的颜色
     "&:hover": {
-      color: "#009ba1" //鼠标下Tab的颜色
+      color: "#009ba1" //鼠标下 Tab 的颜色
     },
     "&$selected": {
-      color: "#009ba1" //已选中Tab的颜色
+      color: "#009ba1" //已选中 Tab 的颜色
     }
   },
   selected: {}
