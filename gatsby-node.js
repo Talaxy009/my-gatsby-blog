@@ -1,6 +1,16 @@
 const {createFilePath} = require(`gatsby-source-filesystem`);
 const path = require('path');
 
+exports.onCreateWebpackConfig = ({actions}) => {
+	actions.setWebpackConfig({
+		resolve: {
+			alias: {
+				'@material-ui/styled-engine': '@material-ui/styled-engine-sc',
+			},
+		},
+	});
+};
+
 exports.onCreateNode = ({node, getNode, actions}) => {
 	const {createNodeField} = actions;
 	if (node.internal.type === 'MarkdownRemark') {
@@ -28,7 +38,7 @@ exports.createPages = async ({graphql, actions}) => {
 							slug
 						}
 						frontmatter {
-						  title
+							title
 						}
 					}
 				}

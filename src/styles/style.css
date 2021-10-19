@@ -40,13 +40,13 @@ body {
 }
 
 body.light-mode {
-    background-color: #fff;
-    color: #333;
+    background-color: #fff !important;
+    color: #333 !important;
 }
 
 body.dark-mode {
-    background-color: #212121;
-    color: #999;
+    background-color: #212121 !important;
+    color: #999 !important;
 }
 
 blockquote {
@@ -96,4 +96,8 @@ blockquote {
     .gatsby-highlight {
         border-radius: 0;
     }
+}
+
+.MuiPagination-ul button {
+    color: inherit;
 }

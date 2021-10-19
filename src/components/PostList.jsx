@@ -1,13 +1,21 @@
-import React, {Fragment} from 'react';
-import {navigate} from 'gatsby';
+import React from 'react';
+import {navigate, useStaticQuery, graphql} from 'gatsby';
+import Pagination from '@material-ui/core/Pagination';
 import {GatsbyImage} from 'gatsby-plugin-image';
 import styled from 'styled-components';
-import formatTime from '../utils/formatTime';
+import {formatTime, splitArray} from '../utils/dataUtils';
+
+const ListBody = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 1rem 0;
+`;
 
 const PostItem = styled.div`
 	width: 100%;
 	display: flex;
-	margin: 2rem 0;
+	margin: 1rem 0;
 	border-radius: 12px;
 	background-color: rgba(150, 180, 180, 0.05);
 	box-shadow: 0 0 2px #bdbdbd;
@@ -36,10 +44,26 @@ const P = styled.p`
 	font-size: 1rem;
 `;
 
-export default function PostList({posts = [], authorName = ''}) {
+export default function PostList({posts = [], pageSize = 5}) {
+	const [page, setPage] = React.useState(1);
+	const data = useStaticQuery(graphql`
+		{
+			site {
+				siteMetadata {
+					author {
+						name
+					}
+				}
+			}
+		}
+	`);
+	const {author} = data.site.siteMetadata;
+	const pageList = splitArray(posts, pageSize);
+	const handleChange = (_event, value) => setPage(value);
+
 	return (
-		<Fragment>
-			{posts.map(({node}) => (
+		<ListBody>
+			{pageList[page - 1].map(({node}) => (
 				<PostItem
 					key={node.fields.slug}
 					onClick={() => navigate(node.fields.slug)}>
@@ -49,7 +73,7 @@ export default function PostList({posts = [], authorName = ''}) {
 								node.frontmatter.img.childImageSharp
 									.gatsbyImageData
 							}
-							alt={authorName}
+							alt={author.name}
 						/>
 					</PostContent>
 					<PostContent>
@@ -76,6 +100,13 @@ export default function PostList({posts = [], authorName = ''}) {
 					</PostContent>
 				</PostItem>
 			))}
-		</Fragment>
+			<Pagination
+				size="large"
+				count={pageList.length}
+				page={page}
+				onChange={handleChange}
+				classes={{}}
+			/>
+		</ListBody>
 	);
 }

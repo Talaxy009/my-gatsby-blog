@@ -3,7 +3,7 @@ import {Link, graphql} from 'gatsby';
 import Valine from 'gatsby-plugin-valine';
 import {GatsbyImage} from 'gatsby-plugin-image';
 import styled from 'styled-components';
-import formatTime from '../utils/formatTime';
+import {formatTime} from '../utils/dataUtils';
 import Layout from '../components/Layout';
 import Bio from '../components/Bio';
 import SEO from '../components/SEO';

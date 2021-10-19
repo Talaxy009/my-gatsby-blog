@@ -12,9 +12,6 @@ export default function IndexPage({location}) {
 				siteMetadata {
 					title
 					description
-					author {
-						name
-					}
 				}
 			}
 			allMarkdownRemark(
@@ -43,13 +40,13 @@ export default function IndexPage({location}) {
 		}
 	`);
 	const posts = data.allMarkdownRemark.edges;
-	const {title, description, author} = data.site.siteMetadata;
+	const {title, description} = data.site.siteMetadata;
 
 	return (
 		<Layout location={location}>
 			<SEO title={title} description={description} />
 			<Bio />
-			<PostList posts={posts} authorName={author.name} />
+			<PostList posts={posts} pageSize={5} />
 		</Layout>
 	);
 }

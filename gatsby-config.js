@@ -1,6 +1,6 @@
 module.exports = {
 	siteMetadata: {
-		siteUrl: 'https://www.snow-mountain.life/',
+		siteUrl: 'https://www.snow-mountain.life',
 		title: '雪山深处',
 		author: {
 			name: 'Taozc',
