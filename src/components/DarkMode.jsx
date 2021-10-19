@@ -1,23 +1,7 @@
 import React from 'react';
+import IconButton from '@material-ui/core/IconButton';
 import useDarkMode from 'use-dark-mode';
 import styled from 'styled-components';
-
-const Button = styled.button`
-	border: none;
-	display: flex;
-	padding: 12px;
-	cursor: pointer;
-	overflow: visible;
-	user-select: none;
-	border-radius: 50%;
-	text-align: center;
-	align-items: center;
-	justify-content: center;
-	background-color: transparent;
-	:hover {
-		background-color: rgba(120, 120, 120, 0.2);
-	}
-`;
 
 const Svg = styled.svg`
 	width: 32px;
@@ -28,10 +12,10 @@ export default function DarkMode() {
 	const {toggle} = useDarkMode(false);
 
 	return (
-		<Button onClick={toggle}>
+		<IconButton onClick={toggle}>
 			<Moon />
 			<Sun />
-		</Button>
+		</IconButton>
 	);
 }
 
