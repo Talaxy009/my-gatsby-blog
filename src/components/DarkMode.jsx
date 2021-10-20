@@ -1,5 +1,5 @@
 import React from 'react';
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from '@mui/material/IconButton';
 import useDarkMode from 'use-dark-mode';
 import styled from 'styled-components';
 

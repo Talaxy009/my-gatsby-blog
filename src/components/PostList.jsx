@@ -1,6 +1,6 @@
 import React from 'react';
 import {navigate, useStaticQuery, graphql} from 'gatsby';
-import Pagination from '@material-ui/core/Pagination';
+import Pagination from '@mui/material/Pagination';
 import {GatsbyImage} from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import {formatTime, splitArray} from '../utils/dataUtils';
