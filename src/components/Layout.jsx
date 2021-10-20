@@ -92,7 +92,7 @@ const Layout = ({location, children}) => {
 					href="http://beian.miit.gov.cn/">
 					粤 ICP 备 20015580 号-1
 				</a>
-				<span>©{new Date().getFullYear()}</span>
+				<span>© {new Date().getFullYear()}</span>
 				<a
 					target="_blank"
 					rel="noopener noreferrer"
@@ -117,7 +117,7 @@ const Layout = ({location, children}) => {
 						RSS 订阅
 					</a>
 					<svg
-						style={{width: '12px', height: '12px'}}
+						style={{height: '0.8rem'}}
 						viewBox="0 0 448 512">
 						<path
 							fill="#009ba1"
