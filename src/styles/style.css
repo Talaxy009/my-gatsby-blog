@@ -1,3 +1,4 @@
+/* html 样式 */
 html::-webkit-scrollbar-track {
     background-color: inherit;
     border-radius: 8px;
@@ -39,16 +40,6 @@ body {
     transition: background-color 0.5s ease;
 }
 
-body.light-mode {
-    background-color: #fff !important;
-    color: #333 !important;
-}
-
-body.dark-mode {
-    background-color: #212121 !important;
-    color: #999 !important;
-}
-
 blockquote {
     margin-left: -1.75rem;
     margin-right: 1.75rem;
@@ -63,6 +54,23 @@ blockquote {
     color: hsla(0, 0%, 0%, 0.59);
     font-style: italic;
     border-left: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
+}
+
+@media (max-width: 672px) {
+    .gatsby-highlight {
+        border-radius: 0;
+    }
+}
+
+/* 夜间模式样式 */
+body.light-mode {
+    background-color: #fff;
+    color: #333;
+}
+
+body.dark-mode {
+    background-color: #212121;
+    color: #999;
 }
 
 .dark-mode blockquote {
@@ -82,6 +90,7 @@ blockquote {
     display: none;
 }
 
+/* 代码高亮样式 */
 .gatsby-highlight {
     margin-bottom: 1.75rem;
     margin-left: -1.3125rem;
@@ -92,12 +101,31 @@ blockquote {
     overflow: auto;
 }
 
-@media (max-width: 672px) {
-    .gatsby-highlight {
-        border-radius: 0;
-    }
+pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px
 }
 
+pre::-webkit-scrollbar-track {
+    background-color: inherit;
+    border-radius: 8px;
+}
+
+pre::-webkit-scrollbar {
+    width: 8px;
+    background-color: inherit;
+}
+
+pre::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #009ba1;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background-color: #008ba1;
+}
+
+/* MUI 组件覆盖样式 */
 .MuiPagination-ul button {
     color: inherit;
 }
