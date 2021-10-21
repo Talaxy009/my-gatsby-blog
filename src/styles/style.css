@@ -37,6 +37,7 @@ body {
         "Heiti SC",
         "WenQuanYi Micro Hei",
         sans-serif;
+    margin: 0;
     transition: background-color 0.5s ease;
 }
 
@@ -90,6 +91,16 @@ body.dark-mode {
     display: none;
 }
 
+.light-mode .MuiPaper-root {
+    background-color: #fff;
+    color: #333;
+}
+
+.dark-mode .MuiPaper-root {
+    background-color: #212121;
+    color: #999;
+}
+
 /* 代码高亮样式 */
 .gatsby-highlight {
     margin-bottom: 1.75rem;
@@ -129,3 +140,13 @@ pre::-webkit-scrollbar-thumb:hover {
 .MuiPagination-ul button {
     color: inherit;
 }
+
+.MuiButton-outlined {
+    color: #009ba1 !important;
+	border: 1px solid rgba(0,155,161,0.5) !important;
+}
+
+.MuiButton-outlined:hover {
+    border: 1px solid rgba(0,155,161,0.7) !important;
+}
+

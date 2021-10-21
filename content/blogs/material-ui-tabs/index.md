@@ -2,6 +2,7 @@
 title: 利用 Material UI 为 Gatsby 站点增加 Tabs 实现友链功能
 date: "2020-03-19T18:14:00.000Z"
 description: "好马配好鞍，研究了两天总算是摸清楚了，现将步骤记录在此"
+tags: ["Gatsby", "技术"]
 img: "img.png"
 ---
 

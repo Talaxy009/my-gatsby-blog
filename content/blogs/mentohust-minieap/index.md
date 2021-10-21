@@ -2,6 +2,7 @@
 title: 动手编译适合自己路由器的 ipk
 date: "2020-03-22T18:11:00.000Z"
 description: "编译 MiniEAP 来使用 GZHU 校园网，同时与 Mentohust 做对比"
+tags: ["Openwrt", "技术"]
 img: "img.png"
 ---
 

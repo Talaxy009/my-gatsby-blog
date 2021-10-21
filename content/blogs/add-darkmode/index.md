@@ -2,6 +2,7 @@
 title: 利用 gatsby-plugin-use-dark-mode 来添加夜间模式功能
 date: "2020-05-01T15:37:09.233Z"
 description: "一直以来，夜间模式都是人类眼睛的好朋友，但却常常被忽视。为了推动 “夜间模式革命”，为人类带去黑暗，特写此文"
+tags: ["Gatsby", "技术"]
 img: "img.png"
 ---
 

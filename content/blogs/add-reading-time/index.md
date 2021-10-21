@@ -2,6 +2,7 @@
 title: 为 Gatsby 添加阅读时长提示
 date: "2020-04-27T14:44:49.233Z"
 description: "一直想要的功能，今天总算实现了"
+tags: ["Gatsby", "技术"]
 img: "img.png"
 ---
 

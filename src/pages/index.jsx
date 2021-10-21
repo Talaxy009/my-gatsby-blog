@@ -25,8 +25,9 @@ export default function IndexPage({location}) {
 						}
 						timeToRead
 						frontmatter {
-							date(formatString: "YYYY 年 MM 月 DD 日")
+							date(formatString: "YYYY-MM-DD")
 							title
+							tags
 							description
 							img {
 								childImageSharp {
@@ -46,7 +47,7 @@ export default function IndexPage({location}) {
 		<Layout location={location}>
 			<SEO title={title} description={description} />
 			<Bio />
-			<PostList posts={posts} pageSize={5} />
+			<PostList posts={posts} pageSize={6} />
 		</Layout>
 	);
 }

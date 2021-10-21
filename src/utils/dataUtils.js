@@ -8,11 +8,11 @@ export function formatTime(minutes) {
 	if (cups > 4) {
 		return `${new Array(Math.round(cups / 4))
 			.fill('🍚')
-			.join('')} 阅读需要 ${minutes} 分钟`;
+			.join('')} 需要 ${minutes} 分钟`;
 	} else {
 		return `${new Array(cups || 1)
 			.fill('🍵')
-			.join('')} 阅读需要 ${minutes} 分钟`;
+			.join('')} 需要 ${minutes} 分钟`;
 	}
 }
 
@@ -28,4 +28,21 @@ export function splitArray(arr, size) {
 		newArr.push(arr.slice(i, (i += size)));
 	}
 	return newArr;
+}
+
+/**
+ * 提取所有文章标签
+ * @param {array} posts 文章列表
+ * @returns 包含标签的数组
+ */
+export function getTags(posts = []) {
+	let tmp = new Set();
+	for (const post of posts) {
+		post.node.frontmatter.tags.map((v)=>{
+			tmp.add(v);
+		})
+	}
+	let tags = Array.from(tmp);
+	tags.unshift('全部');
+	return tags;
 }

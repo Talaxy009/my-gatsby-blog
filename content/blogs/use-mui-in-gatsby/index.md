@@ -2,6 +2,7 @@
 title: '在 Gatsby 中使用 MaterialUI'
 date: '2021-10-19T22:05:06.178Z'
 description: '记录一下本人在 Gatsby 中使用 Material-UI 时遇到的问题及解决办法'
+tags: ["Gatsby", "技术"]
 img: 'img.png'
 ---
 

@@ -2,6 +2,7 @@
 title: 在 VSCode 上使用 JetBrainsMono
 date: "2020-12-02T23:26:06.370Z"
 description: 完美地在 VSCode 上使用 JetBrains Mono 字体的所有特性～
+tags: ["技术"]
 img: "img.png"
 ---
 

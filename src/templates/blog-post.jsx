@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link, graphql} from 'gatsby';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 import Valine from 'gatsby-plugin-valine';
 import {GatsbyImage} from 'gatsby-plugin-image';
 import styled from 'styled-components';
@@ -51,8 +53,8 @@ const Section = styled.section`
 	h4,
 	h5,
 	h6 {
-		margin-top: 3rem;
-		margin-bottom: 1.7rem;
+		margin-top: 2.5rem;
+		margin-bottom: 1.5rem;
 	}
 	p {
 		line-height: 2rem;
@@ -83,6 +85,11 @@ export default function BlogPostTemplate({data, pageContext, location}) {
 						{post.frontmatter.date}
 						{` • ${formatTime(post.timeToRead)}`}
 					</P>
+					<Stack direction="row" spacing={1}>
+						{post.frontmatter.tags.map((tag) => (
+							<Chip key={tag} label={tag} variant="outlined" color="primary" />
+						))}
+					</Stack>
 				</header>
 				<Section dangerouslySetInnerHTML={{__html: post.html}} />
 				<Hr />
@@ -129,6 +136,7 @@ export const pageQuery = graphql`
 			excerpt(pruneLength: 160)
 			frontmatter {
 				title
+				tags
 				date(formatString: "YYYY 年 MM 月 DD 日")
 				description
 				img {

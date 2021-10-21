@@ -1,7 +1,8 @@
 ---
-title: Gatsby初体验
+title: Gatsby 初体验
 date: "2020-03-17T15:01:00.000Z"
 description: "了不起的盖茨比"
+tags: ["技术"]
 img: "img.png"
 ---
 
