@@ -11,9 +11,9 @@ readline.question('想要创建的目录名：', (slug) => {
 			fs.mkdirSync(path);
 		}
 
-		const data = `---\ntitle: \ndate: "${new Date(
+		const data = `---\ntitle: \ndate: '${new Date(
 			+ new Date() + 8 * 3600 * 1000, // UTC+8
-		).toISOString()}"\ndescription: ""\nimg: "img.jpg"\n---`;
+		).toISOString()}'\ndescription: ''\ntags: []\nimg: 'img.jpg'\n---`;
 
 		fs.writeFileSync(`${path}/index.md`, data);
 

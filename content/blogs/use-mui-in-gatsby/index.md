@@ -2,7 +2,7 @@
 title: '在 Gatsby 中使用 MaterialUI'
 date: '2021-10-19T22:05:06.178Z'
 description: '记录一下本人在 Gatsby 中使用 Material-UI 时遇到的问题及解决办法'
-tags: ["Gatsby", "技术"]
+tags: ['Gatsby', '技术']
 img: 'img.png'
 ---
 
@@ -33,13 +33,15 @@ img: 'img.png'
 ```js
 exports.onCreateWebpackConfig = ({actions}) => {
   actions.setWebpackConfig({
-  resolve: {
-   alias: {
-    '@material-ui/styled-engine': '@material-ui/styled-engine-sc', // next 通道安装的应使用此配置
-    '@mui/styled-engine': '@mui/styled-engine-sc', // latest 通道安装的应使用此配置
-   },
-  },
- });
+    resolve: {
+      alias: {
+        // next 通道安装的应使用此配置
+        '@material-ui/styled-engine': '@material-ui/styled-engine-sc',
+        // latest 通道安装的应使用此配置
+        '@mui/styled-engine': '@mui/styled-engine-sc',
+      },
+    },
+  });
 };
 ```
 
