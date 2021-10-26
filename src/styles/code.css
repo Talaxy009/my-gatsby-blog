@@ -71,6 +71,12 @@ pre[class*="language-"]::before {
     top: 0px;
 }
 
+pre[class="language-html"]::before {
+    content: "html";
+    background: #005A9C;
+    color: #ffffff;
+}
+
 pre[class="language-js"]::before {
     content: "js";
     background: #F7DF1E;
@@ -82,9 +88,13 @@ pre[class="language-css"]::before {
     color: #ffffff;
 }
 
+pre[class="language-json"]::before, pre[class="language-json5"]::before {
+    content: "json";
+    background: linen;
+}
+
 pre[class="language-shell"]::before {
     content: "shell";
-    background: #ffffff;
 }
 
 pre::-webkit-scrollbar {
