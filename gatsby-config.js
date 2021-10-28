@@ -3,7 +3,7 @@ module.exports = {
 		siteUrl: 'https://www.snow-mountain.life',
 		title: '雪山深处',
 		author: {
-			name: 'Taozc',
+			name: 'Talaxy',
 			summary: '兼职或学习或打游戏中···',
 		},
 		description: '一个个人博客，记录所思所想',
