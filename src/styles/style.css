@@ -99,12 +99,3 @@ body.dark-mode {
 .MuiPagination-ul button {
     color: inherit;
 }
-
-.MuiButton-outlined {
-    color: #009ba1 !important;
-    border: 1px solid rgba(0, 155, 161, 0.5) !important;
-}
-
-.MuiButton-outlined:hover {
-    border: 1px solid rgba(0, 155, 161, 0.7) !important;
-}
