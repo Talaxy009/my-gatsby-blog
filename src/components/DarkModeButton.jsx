@@ -1,7 +1,6 @@
 import React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import useDarkMode from 'use-dark-mode';
 import styled from 'styled-components';
 
 const Svg = styled.svg`
@@ -9,12 +8,10 @@ const Svg = styled.svg`
 	height: 32px;
 `;
 
-export default function DarkModeButton() {
-	const {toggle, value} = useDarkMode(false);
-
+export default function DarkModeButton({mode}) {
 	return (
-		<Tooltip title={`${value ? '关闭' : '打开'}夜间模式`}>
-			<IconButton onClick={toggle}>
+		<Tooltip title={`${mode.value ? '关闭' : '打开'}夜间模式`}>
+			<IconButton onClick={mode.toggle}>
 				<Moon />
 				<Sun />
 			</IconButton>

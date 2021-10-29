@@ -1,6 +1,7 @@
 import React from 'react';
 import {useStaticQuery, graphql, Link} from 'gatsby';
 import {createTheme, ThemeProvider} from '@mui/material';
+import useDarkMode from 'use-dark-mode';
 import styled from 'styled-components';
 import DarkModeButton from './DarkModeButton';
 
@@ -36,18 +37,14 @@ const Footer = styled.footer`
 	margin: 1rem;
 `;
 
-const theme = createTheme({
-	palette: {
-		primary: {
-			main: '#009ba1',
-			light: '#4db6ac',
-			dark: '#00796b',
-			contrastText: '#ffffff',
-		},
-	},
-});
-
 export default function Layout({location, children}) {
+	const [mounted, setMounted] = React.useState(false);
+	const darkMode = useDarkMode(false);
+
+	React.useEffect(() => {
+		setMounted(true);
+	}, []);
+
 	const data = useStaticQuery(graphql`
 		{
 			site {
@@ -86,12 +83,28 @@ export default function Layout({location, children}) {
 			</H2>
 		);
 
+	const theme = React.useMemo(
+		() =>
+			createTheme({
+				palette: {
+					primary: {
+						main: '#009ba1',
+						light: '#4db6ac',
+						dark: '#00796b',
+						contrastText: '#ffffff',
+					},
+					mode: darkMode.value ? 'dark' : 'light',
+				},
+			}),
+		[darkMode.value],
+	);
+
 	return (
 		<Root>
 			<ThemeProvider theme={theme}>
 				<Header>
 					{header}
-					<DarkModeButton />
+					{mounted && <DarkModeButton mode={darkMode} />}
 				</Header>
 				<main>{children}</main>
 				<Footer>

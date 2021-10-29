@@ -84,18 +84,3 @@ body.dark-mode {
 .light-mode #moon-icon {
     display: none;
 }
-
-.light-mode .MuiPaper-root {
-    background-color: #fff;
-    color: #333;
-}
-
-.dark-mode .MuiPaper-root {
-    background-color: #212121;
-    color: #999;
-}
-
-/* MUI 组件覆盖样式 */
-.MuiPagination-ul button {
-    color: inherit;
-}
