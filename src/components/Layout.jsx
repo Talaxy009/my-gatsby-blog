@@ -4,6 +4,7 @@ import {createTheme, ThemeProvider} from '@mui/material';
 import useDarkMode from 'use-dark-mode';
 import styled from 'styled-components';
 import DarkModeButton from './DarkModeButton';
+import {useHasMounted} from '../utils/hooks';
 
 const H1 = styled.h1`
 	font-size: 2.5rem;
@@ -38,17 +39,14 @@ const Footer = styled.footer`
 `;
 
 export default function Layout({location, children}) {
-	const [mounted, setMounted] = React.useState(false);
 	const darkMode = useDarkMode(false);
-
-	React.useEffect(() => {
-		setMounted(true);
-	}, []);
+	const hasMounted = useHasMounted();
 
 	const data = useStaticQuery(graphql`
 		{
 			site {
 				siteMetadata {
+					siteUrl
 					title
 				}
 			}
@@ -56,6 +54,7 @@ export default function Layout({location, children}) {
 	`);
 	const rootPath = '/';
 	const title = data.site.siteMetadata.title;
+	const siteUrl = data.site.siteMetadata.siteUrl;
 	const header =
 		location.pathname === rootPath ? (
 			<H1>
@@ -104,7 +103,7 @@ export default function Layout({location, children}) {
 			<ThemeProvider theme={theme}>
 				<Header>
 					{header}
-					{mounted && <DarkModeButton mode={darkMode} />}
+					<DarkModeButton key={hasMounted} mode={darkMode} />
 				</Header>
 				<main>{children}</main>
 				<Footer>
@@ -135,7 +134,7 @@ export default function Layout({location, children}) {
 						<a
 							target="_blank"
 							rel="noopener noreferrer"
-							href="https://www.snow-mountain.life/rss.xml">
+							href={`${siteUrl}/rss.xml`}>
 							RSS 订阅
 						</a>
 						<svg style={{height: '0.8rem'}} viewBox="0 0 448 512">

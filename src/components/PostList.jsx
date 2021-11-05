@@ -6,6 +6,7 @@ import Pagination from '@mui/material/Pagination';
 import styled from 'styled-components';
 import PostItem from './PostItem';
 import {splitArray, getTags} from '../utils/dataUtils';
+import {useHasMounted} from '../utils/hooks';
 
 const ListBody = styled.div`
 	display: flex;
@@ -19,7 +20,7 @@ export default function PostList({posts = [], pageSize = 5}) {
 	const allPosts = splitArray(posts, pageSize);
 	const allTags = getTags(posts);
 
-	const [mounted, setMounted] = React.useState(false);
+	const hasMounted = useHasMounted();
 	const [page, setPage] = React.useState({
 		index: 1,
 		list: allPosts,
@@ -28,10 +29,6 @@ export default function PostList({posts = [], pageSize = 5}) {
 		index: 0,
 		anchorEl: null,
 	});
-
-	React.useEffect(() => {
-		setMounted(true);
-	}, []);
 
 	const handleChangePage = (_event, value) => {
 		setPage({...page, index: value});
@@ -99,7 +96,7 @@ export default function PostList({posts = [], pageSize = 5}) {
 			{page.list[page.index - 1].map(({node}) => (
 				<PostItem key={node.fields.slug} post={node} />
 			))}
-			{mounted && (
+			{hasMounted && (
 				<Pagination
 					size="large"
 					count={page.list.length}
