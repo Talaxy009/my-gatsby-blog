@@ -1,5 +1,5 @@
 import React from 'react';
-import {navigate, useStaticQuery, graphql} from 'gatsby';
+import {navigate} from 'gatsby';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import {GatsbyImage} from 'gatsby-plugin-image';
@@ -55,25 +55,12 @@ const Section = styled.section`
 `;
 
 export default function PostItem({post}) {
-	const data = useStaticQuery(graphql`
-		{
-			site {
-				siteMetadata {
-					author {
-						name
-					}
-				}
-			}
-		}
-	`);
-	const {author} = data.site.siteMetadata;
-
 	return (
 		<PostItemBody onClick={() => navigate(post.fields.slug)}>
 			<PostItemContent>
 				<GatsbyImage
 					image={post.frontmatter.img.childImageSharp.gatsbyImageData}
-					alt={author.name}
+					alt={post.frontmatter.title || post.fields.slug}
 				/>
 			</PostItemContent>
 			<PostItemContent>

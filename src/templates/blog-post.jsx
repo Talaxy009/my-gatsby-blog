@@ -63,7 +63,7 @@ const Section = styled.section`
 
 export default function BlogPostTemplate({data, pageContext, location}) {
 	const post = data.markdownRemark;
-	const {author, title} = data.site.siteMetadata;
+	const {title} = data.site.siteMetadata;
 	const {previous, next} = pageContext;
 
 	return (
@@ -78,7 +78,7 @@ export default function BlogPostTemplate({data, pageContext, location}) {
 						image={
 							post.frontmatter.img.childImageSharp.gatsbyImageData
 						}
-						alt={author.name}
+						alt={post.frontmatter.title || post.fields.slug}
 					/>
 					<H1>{post.frontmatter.title}</H1>
 					<P>
@@ -125,9 +125,6 @@ export const pageQuery = graphql`
 		site {
 			siteMetadata {
 				title
-				author {
-					name
-				}
 			}
 		}
 		markdownRemark(fields: {slug: {eq: $slug}}) {
