@@ -84,6 +84,7 @@ module.exports = {
 				appId: 'uNA1YWiX0B1smHYzKFAUD9kS-9Nh9j0Va',
 				appKey: 'uTK9cTmOLI8pQ7WSGGmKMP2K',
 				avatar: 'robohash',
+				pageSize: 5,
 			},
 		},
 		{

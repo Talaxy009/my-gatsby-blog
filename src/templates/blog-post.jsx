@@ -87,7 +87,12 @@ export default function BlogPostTemplate({data, pageContext, location}) {
 					</P>
 					<Stack direction="row" spacing={1}>
 						{post.frontmatter.tags.map((tag) => (
-							<Chip key={tag} label={tag} variant="outlined" color="primary" />
+							<Chip
+								key={tag}
+								label={tag}
+								variant="outlined"
+								color="primary"
+							/>
 						))}
 					</Stack>
 				</header>
@@ -115,7 +120,7 @@ export default function BlogPostTemplate({data, pageContext, location}) {
 					</Right>
 				)}
 			</Pagination>
-			<Valine path={post.frontmatter.title} />
+			<Valine path={post.fields.slug} />
 		</Layout>
 	);
 }
@@ -131,6 +136,9 @@ export const pageQuery = graphql`
 			html
 			timeToRead
 			excerpt(pruneLength: 160)
+			fields {
+				slug
+			}
 			frontmatter {
 				title
 				tags
