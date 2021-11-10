@@ -47,3 +47,11 @@ exports.onClientEntry = () => {
 exports.onInitialClientRender = () => {
 	NProgress.done();
 };
+
+exports.onRouteUpdateDelayed = () => {
+	NProgress.start();
+};
+
+exports.onRouteUpdate = () => {
+	NProgress.done();
+};
