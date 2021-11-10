@@ -66,6 +66,20 @@ export default function BlogPostTemplate({data, pageContext, location}) {
 	const {title} = data.site.siteMetadata;
 	const {previous, next} = pageContext;
 
+	React.useEffect(() => {
+		if (window.location.hash) {
+			const checkExist = setInterval(() => {
+				const target = document.getElementById(
+					window.location.hash.split('#')[1],
+				);
+				if (target) {
+					target.scrollIntoView({behavior: 'smooth', block: 'center'});
+					clearInterval(checkExist);
+				}
+			}, 500);
+		}
+	}, []);
+
 	return (
 		<Layout location={location}>
 			<SEO
