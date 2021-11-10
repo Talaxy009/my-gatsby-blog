@@ -33,11 +33,7 @@ export default function PostList({posts = [], pageSize = 5}) {
 	const handleChangePage = (_event, value) => {
 		setPage({...page, index: value});
 		const target = document.getElementById('listBody');
-		window.scrollTo({
-			top: target.offsetTop,
-			left: target.offsetLeft,
-			behavior: 'smooth',
-		});
+		target.scrollIntoView({behavior: 'smooth'});
 	};
 
 	const handleClickMenuButton = (event) => {
