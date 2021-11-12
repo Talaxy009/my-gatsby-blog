@@ -30,7 +30,7 @@ module.exports = {
 };
 ```
 
-值得一提的是`gatsby-plugin-material-ui`是可选插件，其主要作用是优化 Material UI 在 Gatsby 中的使用，之前我一直不知道也没有使用这个插件，导致网站每次载入的时候与 Material UI 相关的组件的样式都要载入好久
+值得一提的是`gatsby-plugin-material-ui`是 ~~可选~~ 必需插件，其主要作用是优化 Material UI 在 Gatsby 中的使用，之前我一直不知道也没有使用这个插件，导致网站每次载入的时候与 Material UI 相关的组件的样式都要载入好久
 
 ## 编写 RouterTabs.js
 

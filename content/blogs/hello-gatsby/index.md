@@ -8,13 +8,13 @@ img: "img.png"
 
 用了一个下午终于成功把博客转移到了 Gatsby 上来依靠它生成静态 Html 文件。
 
-第一次接触这类...~~嗯？这类东西叫什么？~~反正感觉超新鲜！超好用！再也不用每个页面都手敲 html 了
+第一次接触这类······ ~~嗯？这类东西叫什么？~~ 反正感觉超新鲜！超好用！再也不用每个页面都手敲 html 了
 
 ## 一些有用的资料
 
 [Edward Elric 大佬的教程](https://sasuke40.github.io/a-guide-to-building-a-personal-website-with-gatsby/)
 
-[GatsbyJS 中文网教程](https://www.gatsbyjs.cn/tutorial/)
+[GatsbyJS 的官网教程](https://www.gatsbyjs.com/docs/tutorial/)
 
 ## 已经解决的问题
 

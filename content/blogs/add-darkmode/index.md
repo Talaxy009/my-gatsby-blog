@@ -12,7 +12,7 @@ img: "img.png"
 
 ### 介绍
 
-看完众大佬们的教程后还是选择了直接上插件，毕竟可以省去很多时间和精力（真香）。下文会介绍如何使用[gatsby-plugin-use-dark-mode](https://www.gatsbyjs.cn/packages/gatsby-plugin-use-dark-mode/?=dark)、[use-dark-mode](https://github.com/donavon/use-dark-mode)以及 Material UI 的[Icons](https://material-ui.com/zh/components/icons/)和[Button](https://material-ui.com/zh/components/buttons/)来制作一个顶级棒的夜间模式 ( •̀ ω •́ )y
+看完众大佬们的教程后还是选择了直接上插件，毕竟可以省去很多时间和精力（真香）。下文会介绍如何使用[gatsby-plugin-use-dark-mode](https://www.gatsbyjs.com/plugins/gatsby-plugin-use-dark-mode/)、[use-dark-mode](https://github.com/donavon/use-dark-mode)以及 Material UI 的[Icons](https://mui.com/zh/components/icons/)和[Button](https://mui.com/zh/components/buttons/)来制作一个顶级棒的夜间模式 ( •̀ ω •́ )y
 
 ### 各组件的作用
 
@@ -89,7 +89,7 @@ const DarkMode = () => {
     <div>
       <IconButton
         type="button"
-        onClick={darkMode.value ? darkMode.disable : darkMode.enable}
+        onClick={darkMode.toggle}
       >
         {darkMode.value ? (
           <Moon style={{ color: "#ffb74d" }} />
@@ -104,7 +104,7 @@ const DarkMode = () => {
 export default DarkMode;
 ```
 
-如上，一个简单的 Button 就出炉啦～当我们点击它时，它会判断`darkMode.value`来决定调用`darkMode.disable`还是`darkMode.enable`，同时按键的图标也会跟随`darkMode.value`来进行对应的切换。
+如上，一个简单的 Button 就出炉啦～当我们点击它时，它会调用`darkMode.toggle`来切换模式，同时按键的图标也会跟随`darkMode.value`来进行对应的切换。
 
 ## 修改 layout.js
 
