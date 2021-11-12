@@ -65,7 +65,7 @@ pre[class*="language-"]::before {
     line-height: 1;
     padding: 0.25rem 0.5rem;
     position: absolute;
-    left: 1.5rem;
+    right: 2rem;
     text-align: right;
     text-transform: uppercase;
     top: 0px;
@@ -95,6 +95,12 @@ pre[class="language-json"]::before, pre[class="language-json5"]::before {
 
 pre[class="language-shell"]::before {
     content: "shell";
+}
+
+pre[class="language-ini"]::before {
+    content: "ini";
+    background: gray;
+    color: #ffffff;
 }
 
 pre::-webkit-scrollbar {
