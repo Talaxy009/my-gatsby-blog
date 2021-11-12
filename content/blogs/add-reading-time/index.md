@@ -85,7 +85,7 @@ export function formatReadingTime(minutes) {
 
 PostList.js 是我将 index.js 拆分后的文件，若你没有修改过 index.js，则应在 index.js 中操作
 
-```js
+```jsx
 import { formatReadingTime } from "../utils/helper"; //导入 helper，路径请自行修改
 //略
 return (
@@ -103,7 +103,7 @@ return (
 
 ## 修改 blog-post.js
 
-```js
+```jsx
 import { formatReadingTime } from "../utils/helper"; //导入 helper，路径请自行修改
 //略
 <p

@@ -36,7 +36,7 @@ module.exports = {
 
 在/src/components 下新建 RouterTabs.js
 
-```js
+```jsx
 import React, { useState } from "react";
 import { navigate } from "gatsby";
 import Tabs from "@material-ui/core/Tabs";
@@ -109,7 +109,7 @@ module.exports = friendship;
 
 在/src/pages/下新建 friends.js
 
-```js
+```jsx
 import React from "react";
 import { graphql } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
@@ -224,7 +224,7 @@ import RouterTabs from "../components/RouterTabs";
 
 `<Bio />`段下方添加以下代码
 
-```js
+```jsx
 <RouterTabs routers={data.site.siteMetadata.menuLinks} currentPage="/" />
 ```
 
@@ -263,7 +263,7 @@ import RouterTabs from "../components/RouterTabs";
 
 在文件中增加以下代码
 
-```js
+```jsx
 import { withStyles } from "@material-ui/core/styles";
 
 const StyledTabs = withStyles({
@@ -299,16 +299,9 @@ const StyledTab = withStyles({
 
 最后为了防止 header 在 friends 页变小，可在 src/components/下的 layout.js 下修改
 
-将
-
-```js
-if (location.pathname === rootPath)
-```
-
-改为
-
-```js
-if (location.pathname === rootPath||location.pathname === `/friends/`)
+```diff
+- if (location.pathname === rootPath)
++ if (location.pathname === rootPath||location.pathname === `/friends/`)
 ```
 
 这样便能防止 header 因为不是根目录而变小

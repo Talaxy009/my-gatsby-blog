@@ -45,7 +45,7 @@ module.exports = {
 
 [use-dark-mode](https://github.com/donavon/use-dark-mode#readme)提供了一个简单的示例来告诉我们如何调用它，如下
 
-```js
+```jsx
 import React from "react";
 import useDarkMode from "use-dark-mode";
 
@@ -76,7 +76,7 @@ export default DarkModeToggle;
 
 将上述想法实践之后，我得到了这个：
 
-```js
+```jsx
 import React from "react";
 import useDarkMode from "use-dark-mode";
 import Sun from "@material-ui/icons/WbSunnyRounded";
@@ -110,14 +110,14 @@ export default DarkMode;
 
 现在我们已经有了能调用夜间模式插件的 DarkMode.js——也就是那个 Button，剩下要做的就是让每个页面都有个 Button，方法便是修改 layout.js 的`<header>`。
 
-```js
+```jsx
 import DarkMode from "./DarkMode";
-//略...
+// 略···
 <header style={{ display: "flex", justifyContent: "space-between" }}>
   {header}
   <DarkMode />
 </header>;
-//略...
+// 略···
 ```
 
 ## 在全局 CSS 文件中添加相关样式
