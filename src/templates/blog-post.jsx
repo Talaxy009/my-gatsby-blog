@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, graphql} from 'gatsby';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import Alert from '@mui/material/Alert';
 import Valine from 'gatsby-plugin-valine';
 import {GatsbyImage} from 'gatsby-plugin-image';
 import styled from 'styled-components';
@@ -62,6 +63,7 @@ const Section = styled.section`
 `;
 
 export default function BlogPostTemplate({data, pageContext, location}) {
+	const {modifiedTime} = data.file;
 	const post = data.markdownRemark;
 	const {title} = data.site.siteMetadata;
 	const {previous, next} = pageContext;
@@ -73,7 +75,10 @@ export default function BlogPostTemplate({data, pageContext, location}) {
 					window.location.hash.split('#')[1],
 				);
 				if (target) {
-					target.scrollIntoView({behavior: 'smooth', block: 'center'});
+					target.scrollIntoView({
+						behavior: 'smooth',
+						block: 'center',
+					});
 					clearInterval(checkExist);
 				}
 			}, 500);
@@ -111,6 +116,12 @@ export default function BlogPostTemplate({data, pageContext, location}) {
 					</Stack>
 				</header>
 				<Section dangerouslySetInnerHTML={{__html: post.html}} />
+				{post.frontmatter.tags.includes('技术') && (
+					<Alert severity="info">
+						本文最后于<strong>{modifiedTime}</strong>
+						更新，一些操作可能已经过时
+					</Alert>
+				)}
 				<Hr />
 				<footer>
 					<Bio />
@@ -145,6 +156,11 @@ export const pageQuery = graphql`
 			siteMetadata {
 				title
 			}
+		}
+		file(
+			childrenMarkdownRemark: {elemMatch: {fields: {slug: {eq: $slug}}}}
+		) {
+			modifiedTime(formatString: "YYYY 年 MM 月 DD 日")
 		}
 		markdownRemark(fields: {slug: {eq: $slug}}) {
 			html
