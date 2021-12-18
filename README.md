@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.snow-mountain.life/">
+  <a href="https://www.talaxy.site/">
     <img alt="Taozc" src="./src/images/icon.png" width="60" />
   </a>
 </p>
@@ -7,11 +7,12 @@
   我的博客
 </h1>
 
-基于 [gatsby-starter-minimal](https://github.com/gatsbyjs/gatsby-starter-minimal)，排版基本上源自旧的的 [博客](https://github.com/Talaxy009/My-blog)
+由 [gatsby](https://www.gatsbyjs.com/) 强力驱动，排版基本上源自旧的的 [博客](https://github.com/Talaxy009/My-blog)
 
 ## 目录
 
 - `/content/blogs` 所有文章
+- `/content/pages` markdown 页面
 - `/src` 所有源码
 
 ## 版权
