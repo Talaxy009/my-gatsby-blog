@@ -1,6 +1,7 @@
 import React from 'react';
-import {useStaticQuery, graphql} from 'gatsby';
+import {useStaticQuery, graphql, navigate} from 'gatsby';
 import {GatsbyImage} from 'gatsby-plugin-image';
+import Tooltip from '@mui/material/Tooltip';
 import styled from 'styled-components';
 import {Twitter, Github, Pixiv} from './Links';
 
@@ -27,13 +28,22 @@ const Area = styled.div`
 const Line = styled.div`
 	display: flex;
 	flex-direction: row;
-	margin-bottom: 4px;
+	margin: 1px 0;
+	align-items: center;
+`;
+
+const AvatarBox = styled.div`
+	width: 90px;
+	height: 90px;
+	:hover {
+		cursor: pointer;
+	}
 `;
 
 export default function Bio() {
 	const data = useStaticQuery(graphql`
 		{
-			avatar: file(relativePath: {regex: "/profile.jpg/"}) {
+			avatar: file(relativePath: {regex: "/profile.png/"}) {
 				childImageSharp {
 					gatsbyImageData(layout: FIXED)
 				}
@@ -59,18 +69,22 @@ export default function Bio() {
 
 	return (
 		<Root>
-			<GatsbyImage
-				image={data.avatar.childImageSharp.gatsbyImageData}
-				alt={author.name}
-				style={{
-					width: 90,
-					height: 90,
-					borderRadius: '50%',
-				}}
-				imgStyle={{
-					borderRadius: '50%',
-				}}
-			/>
+			<Tooltip title="关于">
+				<AvatarBox onClick={() => navigate('/about/')}>
+					<GatsbyImage
+						image={data.avatar.childImageSharp.gatsbyImageData}
+						alt={author.name}
+						style={{
+							width: '100%',
+							height: '100%',
+							borderRadius: '50%',
+						}}
+						imgStyle={{
+							borderRadius: '50%',
+						}}
+					/>
+				</AvatarBox>
+			</Tooltip>
 			<Section>
 				<Area>
 					<Line>

@@ -5,68 +5,25 @@ import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
 import Valine from 'gatsby-plugin-valine';
 import {GatsbyImage} from 'gatsby-plugin-image';
-import styled from 'styled-components';
 import {formatTime} from '../utils/dataUtils';
+import {
+	H1,
+	P,
+	Hr,
+	Section,
+	Pagination,
+	Left,
+	Right,
+} from '../components/Typography';
 import Layout from '../components/Layout';
 import Bio from '../components/Bio';
 import SEO from '../components/SEO';
 
-const H1 = styled.h1`
-	margin-bottom: 0;
-	margin-top: 1em;
-	font-size: 2.5em;
-`;
-
-const P = styled.p`
-	margin-bottom: 0.8rem;
-	display: block;
-`;
-
-const Hr = styled.hr`
-	margin-bottom: 0.8rem;
-`;
-
-const Pagination = styled.div`
-	margin-top: 2rem;
-	margin-bottom: 1rem;
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-`;
-
-const Left = styled.div`
-	display: flex;
-	max-width: 40%;
-	flex-direction: column;
-`;
-
-const Right = styled.div`
-	display: flex;
-	max-width: 40%;
-	flex-direction: column;
-	text-align: right;
-`;
-
-const Section = styled.section`
-	font-size: 1.1em;
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		margin-top: 2.5rem;
-		margin-bottom: 1.5rem;
-	}
-	p {
-		line-height: 2rem;
-	}
-`;
-
-export default function BlogPostTemplate({data, pageContext, location}) {
+export default function BlogTemplate({data, pageContext, location}) {
 	const {modifiedTime} = data.file;
 	const post = data.markdownRemark;
 	const {title} = data.site.siteMetadata;
-	const {previous, next} = pageContext;
+	const {slug, previous, next} = pageContext;
 
 	React.useEffect(() => {
 		if (window.location.hash) {
@@ -145,7 +102,7 @@ export default function BlogPostTemplate({data, pageContext, location}) {
 					</Right>
 				)}
 			</Pagination>
-			<Valine path={post.fields.slug} />
+			<Valine path={slug} />
 		</Layout>
 	);
 }
@@ -166,9 +123,6 @@ export const pageQuery = graphql`
 			html
 			timeToRead
 			excerpt(pruneLength: 160)
-			fields {
-				slug
-			}
 			frontmatter {
 				title
 				tags

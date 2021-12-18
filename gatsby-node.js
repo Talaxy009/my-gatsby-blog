@@ -25,10 +25,11 @@ exports.onCreateNode = ({node, getNode, actions}) => {
 
 exports.createPages = async ({graphql, actions}) => {
 	const {createPage} = actions;
-
-	const result = await graphql(`
+	// blogs
+	const blogsResult = await graphql(`
 		query {
 			allMarkdownRemark(
+				filter: {fileAbsolutePath: {regex: "/blogs/"}}
 				sort: {fields: [frontmatter___date], order: DESC}
 				limit: 1000
 			) {
@@ -45,10 +46,10 @@ exports.createPages = async ({graphql, actions}) => {
 			}
 		}
 	`);
-	if (result.errors) {
-		throw result.errors;
+	if (blogsResult.errors) {
+		throw blogsResult.errors;
 	}
-	const posts = result.data.allMarkdownRemark.edges;
+	const posts = blogsResult.data.allMarkdownRemark.edges;
 	posts.forEach((post, index) => {
 		const previous =
 			index === posts.length - 1 ? null : posts[index + 1].node;
@@ -56,11 +57,41 @@ exports.createPages = async ({graphql, actions}) => {
 
 		createPage({
 			path: post.node.fields.slug,
-			component: path.resolve('./src/templates/blog-post.jsx'),
+			component: path.resolve('./src/templates/BlogTemplate.jsx'),
 			context: {
 				slug: post.node.fields.slug,
 				previous,
 				next,
+			},
+		});
+	});
+	// pages
+	const pagesResult = await graphql(`
+		query {
+			allMarkdownRemark(
+				filter: {fileAbsolutePath: {regex: "/pages/"}}
+				limit: 1000
+			) {
+				edges {
+					node {
+						fields {
+							slug
+						}
+					}
+				}
+			}
+		}
+	`);
+	if (pagesResult.errors) {
+		throw pagesResult.errors;
+	}
+	const pages = pagesResult.data.allMarkdownRemark.edges;
+	pages.forEach((page) => {
+		createPage({
+			path: page.node.fields.slug,
+			component: path.resolve('./src/templates/PageTemplate.jsx'),
+			context: {
+				slug: page.node.fields.slug,
 			},
 		});
 	});

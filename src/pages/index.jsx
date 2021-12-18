@@ -15,6 +15,7 @@ export default function IndexPage({location}) {
 				}
 			}
 			allMarkdownRemark(
+				filter: {fileAbsolutePath: {regex: "/blogs/"}}
 				sort: {fields: [frontmatter___date], order: DESC}
 			) {
 				edges {
