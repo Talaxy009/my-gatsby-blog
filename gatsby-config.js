@@ -4,7 +4,7 @@ module.exports = {
 		title: '雪山深处',
 		author: {
 			name: 'Talaxy',
-			summary: '兼职或学习或打游戏中···',
+			summary: '攒钱买显卡&调整作息中···',
 		},
 		description: '一个个人博客，记录所思所想',
 		social: {
@@ -79,67 +79,85 @@ module.exports = {
 			__key: 'blogs',
 		},
 		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: 'mdPages',
+				path: './content/pages/',
+			},
+			__key: 'mdPages',
+		},
+		{
 			resolve: 'gatsby-plugin-valine',
 			options: {
 				appId: 'uNA1YWiX0B1smHYzKFAUD9kS-9Nh9j0Va',
 				appKey: 'uTK9cTmOLI8pQ7WSGGmKMP2K',
+				placeholder: '你知道吗？Home 键可以把光标放到行首诶！',
 				avatar: 'mp',
 				pageSize: 5,
 			},
 		},
 		{
-			resolve: `gatsby-plugin-feed`,
+			resolve: 'gatsby-plugin-feed',
 			options: {
-			  query: `
+				query: `
 				{
-				  site {
-					siteMetadata {
-					  title
-					  description
-					  siteUrl
-					  site_url: siteUrl
-					}
-				  }
-				}
-			  `,
-			  feeds: [
-				{
-				  serialize: ({ query: { site, allMarkdownRemark } }) => {
-					return allMarkdownRemark.edges.map(edge => {
-					  return Object.assign({}, edge.node.frontmatter, {
-						description: edge.node.excerpt,
-						date: edge.node.frontmatter.date,
-						url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-						guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-						custom_elements: [{ "content:encoded": edge.node.html }],
-					  })
-					})
-				  },
-				  query: `
-					{
-					  allMarkdownRemark(
-						sort: { order: DESC, fields: [frontmatter___date] },
-					  ) {
-						edges {
-						  node {
-							excerpt
-							html
-							fields { slug }
-							frontmatter {
-							  title
-							  date
-							}
-						  }
+					site {
+						siteMetadata {
+							title
+					  		description
+					  		siteUrl
+					  		site_url: siteUrl
 						}
-					  }
-					}
-				  `,
-				  output: "/rss.xml",
-				  title: "雪山深处的 RSS Feed",
-				  match: "^/blogs/",
-				},
-			  ],
+				  	}
+				}`,
+				feeds: [
+					{
+						serialize: ({query: {site, allMarkdownRemark}}) => {
+							return allMarkdownRemark.edges.map((edge) => {
+								return Object.assign(
+									{},
+									edge.node.frontmatter,
+									{
+										description: edge.node.frontmatter.description,
+										date: edge.node.frontmatter.date,
+										url:
+											site.siteMetadata.siteUrl +
+											edge.node.fields.slug,
+										guid:
+											site.siteMetadata.siteUrl +
+											edge.node.fields.slug,
+										custom_elements: [
+											{'content:encoded': edge.node.html},
+										],
+									},
+								);
+							});
+						},
+						query: `
+						{
+					  		allMarkdownRemark(
+								filter: {fileAbsolutePath: {regex: "/blogs/"}}
+								sort: { order: DESC, fields: [frontmatter___date] },
+					  		) {
+								edges {
+									node {
+										html
+										fields { slug }
+										frontmatter {
+											description
+							  				title
+							  				date
+										}
+							  		}
+								}
+						  	}
+						}`,
+						output: '/rss.xml',
+						title: '雪山深处的 RSS Feed',
+						match: '^/blogs/',
+					},
+				],
 			},
-		  },
+		},
 	],
 };
