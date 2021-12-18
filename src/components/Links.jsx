@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Target = styled.a`
-	margin-right: 4px;
+	margin: 0 2px;
 `;
 
 export function Twitter({id = ''}) {

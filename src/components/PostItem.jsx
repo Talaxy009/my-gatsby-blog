@@ -12,10 +12,12 @@ const PostItemBody = styled.div`
 	margin: 1rem 0;
 	border-radius: 12px;
 	background-color: rgba(150, 180, 180, 0.05);
-	box-shadow: 0 0 2px #bdbdbd;
+	box-shadow: 0 2px 5px rgba(10, 20, 20, 0.2);
+	transition: all 0.6s cubic-bezier(0, 0, 0.4, 1);
 	cursor: pointer;
 	:hover {
 		background-color: rgba(150, 180, 180, 0.1);
+		box-shadow: 0 6px 10px rgba(10, 20, 20, 0.2);
 	}
 	@media (max-width: 700px) {
 		flex-direction: column;
