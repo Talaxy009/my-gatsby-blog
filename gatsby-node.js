@@ -1,6 +1,7 @@
 const {createFilePath} = require(`gatsby-source-filesystem`);
 const path = require('path');
 
+/* 勿用 @mui/styled-engine-sc
 exports.onCreateWebpackConfig = ({actions}) => {
 	actions.setWebpackConfig({
 		resolve: {
@@ -10,7 +11,7 @@ exports.onCreateWebpackConfig = ({actions}) => {
 		},
 	});
 };
-
+*/
 exports.onCreateNode = ({node, getNode, actions}) => {
 	const {createNodeField} = actions;
 	if (node.internal.type === 'MarkdownRemark') {
