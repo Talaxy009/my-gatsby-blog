@@ -18,7 +18,7 @@ img: 'img.png'
 
 ### MUI v5
 
-到了 MUI v5，从官方的[安装文档](https://mui.com/zh/getting-started/installation/)可以看到，这个版本开始 MUI 需要额外的样式依赖，你可以选择文档中提到的 `@emotion/styled` 或者 `styled-components`，在 gatsby-plugin-material-ui 的这个 [issue](https://github.com/hupe1980/gatsby-plugin-material-ui/issues/70) 里，开发者有提到 MUI v5 不需要再使用这个插件了
+到了 MUI v5，从官方的[安装文档](https://mui.com/zh/getting-started/installation/)可以看到，这个版本开始 MUI 需要额外的样式依赖，你可以选择文档中提到的 `@emotion/styled` 或者 `styled-components`，在 gatsby-plugin-material-ui 的这个 [issue](https://github.com/hupe1980/gatsby-plugin-material-ui/issues/70) 里，开发者有提到 MUI v5 不需要再使用这个插件了：
 
 ![github01](./github01.png)
 
@@ -26,9 +26,39 @@ img: 'img.png'
 
 ![github02](./github02.png)
 
-所以现在 gatsby-plugin-material-ui 的开发者们已经开始为 MUI v5 做适配了，不过截至我写这篇文章，这个组件还只支持 `@emotion/styled`，而我是使用 `styled-components` 的，所以下面我分享一下在 Gatsby 中要如何使用依赖 styled-components 的 MUI v5，以便在这个组件适配 styled-components 前能够使用 MUI v5。
+所以现在 gatsby-plugin-material-ui 的开发者们已经开始为 MUI v5 做适配了，不过截至我写这篇文章，这个组件还只支持 `@emotion/styled`，下面我分别分享一下在 Gatsby 中要如何使用依赖 emotion 和 styled-components 的 MUI v5。
 
-根据 MUI 官方的 [styled-components 切换指南](https://next--material-ui-docs.netlify.app/zh/guides/styled-engine/#how-to-switch-to-styled-components)，需要修改 Webpack 的配置文件，否则会出现找不到 @emotion 组件的相关错误，但到了 Gatsby 这里，需要在 `gatsby-node.js` 修改 ↓
+#### 使用 emotion 解决方案
+
+首先先安装依赖
+
+```shell
+npm install gatsby-plugin-material-ui @mui/styled-engine @emotion/react @emotion/styled
+```
+
+或
+
+```shell
+yarn add gatsby-plugin-material-ui @mui/styled-engine @emotion/react @emotion/styled
+```
+
+后修改 `gatsby-config.js`
+
+```js
+module.exports = {
+  ...
+  plugins: [
+    ...
+    'gatsby-plugin-material-ui',
+  ],
+};
+```
+
+即可！
+
+#### 使用 styled-components 解决方案
+
+根据 MUI 官方的 [styled-components 切换指南](https://mui.com/zh/guides/styled-engine/)，需要修改 Webpack 的配置文件，否则会出现找不到 @emotion 组件的相关错误，但到了 Gatsby 这里，需要在 `gatsby-node.js` 修改 ↓
 
 ```js
 exports.onCreateWebpackConfig = ({actions}) => {
@@ -47,4 +77,22 @@ exports.onCreateWebpackConfig = ({actions}) => {
 
 由于 MUI v5 的 bata 版本（@material-ui/core@next）和 stable 版本（@mui/material）的包名不同，所以需要根据实际情况（你安装的版本）选择上述两种配置中的一种（两种都选也可以），此外，如果你没有安装这些依赖的话（应该不可能），你还需要安装 `gatsby-plugin-styled-components` 和 `babel-plugin-styled-components`
 
-执行完以上步骤后，应该就能舒适地在 Gatsby 中使用依赖 styled-components 的 MUI v5 了，目前为止只执行这些步骤已经能让我的网址正常使用 MUI 组件了，不过我还是会继续关注 gatsby-plugin-material-ui 的开发进度。
+~~执行完以上步骤后，应该就能舒适地在 Gatsby 中使用依赖 styled-components 的 MUI v5 了，目前为止只执行这些步骤已经能让我的网址正常使用 MUI 组件了。~~
+
+## styled-components 背刺 (更新于 12/19)
+
+这两天我一直在处理一件事，就是我的一个 Mui 组件样式有些许问题，如下图所示，打包之后，我的夜间模式按钮出了问题（调试环境下正常）：
+
+![为什么被覆盖了](./2021-12-19.png)
+
+右下角显示的两个样式，正常来说后面那个 (.krgWCI) 应该具有更高的优先级，因为这是 Mui 组件的样式，而非前面那个 (.iPbomG) 默认的按钮样式，默认的样式将 Mui 组件的样式覆盖了，这导致夜间模式按钮在 hover 后背景变成了方形······
+
+我尝试更换了相关组件的版本，但是无济于事，今天我发现官方的切换文档在 16 天前[更新](https://github.com/mui-org/material-ui/pull/30026)了，也就是上面放出的这个 [styled-components 切换指南](https://mui.com/zh/guides/styled-engine/)，文档中提到
+
+> Using styled-components as an engine at this moment is not working when used in a SSR projects. The reason is that the babel-plugin-styled-components is not picking up correctly the usages of the styled() utility inside the @mui packages. For more details, take a look at this [issue](https://github.com/mui-org/material-ui/issues/29742). We strongly recommend using emotion for SSR projects.
+
+我的翻译：
+
+> 目前使用 styled-components 作为服务端渲染 (SSR) 项目的样式引擎时无法工作。原因是 babel-plugin-styled-components 没有正确获取 @mui 软件包中的 styled() 方法。欲了解更多详情，请查看这个 [issue](https://github.com/mui-org/material-ui/issues/29742)。我们强烈建议在服务端渲染 (SSR) 项目中使用 emotion。
+
+所以在问题修复之前，我还是老实的使用 emotion 方案吧😭
