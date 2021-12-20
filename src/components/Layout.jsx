@@ -2,7 +2,7 @@ import React from 'react';
 import {useStaticQuery, graphql, Link} from 'gatsby';
 import {createTheme, ThemeProvider} from '@mui/material';
 import useDarkMode from 'use-dark-mode';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import DarkModeButton from './DarkModeButton';
 import {useHasMounted} from '../utils/hooks';
 

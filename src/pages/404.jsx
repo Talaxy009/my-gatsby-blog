@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import {Link} from 'gatsby';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import SEO from '../components/SEO';
 
 const Main = styled.main`

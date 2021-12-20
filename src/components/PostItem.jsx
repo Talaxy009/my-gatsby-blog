@@ -3,7 +3,7 @@ import {navigate} from 'gatsby';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import {GatsbyImage} from 'gatsby-plugin-image';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import {formatTime} from '../utils/dataUtils';
 
 const PostItemBody = styled.div`

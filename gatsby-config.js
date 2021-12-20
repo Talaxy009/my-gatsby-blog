@@ -14,7 +14,7 @@ module.exports = {
 		},
 	},
 	plugins: [
-		'gatsby-plugin-styled-components',
+		'gatsby-plugin-emotion',
 		'gatsby-plugin-material-ui',
 		'gatsby-plugin-image',
 		{

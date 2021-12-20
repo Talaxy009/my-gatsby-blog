@@ -1,7 +1,7 @@
 import React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const Svg = styled.svg`
 	width: 32px;

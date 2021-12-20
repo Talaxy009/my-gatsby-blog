@@ -2,7 +2,7 @@ import React from 'react';
 import {useStaticQuery, graphql, navigate} from 'gatsby';
 import {GatsbyImage} from 'gatsby-plugin-image';
 import Tooltip from '@mui/material/Tooltip';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import {Twitter, Github, Pixiv} from './Links';
 
 const Root = styled.div`
@@ -35,9 +35,7 @@ const Line = styled.div`
 const AvatarBox = styled.div`
 	width: 90px;
 	height: 90px;
-	:hover {
-		cursor: pointer;
-	}
+	cursor: pointer;
 `;
 
 export default function Bio() {

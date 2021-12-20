@@ -3,7 +3,7 @@ import Menu from '@mui/material/Menu';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Pagination from '@mui/material/Pagination';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import PostItem from './PostItem';
 import {splitArray, getTags} from '../utils/dataUtils';
 import {useHasMounted} from '../utils/hooks';
