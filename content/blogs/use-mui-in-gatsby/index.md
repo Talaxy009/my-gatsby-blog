@@ -81,11 +81,11 @@ exports.onCreateWebpackConfig = ({actions}) => {
 
 ## styled-components 背刺 (更新于 12/19)
 
-这两天我一直在处理一件事，就是我的一个 Mui 组件样式有些许问题，如下图所示，打包之后，我的夜间模式按钮出了问题（调试环境下正常）：
+这两天我一直在处理一件事，就是我的一个 MUI 组件样式有些许问题，如下图所示，打包之后，我的夜间模式按钮出了问题（调试环境下正常）：
 
 ![为什么被覆盖了](./2021-12-19.png)
 
-右下角显示的两个样式，正常来说后面那个 (.krgWCI) 应该具有更高的优先级，因为这是 Mui 组件的样式，而非前面那个 (.iPbomG) 默认的按钮样式，默认的样式将 Mui 组件的样式覆盖了，这导致夜间模式按钮在 hover 后背景变成了方形······
+右下角显示的两个样式，正常来说后面那个 (.krgWCI) 应该具有更高的优先级，因为这是 MUI 组件的样式，而非前面那个 (.iPbomG) 默认的按钮样式，默认的样式将 MUI 组件的样式覆盖了，这导致夜间模式按钮在 hover 后背景变成了方形······
 
 我尝试更换了相关组件的版本，但是无济于事，今天我发现官方的切换文档在 16 天前[更新](https://github.com/mui-org/material-ui/pull/30026)了，也就是上面放出的这个 [styled-components 切换指南](https://mui.com/zh/guides/styled-engine/)，文档中提到
 
@@ -96,3 +96,7 @@ exports.onCreateWebpackConfig = ({actions}) => {
 > 目前使用 styled-components 作为服务端渲染 (SSR) 项目的样式引擎时无法工作。原因是 babel-plugin-styled-components 没有正确获取 @mui 软件包中的 styled() 方法。欲了解更多详情，请查看这个 [issue](https://github.com/mui-org/material-ui/issues/29742)。我们强烈建议在服务端渲染 (SSR) 项目中使用 emotion。
 
 所以在问题修复之前，我还是老实的使用 emotion 方案吧😭
+
+### 后续 (更新于 12/20)
+
+今天把我的样式库替换为 emotion 了（我不能忍受我的项目里同时存在两个功能相同的依赖），可以说是无痛切换，甚至我 vscode 的  style-components 的插件还能正常使用，毕竟这两个样式库的 styled api 太相似了，但还是专门换成 emotion 的插件好一些
