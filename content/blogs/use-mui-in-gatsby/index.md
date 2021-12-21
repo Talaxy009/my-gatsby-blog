@@ -99,4 +99,4 @@ exports.onCreateWebpackConfig = ({actions}) => {
 
 ### 后续 (更新于 12/20)
 
-今天把我的样式库替换为 emotion 了（我不能忍受我的项目里同时存在两个功能相同的依赖），可以说是无痛切换，甚至我 vscode 的  style-components 的插件还能正常使用，毕竟这两个样式库的 styled api 太相似了，但还是专门换成 emotion 的插件好一些
+今天把我的样式库替换为 emotion 了（我不能忍受我的项目里同时存在两个功能相同的依赖），可以说是无痛切换，甚至我 vscode 的  style-components 的插件还能正常使用，毕竟这两个样式库的 styled api 太相似了
