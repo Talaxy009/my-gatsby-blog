@@ -2,7 +2,7 @@
 title: '2021 生生不息'
 date: '2021-12-21T17:43:06.020Z'
 description: '过去的一年：偶有惊喜、学会放下'
-tags: ['回顾']
+tags: ['生活']
 img: 'img.jpg'
 ---
 

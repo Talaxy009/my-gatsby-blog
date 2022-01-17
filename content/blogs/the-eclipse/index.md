@@ -2,7 +2,7 @@
 title: 日环食记录
 date: "2020-07-01T22:49:22.516Z"
 description: 记录 2020 年 6 月 21 日的日环食
-tags: ["记录"]
+tags: ["生活", "记录"]
 img: "img.jpg"
 ---
 

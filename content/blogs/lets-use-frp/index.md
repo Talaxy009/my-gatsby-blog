@@ -6,8 +6,6 @@ tags: ["Openwrt", "技术"]
 img: "img.png"
 ---
 
-> 本文于 2021 年 11 月 12 日 进行大幅修改，将客户端的配置重心放在 openwrt-frp 上了，原版可在 [这里](https://waitech.cn/yong-frplai-zai-openwrtxia-shi-xian-nei-wang-chuan-tou/) 查看。
-
 ## 写在前面
 
 最近从 PandoraBox 转到 OpenWrt 阵营，无奈原本的 phddns 无法使用了，今天摸索了下 frp，发现出乎意料的简单！frp 与普通内网穿透最大的不同是它需要一个有固定公网 IP 的主机或是云服务器（VPS），如果你恰好有那么一个正在挂着博客网站的云服务器，那么它就能派上用场！下面以 Windows Server 2016 来作服务端，以 OpenWrt 18.06.8 来作客户端进行演示。
