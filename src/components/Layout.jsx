@@ -85,12 +85,19 @@ export default function Layout({location, children}) {
 	const theme = React.useMemo(
 		() =>
 			createTheme({
+				components: {
+					MuiPaper: {
+						styleOverrides: {
+							root: {
+								backgroundColor: 'transparent',
+								backdropFilter: 'blur(25px)',
+							},
+						},
+					},
+				},
 				palette: {
 					primary: {
 						main: '#009ba1',
-						light: '#4db6ac',
-						dark: '#00796b',
-						contrastText: '#ffffff',
 					},
 					mode: darkMode.value ? 'dark' : 'light',
 				},

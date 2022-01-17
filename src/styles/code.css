@@ -34,7 +34,7 @@ pre[class*="language-"] {
     margin-left: -1.3125rem;
     margin-right: -1.3125rem;
     border-radius: 10px;
-    background: #1e1e1e;
+    background: #2e2e2e;
     -webkit-overflow-scrolling: touch;
     overflow: auto;
 }
@@ -54,7 +54,7 @@ pre[class*="language-"] {
 
 :not(pre)>code[class*="language-"],
 pre[class*="language-"] {
-    background: #1e1e1e;
+    background: #2e2e2e;
 }
 
 pre[class*="language-"]::before {
