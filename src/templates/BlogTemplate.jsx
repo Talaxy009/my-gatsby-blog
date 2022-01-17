@@ -47,6 +47,10 @@ export default function BlogTemplate({data, pageContext, location}) {
 			<SEO
 				title={`${post.frontmatter.title} | ${title}`}
 				description={post.frontmatter.description || post.excerpt}
+				image={
+					post.frontmatter.img.childImageSharp.gatsbyImageData.images
+						.fallback.src
+				}
 			/>
 			<article>
 				<header>
