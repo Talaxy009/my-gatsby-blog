@@ -10,7 +10,6 @@ export default function IndexPage({location}) {
 		{
 			site {
 				siteMetadata {
-					title
 					description
 				}
 			}
@@ -42,11 +41,11 @@ export default function IndexPage({location}) {
 		}
 	`);
 	const posts = data.allMarkdownRemark.edges;
-	const {title, description} = data.site.siteMetadata;
+	const {description} = data.site.siteMetadata;
 
 	return (
 		<Layout location={location}>
-			<SEO title={title} description={description} />
+			<SEO description={description} />
 			<Bio />
 			<PostList posts={posts} pageSize={6} />
 		</Layout>

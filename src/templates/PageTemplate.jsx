@@ -12,7 +12,7 @@ export default function PageTemplate({data, pageContext, location}) {
 	return (
 		<Layout location={location}>
 			<SEO
-				title={`${frontmatter.title} | ${siteMetadata.title}`}
+				title={frontmatter.title}
 				description={
 					frontmatter.description || siteMetadata.description
 				}
@@ -37,7 +37,7 @@ export const pageQuery = graphql`
         markdownRemark(fields: {slug: {eq: $slug}}) {
             html
             frontmatter {
-                title
+				title
                 description
             }
         }

@@ -22,7 +22,6 @@ import SEO from '../components/SEO';
 export default function BlogTemplate({data, pageContext, location}) {
 	const {modifiedTime} = data.file;
 	const post = data.markdownRemark;
-	const {title} = data.site.siteMetadata;
 	const {slug, previous, next} = pageContext;
 
 	React.useEffect(() => {
@@ -45,7 +44,7 @@ export default function BlogTemplate({data, pageContext, location}) {
 	return (
 		<Layout location={location}>
 			<SEO
-				title={`${post.frontmatter.title} | ${title}`}
+				title={post.frontmatter.title}
 				description={post.frontmatter.description || post.excerpt}
 				image={
 					post.frontmatter.img.childImageSharp.gatsbyImageData.images
@@ -113,11 +112,6 @@ export default function BlogTemplate({data, pageContext, location}) {
 
 export const pageQuery = graphql`
 	query ($slug: String!) {
-		site {
-			siteMetadata {
-				title
-			}
-		}
 		file(
 			childrenMarkdownRemark: {elemMatch: {fields: {slug: {eq: $slug}}}}
 		) {

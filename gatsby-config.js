@@ -23,7 +23,20 @@ module.exports = {
 				trackingId: 'UA-158975002-1',
 			},
 		},
-		'gatsby-plugin-react-helmet',
+		{
+			resolve: 'gatsby-plugin-next-seo',
+			options: {
+			  openGraph: {
+				type: 'website',
+				locale: 'zh_cn',
+				site_name: '雪山深处',
+			  },
+			  twitter: {
+				handle: '@Taozc009',
+				cardType: 'summary_large_image',
+			  },
+			},
+		  },
 		'gatsby-plugin-sitemap',
 		{
 			resolve: 'gatsby-plugin-manifest',
