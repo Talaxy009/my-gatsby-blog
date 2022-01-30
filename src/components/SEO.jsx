@@ -38,12 +38,11 @@ SEO.defaultProps = {
 	lang: 'zh',
 	image: '/site-image.jpg',
 	description: '',
-	title: '',
 };
 
 SEO.propTypes = {
 	description: PropTypes.string,
 	lang: PropTypes.string,
 	image: PropTypes.string,
-	title: PropTypes.string.isRequired,
+	title: PropTypes.string,
 };
