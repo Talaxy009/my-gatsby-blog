@@ -10,56 +10,55 @@ img: "img.png"
 
 ### 若第一次编译还需以下步骤
 
-- 安装相关依赖库
+1. 安装相关依赖库
 
-```shell
-sudo apt-get update
-sudo apt-get install git-core build-essential libssl-dev libncurses5-dev unzip gawk
-sudo apt-get install subversion mercurial
-```
+   ```shell
+   sudo apt-get update
+   sudo apt-get install git-core build-essential libssl-dev libncurses5-dev unzip gawk subversion mercurial
+   ```
 
-- 安装 C 编译环境
+   安装 C 编译环境
 
-```shell
-sudo apt-get install ccache
-```
+   ```shell
+   sudo apt-get install ccache
+   ```
 
-- 下载您设备对应的 SDK
-  [OpenWRT SDK](https://downloads.openwrt.org/) / [PandoraBox SDK](http://downloads.pangubox.com:6380/pandorabox/)
+2. 下载您设备对应的 SDK
+   [OpenWRT SDK](https://downloads.openwrt.org/) / [PandoraBox SDK](http://downloads.pangubox.com:6380/pandorabox/)
 
-- 解压 SDK
+3. 解压 SDK
 
-```shell
-tar xjf (SDK 包名)
-```
+   ```shell
+   tar xvf (SDK 包名)
+   ```
 
 ### 开始编译
 
-- 定位到 SDK 目录 (即解压出来的文件夹)
+1. 定位到 SDK 目录 (即解压出来的文件夹)
 
-```shell
-cd /sdk 目录
-```
+   ```shell
+   cd /sdk 目录
+   ```
 
-- 克隆 git
+2. 克隆 git
 
-```shell
-git clone https://github.com/ysc3839/openwrt-minieap.git -b gzhu package/minieap
-```
+   ```shell
+   git clone https://github.com/ysc3839/openwrt-minieap.git -b gzhu package/minieap
+   ```
 
-此处使用的源并非是 MiniEAP 的官方源，而是[ysc3839 大佬的项目](https://github.com/ysc3839/openwrt-minieap)，区别在于大佬加入了 GZHU 的特定字段，具体可以看[这里](https://github.com/ysc3839/openwrt-minieap/blob/gzhu/patches/006-minieap-gzhu.patch)
+   此处使用的源并非是 MiniEAP 的官方源，而是[ysc3839 大佬的项目](https://github.com/ysc3839/openwrt-minieap)，区别在于大佬加入了 GZHU 的特定字段，具体可以看[这里](https://github.com/ysc3839/openwrt-minieap/blob/gzhu/patches/006-minieap-gzhu.patch)
 
-- 选择要编译的包
+3. 选择要编译的包
 
-```shell
-make menuconfig # 依次选择 "Network" "minieap" "save" "OK" 然后一直"Exit"回到控制台
-```
+   ```shell
+   make menuconfig # 依次选择 "Network" "minieap" "save" "OK" 然后一直"Exit"回到控制台
+   ```
 
-- 开始编译
+4. 开始编译
 
-```shell
-make package/minieap/compile V=s
-```
+   ```shell
+   make package/minieap/compile V=s
+   ```
 
 ipk 文件就在 `bin/packages/(处理器架构)/base/` 中
 
@@ -69,36 +68,36 @@ ipk 文件就在 `bin/packages/(处理器架构)/base/` 中
 
 方法些许不同
 
-- 定位到 SDK 目录
+1. 定位到 SDK 目录
 
-```shell
-cd /sdk 目录
-```
+   ```shell
+   cd /sdk 目录
+   ```
 
-- 安装 luci feed
+2. 安装 luci feed (操作前可以给 git 设置代理)
 
-```shell
-./scripts/feeds update luci
-./scripts/feeds install -a
-```
+   ```shell
+   ./scripts/feeds update luci
+   ./scripts/feeds install -a
+   ```
 
-- 克隆 git
+3. 克隆 git
 
-```shell
-git clone https://github.com/ysc3839/luci-proto-minieap.git package/luci-proto-minieap
-```
+   ```shell
+   git clone https://github.com/ysc3839/luci-proto-minieap.git package/luci-proto-minieap
+   ```
 
-- 选择要编译的包
+4. 选择要编译的包
 
-```shell
-make menuconfig # 依次选择 "LuCI" "Protocols" "luci-proto-minieap" "save" "OK" 然后一直"Exit"回到控制台
-```
+   ```shell
+   make menuconfig # 依次选择 "LuCI" "Protocols" "luci-proto-minieap" "save" "OK" 然后一直"Exit"回到控制台
+   ```
 
-- 开始编译
+5. 开始编译
 
-```shell
-make package/luci-proto-minieap/compile V=s
-```
+   ```shell
+   make package/luci-proto-minieap/compile V=s
+   ```
 
 同样在 `/bin/` 中的某个文件夹里就能找到啦
 
@@ -112,10 +111,10 @@ make package/luci-proto-minieap/compile V=s
 
 ## 如何使用 MiniEAP（8 月 30 日更新）
 
-- 在 `网络->接口` 中，确认 wan 口协议为 `DHCP 客户端`
-- 添加一个接口为 `eth0.2` 协议为 `MiniEAP 客户端` 的接口，并输入账号和密码，将数据包插件设为 `rjv3`
-- 在 `RJv3 插件设置` 中将 `DHCP 方式` 设置为 `禁用` 以外的方式
-- 保存并应用
+1. 在 `网络->接口` 中，确认 wan 口协议为 `DHCP 客户端`
+2. 添加一个接口为 `eth0.2`(wan 口接口) 协议为 `MiniEAP 客户端` 的接口，并输入账号和密码，将数据包插件设为 `rjv3`
+3. 在 `RJv3 插件设置` 中将 `DHCP 方式` 设置为 `禁用` 以外的方式
+4. 保存并应用
 
 我之前就因为不知如何使用 MiniEAP 而想当然的直接修改 wan 口协议了，导致出现 “ipv4 地址获取错误”
 

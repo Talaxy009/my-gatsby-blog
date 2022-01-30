@@ -12,37 +12,40 @@ img: "img.png"
 
 ## 准备步骤
 
-- 下载 [frp](https://github.com/fatedier/frp/releases) 作为服务端
-比如我的 VPS 的系统是 Windows、CPU 是 E5，那么我就要下载 windows_amd64。
+1. 下载 [frp](https://github.com/fatedier/frp/releases) 作为服务端
 
-- 解压
-解压后会发现里面主要分为 frps 和 frpc 两种，前者是给服务端后者是给客户端用的，由于我们只需要服务端所以把 frps 相关的发送给你的 VPS 就好，客户端我们使用下面的 openwrt-frp。
+   比如我的 VPS 的系统是 Windows、CPU 是 E5，那么我就要下载 windows_amd64。
 
-- 下载 [openwrt-frp](https://github.com/kuoruan/openwrt-frp/releases) 作为客户端
-下载客户端端所需的程序，比如我的路由器的系统是 OpenWrt、CPU 是 MT7621，那么我就要下载 mipsel_24kc。
+2. 解压
 
-- 下载 [luci-app-frpc](https://github.com/kuoruan/luci-app-frpc) 让我们可以在路由器管理页面操作 frpc
+   解压后会发现里面主要分为 frps 和 frpc 两种，前者是给服务端后者是给客户端用的，由于我们只需要服务端所以把 frps 相关的发送给你的 VPS 就好，客户端我们使用下面的 openwrt-frp。
+
+3. 下载 [openwrt-frp](https://github.com/kuoruan/openwrt-frp/releases) 作为客户端
+
+   下载客户端端所需的程序，比如我的路由器的系统是 OpenWrt、CPU 是 MT7621，那么我就要下载 mipsel_24kc。
+
+4. 下载 [luci-app-frpc](https://github.com/kuoruan/luci-app-frpc) 让我们可以在路由器管理页面操作 frpc
 
 ## 把路由器的 Web 管理页放到公网去
 
 ### 服务端配置
 
-- 修改服务端的 frps.ini 文件，设置 http 访问端口为 8000：
+1. 修改服务端的 frps.ini 文件，设置 http 访问端口为 8000：
 
-```ini
-# frps.ini
-[common]
-bind_port = 7000
-vhost_http_port = 8000
-```
+   ```ini
+   # frps.ini
+   [common]
+   bind_port = 7000
+   vhost_http_port = 8000
+   ```
 
-然后在防火墙 里开放 7000 和 8000 端口，另外安全起见建议你在调试结束后修改默认的 7000 端口或添加客户端身份验证。
+2. 在防火墙 里开放 7000 和 8000 端口，另外安全起见建议你在调试结束后修改默认的 7000 端口或添加客户端身份验证
 
-- 启动 frps：
+3. 启动 frps：
 
-```shell
-./frps -c ./frps.ini
-```
+   ```shell
+   ./frps -c ./frps.ini
+   ```
 
 出现 `start frps success` 即说明启动成功。
 
