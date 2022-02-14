@@ -1,6 +1,7 @@
-require('./src/styles/code.css');
-require('./src/styles/style.css');
 const NProgress = require('nprogress');
+require('./src/styles/style.css');
+require('./src/styles/code.css');
+require('./src/styles/link.css');
 
 const options = {
 	color: '#009ba1',
@@ -46,10 +47,6 @@ exports.onClientEntry = () => {
 
 exports.onInitialClientRender = () => {
 	NProgress.done();
-};
-
-exports.onRouteUpdateDelayed = () => {
-	NProgress.start();
 };
 
 exports.onRouteUpdate = () => {

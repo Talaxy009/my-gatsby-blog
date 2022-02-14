@@ -63,6 +63,12 @@ module.exports = {
 						},
 					},
 					'gatsby-remark-prismjs',
+					{
+						resolve: 'gatsby-remark-link-beautify',
+						options: {
+							screenshotQuality: 90,
+						}
+					}
 				],
 			},
 		},
