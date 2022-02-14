@@ -27,6 +27,7 @@ module.exports = {
 			resolve: 'gatsby-plugin-next-seo',
 			options: {
 			  openGraph: {
+				url: 'https://www.talaxy.site/',
 				type: 'website',
 				locale: 'zh_cn',
 				site_name: '雪山深处',
@@ -48,7 +49,7 @@ module.exports = {
 				background_color: '#ffffff',
 				theme_color: '#009ba1',
 				display: 'minimal-ui',
-				icon: 'src/images/icon.png',
+				icon: 'src/assets/images/icon.png',
 			},
 		},
 		{
@@ -72,7 +73,7 @@ module.exports = {
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				name: 'images',
-				path: './src/images/',
+				path: './src/assets/images/',
 			},
 			__key: 'images',
 		},
