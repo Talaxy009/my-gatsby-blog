@@ -1,9 +1,8 @@
 import React from 'react';
-import {useStaticQuery, graphql, navigate} from 'gatsby';
+import {useStaticQuery, graphql} from 'gatsby';
 import {GatsbyImage} from 'gatsby-plugin-image';
-import Tooltip from '@mui/material/Tooltip';
 import styled from '@emotion/styled';
-import {Twitter, Github, Pixiv} from './Links';
+import {Twitter, Github, Pixiv, Link} from './Links';
 
 const Root = styled.div`
 	display: flex;
@@ -32,10 +31,8 @@ const Line = styled.div`
 	align-items: center;
 `;
 
-const AvatarBox = styled.div`
-	width: 90px;
-	height: 90px;
-	cursor: pointer;
+const NameBox = styled.a`
+	font-weight: bold;
 `;
 
 export default function Bio() {
@@ -67,32 +64,33 @@ export default function Bio() {
 
 	return (
 		<Root>
-			<Tooltip title="关于">
-				<AvatarBox onClick={() => navigate('/about/')}>
-					<GatsbyImage
-						image={data.avatar.childImageSharp.gatsbyImageData}
-						alt={author.name}
-						style={{
-							width: '100%',
-							height: '100%',
-							borderRadius: '50%',
-						}}
-						imgStyle={{
-							borderRadius: '50%',
-						}}
-					/>
-				</AvatarBox>
-			</Tooltip>
+			<GatsbyImage
+				image={data.avatar.childImageSharp.gatsbyImageData}
+				alt={author.name}
+				style={{
+					width: '90px',
+					height: '90px',
+					borderRadius: '50%',
+				}}
+				imgStyle={{
+					borderRadius: '50%',
+				}}
+			/>
 			<Section>
 				<Area>
 					<Line>
-						由<strong>{author.name}</strong>创作
+						由
+						<NameBox href="/about/" title="关于">
+							{author.name}
+						</NameBox>
+						创作
 					</Line>
 					<Line>{author.summary}</Line>
 					<Line>
 						<Twitter id={social.twitter} />
 						<Github id={social.github} />
 						<Pixiv id={social.pixiv} />
+						<Link />
 					</Line>
 				</Area>
 				<Area>
