@@ -26,20 +26,20 @@ img: "img.png"
 
 ## 准备步骤
 
-- 安装所需插件
+1. 安装所需插件
 
-```shell
-npm install gatsby-plugin-use-dark-mode use-dark-mode
-npm install gatsby-plugin-material-ui @material-ui/core @material-ui/icons
-```
+   ```shell
+   npm install gatsby-plugin-use-dark-mode use-dark-mode
+   npm install gatsby-plugin-material-ui @material-ui/core @material-ui/icons
+   ```
 
-- 在 gatsby-config.js 中启用`gatsby-plugin-use-dark-mode`和`gatsby-plugin-material-ui`
+2. 在 gatsby-config.js 中启用`gatsby-plugin-use-dark-mode`和`gatsby-plugin-material-ui`
 
-```js
-module.exports = {
-  plugins: [`gatsby-plugin-use-dark-mode`, `gatsby-plugin-material-ui`]
-};
-```
+   ```js
+   module.exports = {
+     plugins: [`gatsby-plugin-use-dark-mode`, `gatsby-plugin-material-ui`]
+   };
+   ```
 
 ## 编写一个 js 文件来处理点击事件
 

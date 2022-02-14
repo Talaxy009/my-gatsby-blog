@@ -24,7 +24,7 @@ img: "img.png"
 
    下载客户端端所需的程序，比如我的路由器的系统是 OpenWrt、CPU 是 MT7621，那么我就要下载 mipsel_24kc。
 
-4. 下载 [luci-app-frpc](https://github.com/kuoruan/luci-app-frpc) 让我们可以在路由器管理页面操作 frpc
+4. 下载 [luci-app-frpc](https://github.com/kuoruan/luci-app-frpc/releases) 让我们可以在路由器管理页面操作 frpc
 
 ## 把路由器的 Web 管理页放到公网去
 
@@ -72,7 +72,7 @@ img: "img.png"
 
 ### 成果
 
-当出现服务端出现 `http proxy listen for host [router.talaxy.site]` 时，说明服务端与客户端已成功建立连接，这之后就能通过访问 [http://router.talaxy.site:8000](http://router.talaxy.site:8000) 访问到内网中路由器的 Web 管理页了。
+当出现服务端出现 `http proxy listen for host [router.talaxy.site]` 时，说明服务端与客户端已成功建立连接，这之后就能通过访问 `http://router.talaxy.site:8000` 访问到内网中路由器的 Web 管理页了。
 
 ![TopNep](./04.png)
 

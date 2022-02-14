@@ -14,7 +14,7 @@ img: "img.png"
 
 ## 修改 index.js
 
-在首页 index.js 的`pageQuery`下添加`timeToRead`
+在首页 index.js 的 `pageQuery` 下添加 `timeToRead`
 
 ```js
 export const pageQuery = graphql`
@@ -48,7 +48,7 @@ export const pageQuery = graphql`
 `;
 ```
 
-是的，第一步并不是安装插件，原因是 Gatsby 的`gatsby-transformer-remark`自带这个功能，十分神奇，直接添加进 GraphQL 即可
+是的，第一步并不是安装插件，原因是 Gatsby 的 `gatsby-transformer-remark` 自带这个功能，十分神奇，直接添加进 GraphQL 即可
 
 ## 编写 helper.js
 
@@ -81,7 +81,7 @@ export function formatReadingTime(minutes) {
 
 ## 修改 PostList.js
 
-修改 PostList.js 中的`<small>`
+修改 PostList.js 中的 `<small>`
 
 PostList.js 是我将 index.js 拆分后的文件，若你没有修改过 index.js，则应在 index.js 中操作
 

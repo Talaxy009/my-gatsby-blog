@@ -22,7 +22,7 @@ img: "img.png"
    npm install gatsby-plugin-material-ui @material-ui/core
    ```
 
-2. 在 gatsby-config.js 中启用`gatsby-plugin-material-ui`
+2. 在 gatsby-config.js 中启用 `gatsby-plugin-material-ui`
 
    ```js
    module.exports = {
@@ -30,7 +30,7 @@ img: "img.png"
    };
    ```
 
-值得一提的是`gatsby-plugin-material-ui`是 ~~可选~~ 必需插件，其主要作用是优化 Material UI 在 Gatsby 中的使用，之前我一直不知道也没有使用这个插件，导致网站每次载入的时候与 Material UI 相关的组件的样式都要载入好久
+值得一提的是 `gatsby-plugin-material-ui` 是 ~~可选~~ 必需插件，其主要作用是优化 Material UI 在 Gatsby 中的使用，之前我一直不知道也没有使用这个插件，导致网站每次载入的时候与 Material UI 相关的组件的样式都要载入好久
 
 ## 编写 RouterTabs.js
 
@@ -71,7 +71,7 @@ const friendship = require("./friendship");
 require("dotenv").config();
 ```
 
-在`social`段下方插入以下代码
+在 `social` 段下方插入以下代码
 
 ```js
 menuLinks: [
@@ -222,7 +222,7 @@ export const pageQuery = graphql`
 import RouterTabs from "../components/RouterTabs";
 ```
 
-`<Bio />`段下方添加以下代码
+`<Bio />` 段下方添加以下代码
 
 ```jsx
 <RouterTabs routers={data.site.siteMetadata.menuLinks} currentPage="/" />
@@ -289,13 +289,13 @@ const StyledTab = withStyles({
 })(props => <Tab disableRipple {...props} />);
 ```
 
-并将文件内原来的`<Tabs>`改为`<StyledTabs>`；`<Tab>`改为`<StyledTab>`
+并将文件内原来的 `<Tabs>` 改为 `<StyledTabs>`；`<Tab>` 改为 `<StyledTab>`
 
 ## 优化 friends 页的顶部
 
 为了让 index 页与 friends 页能有一样的顶部，可进行以下操作
 
-在 friends.js 的`<SEO>`段下方插入`<Bio />`即可
+在 friends.js 的 `<SEO>` 段下方插入 `<Bio />` 即可
 
 最后为了防止 header 在 friends 页变小，可在 src/components/下的 layout.js 下修改
 

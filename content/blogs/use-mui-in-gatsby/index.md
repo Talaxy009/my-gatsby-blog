@@ -30,29 +30,25 @@ img: 'img.png'
 
 #### 使用 emotion 解决方案
 
-首先先安装依赖
+1. 安装依赖
 
-```shell
-npm install gatsby-plugin-material-ui @mui/styled-engine @emotion/react @emotion/styled
-```
+   ```shell
+   npm install gatsby-plugin-material-ui @mui/styled-engine @emotion/react @emotion/styled
+   # 或
+   yarn add gatsby-plugin-material-ui @mui/styled-engine @emotion/react @emotion/styled
+   ```
 
-或
+2. 修改 `gatsby-config.js`
 
-```shell
-yarn add gatsby-plugin-material-ui @mui/styled-engine @emotion/react @emotion/styled
-```
-
-后修改 `gatsby-config.js`
-
-```js
-module.exports = {
-  ...
-  plugins: [
-    ...
-    'gatsby-plugin-material-ui',
-  ],
-};
-```
+   ```js
+   module.exports = {
+     ...
+     plugins: [
+       ...
+       'gatsby-plugin-material-ui',
+     ],
+   };
+   ```
 
 即可！
 

@@ -12,7 +12,7 @@ img: "img.png"
 
 ## 一些有用的资料
 
-[Edward Elric 大佬的教程](https://sasuke40.github.io/a-guide-to-building-a-personal-website-with-gatsby/)
+[Edward Elric 大佬的教程](https://edward40.com/a-guide-to-building-a-personal-website-with-gatsby)
 
 [GatsbyJS 的官网教程](https://www.gatsbyjs.com/docs/tutorial/)
 
@@ -32,7 +32,7 @@ img: "img.png"
 
 - ~~在首页添加组件和 Tab~~
 
-详见[利用 Material UI 为 Gatsby 站点增加 Tabs 并实现友链功能](http://www.snow-mountain.life/material-ui-tabs/)
+详见[利用 Material UI 为 Gatsby 站点增加 Tabs 并实现友链功能](https://www.talaxy.site/material-ui-tabs/)
 
 - ~~修改 Bio 头像大小并解决质量较低的问题~~
 
@@ -44,4 +44,4 @@ img: "img.png"
 
 ## 使用心得
 
-- 执行`gatsby bulid`前最好执行一遍`gatsby clean`清除上次生成的静态文件
+- 执行 `gatsby bulid` 前最好执行一遍 `gatsby clean` 清除上次生成的静态文件

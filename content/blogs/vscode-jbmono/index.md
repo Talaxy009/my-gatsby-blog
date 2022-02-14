@@ -20,11 +20,11 @@ img: "img.png"
 
 但官网给的安装介绍实在太简短了，自己在这补充下（特别是符号的连字功能，网上几乎没人介绍怎么在 VSCode 上实现）
 
-打开 VSCode 的`首选项`找到`设置`打开，输入`font`找到字体的相关设置
+打开 VSCode 的 `首选项` 找到 `设置` 打开，输入 `font` 找到字体的相关设置
 
 ![字体设置](./fontSetting.png)
 
-把`Font Family`里的第一项修改为`JetBrains Mono`后，字体就能使用了，但要使用符号的连字功能还需要修改下面那项的`Font Ligatures`，如下高亮处显示，将`null`替换成`JetBrains Mono`即可：
+把 `Font Family` 里的第一项修改为 `JetBrains Mono` 后，字体就能使用了，但要使用符号的连字功能还需要修改下面那项的 `Font Ligatures` ，如下高亮处显示，将 `null` 替换成 `JetBrains Mono` 即可：
 
 ![字体设置](./fontFamily.png)
 
