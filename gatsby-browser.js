@@ -1,14 +1,15 @@
-const NProgress = require('nprogress');
-require('./src/styles/style.css');
-require('./src/styles/code.css');
-require('./src/styles/link.css');
+import NProgress from 'nprogress';
+import GatsbyRecoil from './src/components/GatsbyRecoil';
+import './src/styles/style.css';
+import './src/styles/code.css';
+import './src/styles/link.css';
 
 const options = {
 	color: '#009ba1',
 	showSpinner: false,
 };
 
-exports.onClientEntry = () => {
+export const onClientEntry = () => {
 	const styles = `
       #nprogress {
         pointer-events: none;
@@ -45,10 +46,12 @@ exports.onClientEntry = () => {
 	NProgress.start();
 };
 
-exports.onInitialClientRender = () => {
+export const onInitialClientRender = () => {
 	NProgress.done();
 };
 
-exports.onRouteUpdate = () => {
+export const onRouteUpdate = () => {
 	NProgress.done();
 };
+
+export const wrapRootElement = GatsbyRecoil;

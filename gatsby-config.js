@@ -26,18 +26,18 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-next-seo',
 			options: {
-			  openGraph: {
-				url: 'https://www.talaxy.site/',
-				type: 'website',
-				locale: 'zh_cn',
-				site_name: '雪山深处',
-			  },
-			  twitter: {
-				handle: '@Taozc009',
-				cardType: 'summary_large_image',
-			  },
+				openGraph: {
+					url: 'https://www.talaxy.site/',
+					type: 'website',
+					locale: 'zh_cn',
+					site_name: '雪山深处',
+				},
+				twitter: {
+					handle: '@Taozc009',
+					cardType: 'summary_large_image',
+				},
 			},
-		  },
+		},
 		'gatsby-plugin-sitemap',
 		{
 			resolve: 'gatsby-plugin-manifest',
@@ -67,8 +67,9 @@ module.exports = {
 						resolve: 'gatsby-remark-link-beautify',
 						options: {
 							screenshotQuality: 90,
-						}
-					}
+							clusterSize: 3,
+						},
+					},
 				],
 			},
 		},
@@ -139,7 +140,8 @@ module.exports = {
 									{},
 									edge.node.frontmatter,
 									{
-										description: edge.node.frontmatter.description,
+										description:
+											edge.node.frontmatter.description,
 										date: edge.node.frontmatter.date,
 										url:
 											site.siteMetadata.siteUrl +
