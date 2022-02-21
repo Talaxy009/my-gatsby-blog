@@ -31,18 +31,12 @@ export function splitArray(arr, size) {
 }
 
 /**
- * 提取所有文章标签
- * @param {array} posts 文章列表
+ * 提取标签
+ * @param {array} tagsGroup 标签列表
  * @returns 包含标签的数组
  */
-export function getTags(posts = []) {
-	let tmp = new Set();
-	for (const post of posts) {
-		post.node.frontmatter.tags.map((v)=>{
-			tmp.add(v);
-		})
-	}
-	let tags = Array.from(tmp);
+export function getTags(tagsGroup = []) {
+	const tags = tagsGroup.map((item) => item.tag);
 	tags.unshift('全部');
 	return tags;
 }

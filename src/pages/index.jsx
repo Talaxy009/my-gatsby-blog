@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 import Bio from '../components/Bio';
 import SEO from '../components/SEO';
+import {splitArray, getTags} from '../utils/dataUtils';
 
 export default function IndexPage({location}) {
 	const data = useStaticQuery(graphql`
@@ -17,7 +18,31 @@ export default function IndexPage({location}) {
 				filter: {fileAbsolutePath: {regex: "/blogs/"}}
 				sort: {fields: [frontmatter___date], order: DESC}
 			) {
-				edges {
+				tagsGroup: group(field: frontmatter___tags) {
+					tag: fieldValue
+					totalCount
+					edges {
+						node {
+							excerpt
+							fields {
+								slug
+							}
+							timeToRead
+							frontmatter {
+								date(formatString: "YYYY-MM-DD")
+								title
+								tags
+								description
+								img {
+									childImageSharp {
+										gatsbyImageData(width: 600)
+									}
+								}
+							}
+						}
+					}
+				}
+				posts: edges {
 					node {
 						excerpt
 						fields {
@@ -40,14 +65,22 @@ export default function IndexPage({location}) {
 			}
 		}
 	`);
-	const posts = data.allMarkdownRemark.edges;
+	const {posts, tagsGroup} = data.allMarkdownRemark;
 	const {description} = data.site.siteMetadata;
+
+	const pageSize = 6;
+
+	const allPosts = [
+		splitArray(posts, pageSize),
+		...tagsGroup.map(({edges}) => splitArray(edges, pageSize)),
+	];
+	const allTags = getTags(tagsGroup);
 
 	return (
 		<Layout location={location}>
 			<SEO description={description} />
 			<Bio />
-			<PostList posts={posts} pageSize={6} />
+			<PostList allPosts={allPosts} allTags={allTags} />
 		</Layout>
 	);
 }

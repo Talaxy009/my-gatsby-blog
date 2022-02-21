@@ -4,8 +4,8 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Pagination from '@mui/material/Pagination';
 import styled from '@emotion/styled';
+import {atom, useRecoilState} from 'recoil';
 import PostItem from './PostItem';
-import {splitArray, getTags} from '../utils/dataUtils';
 import {useHasMounted} from '../utils/hooks';
 
 const ListBody = styled.div`
@@ -16,22 +16,26 @@ const ListBody = styled.div`
 	padding: 1rem 0;
 `;
 
-export default function PostList({posts = [], pageSize = 5}) {
-	const allPosts = splitArray(posts, pageSize);
-	const allTags = getTags(posts);
+const pageState = atom({
+	key: 'pageState',
+	default: 1,
+});
 
-	const hasMounted = useHasMounted();
-	const [page, setPage] = React.useState({
-		index: 1,
-		list: allPosts,
-	});
-	const [tagMenu, setTagMenu] = React.useState({
+const tagMenuState = atom({
+	key: 'tagMenuState',
+	default: {
 		index: 0,
 		anchorEl: null,
-	});
+	},
+});
+
+export default function PostList({allPosts = [], allTags = []}) {
+	const hasMounted = useHasMounted();
+	const [page, setPage] = useRecoilState(pageState);
+	const [tagMenu, setTagMenu] = useRecoilState(tagMenuState);
 
 	const handleChangePage = (_event, value) => {
-		setPage({...page, index: value});
+		setPage(value);
 		const target = document.getElementById('listBody');
 		setTimeout(() => target.scrollIntoView({behavior: 'smooth'}), 150);
 	};
@@ -42,22 +46,7 @@ export default function PostList({posts = [], pageSize = 5}) {
 
 	const handleClickTag = (index) => {
 		setTagMenu({index: index, anchorEl: null});
-		if (index) {
-			setPage({
-				index: 1,
-				list: splitArray(
-					posts.filter((v) =>
-						v.node.frontmatter.tags.includes(allTags[index]),
-					),
-					pageSize,
-				),
-			});
-		} else {
-			setPage({
-				index: 1,
-				list: allPosts,
-			});
-		}
+		setPage(1);
 	};
 
 	const handleClose = () => {
@@ -89,14 +78,14 @@ export default function PostList({posts = [], pageSize = 5}) {
 					</MenuItem>
 				))}
 			</Menu>
-			{page.list[page.index - 1].map(({node}) => (
+			{allPosts[tagMenu.index][page - 1].map(({node}) => (
 				<PostItem key={node.fields.slug} post={node} />
 			))}
 			{hasMounted && (
 				<Pagination
 					size="large"
-					count={page.list.length}
-					page={page.index}
+					count={allPosts[tagMenu.index].length}
+					page={page}
 					onChange={handleChangePage}
 				/>
 			)}
