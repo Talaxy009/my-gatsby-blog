@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.talaxy.site/">
-    <img alt="Taozc" src="./src/images/icon.png" width="60" />
+    <img alt="Logo" src="./src/assets/images/icon.png" width="60" />
   </a>
 </p>
 <h1 align="center">
@@ -11,9 +11,21 @@
 
 ## 目录
 
-- `/content/blogs` 所有文章
-- `/content/pages` markdown 页面
-- `/src` 所有源码
+```txt
+├── content    # 页面内容
+│   ├── blogs  # markdown 博客
+│   └── pages  # markdown 页面
+├── src        # 源码
+│   ├── assets # 资源
+│   │   ├── images # 图片
+│   │   └── fonts  # 字体
+│   ├── components # 组件
+│   ├── pages      # 页面
+│   ├── styles     # 样式
+│   ├── templates  # 模板
+│   └── utils      # 工具函数
+└── static     # 静态资源
+```
 
 ## 版权
 
