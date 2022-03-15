@@ -4,7 +4,7 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
 import Valine from 'gatsby-plugin-valine';
-import {GatsbyImage} from 'gatsby-plugin-image';
+import {GatsbyImage, getImage, getSrc} from 'gatsby-plugin-image';
 import {formatTime} from '../utils/dataUtils';
 import {
 	H1,
@@ -46,17 +46,12 @@ export default function BlogTemplate({data, pageContext, location}) {
 			<SEO
 				title={post.frontmatter.title}
 				description={post.frontmatter.description || post.excerpt}
-				image={
-					post.frontmatter.img.childImageSharp.gatsbyImageData.images
-						.fallback.src
-				}
+				image={getSrc(post.frontmatter.img)}
 			/>
 			<article>
 				<header>
 					<GatsbyImage
-						image={
-							post.frontmatter.img.childImageSharp.gatsbyImageData
-						}
+						image={getImage(post.frontmatter.img)}
 						alt={post.frontmatter.title || post.fields.slug}
 					/>
 					<H1>{post.frontmatter.title}</H1>

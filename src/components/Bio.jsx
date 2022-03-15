@@ -1,6 +1,6 @@
 import React from 'react';
 import {useStaticQuery, graphql} from 'gatsby';
-import {GatsbyImage} from 'gatsby-plugin-image';
+import {GatsbyImage, getImage} from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import {Twitter, Github, Pixiv, Link} from './Links';
 
@@ -65,7 +65,7 @@ export default function Bio() {
 	return (
 		<Root>
 			<GatsbyImage
-				image={data.avatar.childImageSharp.gatsbyImageData}
+				image={getImage(data.avatar)}
 				alt={author.name}
 				style={{
 					width: '90px',

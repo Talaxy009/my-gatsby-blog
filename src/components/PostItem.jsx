@@ -2,7 +2,7 @@ import React from 'react';
 import {navigate} from 'gatsby';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import {GatsbyImage} from 'gatsby-plugin-image';
+import {GatsbyImage, getImage} from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import {formatTime} from '../utils/dataUtils';
 
@@ -21,7 +21,7 @@ const PostItemBody = styled.div`
 	}
 	@media (max-width: 700px) {
 		flex-direction: column;
-		padding: 1.5rem 0;
+		padding: 1rem 0;
 	}
 `;
 
@@ -30,7 +30,7 @@ const PostItemContent = styled.div`
 	padding: 1rem;
 	text-align: left;
 	@media (max-width: 700px) {
-		padding: 0 1.5rem;
+		padding: 0 1rem;
 	}
 `;
 
@@ -61,7 +61,7 @@ export default function PostItem({post}) {
 		<PostItemBody onClick={() => navigate(post.fields.slug)}>
 			<PostItemContent>
 				<GatsbyImage
-					image={post.frontmatter.img.childImageSharp.gatsbyImageData}
+					image={getImage(post.frontmatter.img)}
 					alt={post.frontmatter.title || post.fields.slug}
 				/>
 			</PostItemContent>
