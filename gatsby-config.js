@@ -68,6 +68,7 @@ module.exports = {
 						options: {
 							screenshotQuality: 90,
 							clusterSize: 3,
+							timeout: 50000,
 						},
 					},
 				],
