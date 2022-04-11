@@ -4,7 +4,7 @@ module.exports = {
 		title: '雪山深处',
 		author: {
 			name: 'Talaxy',
-			summary: '攒钱买显卡&调整作息中···',
+			summary: '准备暑期实习中······',
 		},
 		description: '一个个人博客，记录所思所想',
 		social: {
