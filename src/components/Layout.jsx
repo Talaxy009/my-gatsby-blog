@@ -1,18 +1,10 @@
 import React from 'react';
-import {useStaticQuery, graphql, Link} from 'gatsby';
+import {useStaticQuery, graphql, navigate} from 'gatsby';
 import {createTheme, ThemeProvider} from '@mui/material';
 import useDarkMode from 'use-dark-mode';
 import styled from '@emotion/styled';
 import DarkModeButton from './DarkModeButton';
 import {useHasMounted} from '../utils/hooks';
-
-const H1 = styled.h1`
-	font-size: 2.5rem;
-`;
-
-const H2 = styled.h2`
-	font-size: 1.7rem;
-`;
 
 const Root = styled.div`
 	margin: auto;
@@ -27,6 +19,13 @@ const Header = styled.header`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	h1 {
+		font-size: 2.5rem;
+	}
+	h2 {
+		font-size: 1.7rem;
+		cursor: pointer;
+	}
 `;
 
 const Footer = styled.footer`
@@ -57,29 +56,9 @@ export default function Layout({location, children}) {
 	const siteUrl = data.site.siteMetadata.siteUrl;
 	const header =
 		location.pathname === rootPath ? (
-			<H1>
-				<Link
-					style={{
-						boxShadow: 'none',
-						textDecoration: 'none',
-						color: 'inherit',
-					}}
-					to={rootPath}>
-					{title}
-				</Link>
-			</H1>
+			<h1>{title}</h1>
 		) : (
-			<H2>
-				<Link
-					style={{
-						boxShadow: 'none',
-						textDecoration: 'none',
-						color: 'inherit',
-					}}
-					to={rootPath}>
-					{title}
-				</Link>
-			</H2>
+			<h2 onClick={() => navigate(rootPath)}>{title}</h2>
 		);
 
 	const theme = React.useMemo(

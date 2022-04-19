@@ -16,6 +16,10 @@ const Section = styled.div`
 	align-items: center;
 	flex-direction: row;
 	justify-content: space-between;
+	@media (max-width: 450px) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 `;
 
 const Area = styled.div`

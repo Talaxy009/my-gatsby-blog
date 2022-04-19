@@ -10,6 +10,7 @@ const PostItemBody = styled.div`
 	width: 100%;
 	display: flex;
 	margin: 1rem 0;
+	overflow: hidden;
 	border-radius: 12px;
 	background-color: rgba(150, 180, 180, 0.05);
 	box-shadow: 0 2px 5px rgba(10, 20, 20, 0.2);
@@ -21,7 +22,6 @@ const PostItemBody = styled.div`
 	}
 	@media (max-width: 700px) {
 		flex-direction: column;
-		padding: 1rem 0;
 	}
 `;
 
@@ -30,7 +30,7 @@ const PostItemContent = styled.div`
 	padding: 1rem;
 	text-align: left;
 	@media (max-width: 700px) {
-		padding: 0 1rem;
+		padding-top: 0;
 	}
 `;
 
@@ -42,13 +42,14 @@ const Title = styled.p`
 
 const Line = styled.div`
 	display: flex;
+	flex-wrap: wrap;
+	line-height: 2em;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 	@media (max-width: 890px) {
 		flex-direction: column;
 		align-items: flex-start;
-		line-height: 1.6rem;
 	}
 `;
 
@@ -59,12 +60,11 @@ const Section = styled.section`
 export default function PostItem({post}) {
 	return (
 		<PostItemBody onClick={() => navigate(post.fields.slug)}>
-			<PostItemContent>
-				<GatsbyImage
-					image={getImage(post.frontmatter.img)}
-					alt={post.frontmatter.title || post.fields.slug}
-				/>
-			</PostItemContent>
+			<GatsbyImage
+				style={{flex: 1}}
+				image={getImage(post.frontmatter.img)}
+				alt={post.frontmatter.title || post.fields.slug}
+			/>
 			<PostItemContent>
 				<header>
 					<Title>{post.frontmatter.title || post.fields.slug}</Title>
