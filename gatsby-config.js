@@ -39,6 +39,7 @@ module.exports = {
 			},
 		},
 		'gatsby-plugin-sitemap',
+		'gatsby-plugin-twitter',
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
@@ -67,8 +68,11 @@ module.exports = {
 						resolve: 'gatsby-remark-link-beautify',
 						options: {
 							screenshotQuality: 90,
-							clusterSize: 3,
 							timeout: 50000,
+							puppeteerLaunchArgs: [
+								'--no-first-run',
+								'--proxy-server=yacd.io:7890',
+							]
 						},
 					},
 				],
