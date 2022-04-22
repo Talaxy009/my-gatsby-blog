@@ -138,10 +138,10 @@ const init = async () => {
     }
     // 定义为数组
     global.WSE_LIST = [];
-    for (let i = 0; i < BROWSER_NUMBER; i++) {
+    while (WSE_LIST.length < BROWSER_NUMBER) {
         const browser = await puppeteer.launch();
         // 保存到 WSE_LIST 中
-        WSE_LIST[i] = browser.wsEndpoint();
+        WSE_LIST.push(browser.wsEndpoint());
     }
     // 发送 Init 事件，通告初始化结束
     emitter.emit('Init');

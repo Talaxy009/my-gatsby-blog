@@ -36,7 +36,7 @@ img: "img.png"
 
 - ~~修改 Bio 头像大小并解决质量较低的问题~~
 
-将 bio.js 文件中头像的 fixed 样式换成 fluid 即可，具体可参照[官方文档](https://www.gatsbyjs.org/docs/gatsby-image/)
+将 bio.js 文件中头像的 fixed 样式换成 fluid 即可，具体可参照[官方文档](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-image/)
 
 - ~~修改首页文章排列样式~~
 
