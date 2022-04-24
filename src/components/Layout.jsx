@@ -4,7 +4,6 @@ import {createTheme, ThemeProvider} from '@mui/material';
 import useDarkMode from 'use-dark-mode';
 import styled from '@emotion/styled';
 import DarkModeButton from './DarkModeButton';
-import {useHasMounted} from '../utils/hooks';
 
 const Root = styled.div`
 	margin: auto;
@@ -39,7 +38,6 @@ const Footer = styled.footer`
 
 export default function Layout({location, children}) {
 	const darkMode = useDarkMode(false);
-	const hasMounted = useHasMounted();
 
 	const data = useStaticQuery(graphql`
 		{
@@ -89,7 +87,7 @@ export default function Layout({location, children}) {
 			<ThemeProvider theme={theme}>
 				<Header>
 					{header}
-					<DarkModeButton key={hasMounted} mode={darkMode} />
+					<DarkModeButton mode={darkMode} />
 				</Header>
 				<main>{children}</main>
 				<Footer>

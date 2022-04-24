@@ -1,7 +1,9 @@
 import React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import Skeleton from '@mui/material/Skeleton';
 import styled from '@emotion/styled';
+import {useHasMounted} from '../utils/hooks';
 
 const Svg = styled.svg`
 	width: 32px;
@@ -9,6 +11,9 @@ const Svg = styled.svg`
 `;
 
 export default function DarkModeButton({mode}) {
+	const hasMounted = useHasMounted();
+
+	if (!hasMounted) return <Skeleton variant="circular" width={48} height={48} />;
 	return (
 		<Tooltip title={`${mode.value ? '关闭' : '打开'}夜间模式`}>
 			<IconButton onClick={mode.toggle}>

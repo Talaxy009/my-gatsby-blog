@@ -1,9 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {GatsbySeo} from 'gatsby-plugin-next-seo';
 import {useStaticQuery, graphql} from 'gatsby';
 
-export default function SEO({description, image, lang, title}) {
+export default function SEO({
+	title = '',
+	lang = 'zh',
+	description = '',
+	image = '/site-image.jpg',
+}) {
 	const data = useStaticQuery(graphql`
 		{
 			site {
@@ -33,16 +37,3 @@ export default function SEO({description, image, lang, title}) {
 		/>
 	);
 }
-
-SEO.defaultProps = {
-	lang: 'zh',
-	image: '/site-image.jpg',
-	description: '',
-};
-
-SEO.propTypes = {
-	description: PropTypes.string,
-	lang: PropTypes.string,
-	image: PropTypes.string,
-	title: PropTypes.string,
-};

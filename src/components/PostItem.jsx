@@ -90,7 +90,7 @@ export default function PostItem({post}) {
 				<hr />
 				<Section
 					dangerouslySetInnerHTML={{
-						__html: post.frontmatter.description || post.excerpt,
+						__html: post.frontmatter.description,
 					}}
 				/>
 			</PostItemContent>

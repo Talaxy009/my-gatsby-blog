@@ -23,7 +23,6 @@ export default function IndexPage({location}) {
 					totalCount
 					edges {
 						node {
-							excerpt
 							fields {
 								slug
 							}
@@ -44,7 +43,6 @@ export default function IndexPage({location}) {
 				}
 				posts: edges {
 					node {
-						excerpt
 						fields {
 							slug
 						}

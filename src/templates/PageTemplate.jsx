@@ -7,7 +7,7 @@ import SEO from '../components/SEO';
 
 export default function PageTemplate({data, pageContext, location}) {
 	const {siteMetadata} = data.site;
-	const {frontmatter} = data.markdownRemark;
+	const {frontmatter, html} = data.markdownRemark;
 
 	return (
 		<Layout location={location}>
@@ -22,9 +22,7 @@ export default function PageTemplate({data, pageContext, location}) {
 					<H1>{frontmatter.title}</H1>
 					<P>{frontmatter.description}</P>
 				</header>
-				<Section
-					dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}
-				/>
+				<Section dangerouslySetInnerHTML={{__html: html}} />
 				<Hr />
 			</article>
 			<Valine path={pageContext.slug} />
@@ -33,19 +31,19 @@ export default function PageTemplate({data, pageContext, location}) {
 }
 
 export const pageQuery = graphql`
-    query ($slug: String!) {
-        markdownRemark(fields: {slug: {eq: $slug}}) {
-            html
-            frontmatter {
+	query ($slug: String!) {
+		markdownRemark(fields: {slug: {eq: $slug}}) {
+			html
+			frontmatter {
 				title
-                description
-            }
-        }
-        site {
-            siteMetadata {
-                title
-                description
-            }
-        }
-    }
+				description
+			}
+		}
+		site {
+			siteMetadata {
+				title
+				description
+			}
+		}
+	}
 `;

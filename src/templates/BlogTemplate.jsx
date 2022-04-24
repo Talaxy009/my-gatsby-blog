@@ -45,7 +45,7 @@ export default function BlogTemplate({data, pageContext, location}) {
 		<Layout location={location}>
 			<SEO
 				title={post.frontmatter.title}
-				description={post.frontmatter.description || post.excerpt}
+				description={post.frontmatter.description}
 				image={getSrc(post.frontmatter.img)}
 			/>
 			<article>
@@ -115,7 +115,6 @@ export const pageQuery = graphql`
 		markdownRemark(fields: {slug: {eq: $slug}}) {
 			html
 			timeToRead
-			excerpt(pruneLength: 160)
 			frontmatter {
 				title
 				tags
