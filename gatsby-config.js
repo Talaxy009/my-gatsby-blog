@@ -18,9 +18,12 @@ module.exports = {
 		'gatsby-plugin-material-ui',
 		'gatsby-plugin-image',
 		{
-			resolve: 'gatsby-plugin-google-analytics',
+			resolve: 'gatsby-plugin-google-gtag',
 			options: {
-				trackingId: 'UA-158975002-1',
+				trackingIds: ['G-6SQBBZZSQN'],
+				gtagConfig: {
+					anonymize_ip: true,
+				}
 			},
 		},
 		{
