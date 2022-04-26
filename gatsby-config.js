@@ -26,28 +26,14 @@ module.exports = {
 				}
 			},
 		},
-		{
-			resolve: 'gatsby-plugin-next-seo',
-			options: {
-				openGraph: {
-					url: 'https://www.talaxy.site/',
-					type: 'website',
-					locale: 'zh_cn',
-					site_name: '雪山深处',
-				},
-				twitter: {
-					handle: '@Taozc009',
-					cardType: 'summary_large_image',
-				},
-			},
-		},
+		'gatsby-plugin-react-helmet-async',
 		'gatsby-plugin-sitemap',
 		'gatsby-plugin-twitter',
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
-				name: "Taozc's Blog",
-				short_name: 'Taozc',
+				name: "雪山深处",
+				short_name: '雪山深处',
 				lang: 'zh',
 				start_url: '/',
 				background_color: '#ffffff',

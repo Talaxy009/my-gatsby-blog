@@ -1,5 +1,5 @@
 import React from 'react';
-import {GatsbySeo} from 'gatsby-plugin-next-seo';
+import {Helmet} from 'react-helmet-async';
 import {useStaticQuery, graphql} from 'gatsby';
 
 export default function SEO({
@@ -12,28 +12,43 @@ export default function SEO({
 		{
 			site {
 				siteMetadata {
-					siteUrl
 					title
+					siteUrl
+					description
+					social {
+						twitter
+					}
 				}
 			}
 		}
 	`);
-	const siteName = data.site.siteMetadata.title;
-	const siteUrl = data.site.siteMetadata.siteUrl;
+
+	const {
+		title: siteName,
+		siteUrl,
+		description: siteDescription,
+		social: {twitter},
+	} = data.site.siteMetadata;
+
+	const metaTitle = title ? `${title} | ${siteName}` : siteName;
+	const metaDescription = description || siteDescription;
+	const metaImage = `${siteUrl}${image}`;
 
 	return (
-		<GatsbySeo
+		<Helmet
 			htmlAttributes={{
 				lang,
-			}}
-			title={title ? title : siteName}
-			titleTemplate={title ? `%s | ${siteName}` : null}
-			openGraph={{
-				title: title ? `${title} | ${siteName}` : siteName,
-				description: description,
-				images: [{url: siteUrl + image}],
-				site_name: siteName,
-			}}
-		/>
+			}}>
+			<title>{metaTitle}</title>
+			<meta name="description" content={metaDescription} />
+			<meta name="og:title" content={metaTitle} />
+			<meta name="og:site_name" content={siteName} />
+			<meta name="og:description" content={metaDescription} />
+			<meta name="og:image" content={metaImage} />
+			<meta name="og:type" content="website" />
+			<meta name="og:url" content={siteUrl} />
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:creator" content={`@${twitter}`} />
+		</Helmet>
 	);
 }
