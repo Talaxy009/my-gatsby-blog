@@ -5,9 +5,9 @@ import {H1, P, Hr, Section} from '../components/Typography';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 
-export default function PageTemplate({data, pageContext, location}) {
+export default function PageTemplate({data, location}) {
 	const {siteMetadata} = data.site;
-	const {frontmatter, html} = data.markdownRemark;
+	const {frontmatter, html, fields} = data.markdownRemark;
 
 	return (
 		<Layout location={location}>
@@ -25,15 +25,18 @@ export default function PageTemplate({data, pageContext, location}) {
 				<Section dangerouslySetInnerHTML={{__html: html}} />
 				<Hr />
 			</article>
-			<Valine path={pageContext.slug} />
+			<Valine path={fields.slug} />
 		</Layout>
 	);
 }
 
 export const pageQuery = graphql`
-	query ($slug: String!) {
-		markdownRemark(fields: {slug: {eq: $slug}}) {
+	query ($id: String!) {
+		markdownRemark(id: {eq: $id}) {
 			html
+			fields {
+				slug
+			}
 			frontmatter {
 				title
 				description

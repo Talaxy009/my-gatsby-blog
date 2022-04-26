@@ -24,75 +24,67 @@ exports.onCreateNode = ({node, getNode, actions}) => {
 	}
 };
 
-exports.createPages = async ({graphql, actions}) => {
+exports.createPages = async ({graphql, actions, reporter}) => {
 	const {createPage} = actions;
-	// blogs
-	const blogsResult = await graphql(`
+	const blogTemplate = path.resolve('./src/templates/BlogTemplate.jsx');
+	const pageTemplate = path.resolve('./src/templates/PageTemplate.jsx');
+
+	const result = await graphql(`
 		query {
-			allMarkdownRemark(
+			blogPosts: allMarkdownRemark(
 				filter: {fileAbsolutePath: {regex: "/blogs/"}}
-				sort: {fields: [frontmatter___date], order: DESC}
+				sort: {fields: [frontmatter___date], order: ASC}
 				limit: 1000
 			) {
-				edges {
-					node {
-						fields {
-							slug
-						}
-						frontmatter {
-							title
-						}
+				nodes {
+					id
+					fields {
+						slug
+					}
+				}
+			}
+			pages: allMarkdownRemark(
+				filter: {fileAbsolutePath: {regex: "/pages/"}}
+				limit: 1000
+			) {
+				nodes {
+					id
+					fields {
+						slug
 					}
 				}
 			}
 		}
 	`);
-	if (blogsResult.errors) {
-		throw blogsResult.errors;
+	if (result.errors) {
+		reporter.panicOnBuild(
+			'Error while running GraphQL query.',
+			result.errors,
+		);
 	}
-	const posts = blogsResult.data.allMarkdownRemark.edges;
+	const posts = result.data.blogPosts.nodes;
+	const pages = result.data.pages.nodes;
+	// blog posts
 	posts.forEach((post, index) => {
-		const previous =
-			index === posts.length - 1 ? null : posts[index + 1].node;
-		const next = index === 0 ? null : posts[index - 1].node;
-
+		const previousId = index === 0 ? null : posts[index - 1].id;
+		const nextId = index === posts.length - 1 ? null : posts[index + 1].id;
 		createPage({
-			path: post.node.fields.slug,
-			component: path.resolve('./src/templates/BlogTemplate.jsx'),
+			path: post.fields.slug,
+			component: blogTemplate,
 			context: {
-				slug: post.node.fields.slug,
-				previous,
-				next,
+				id: post.id,
+				previousId,
+				nextId,
 			},
 		});
 	});
 	// pages
-	const pagesResult = await graphql(`
-		query {
-			allMarkdownRemark(
-				filter: {fileAbsolutePath: {regex: "/pages/"}}
-				limit: 1000
-			) {
-				edges {
-					node {
-						fields {
-							slug
-						}
-					}
-				}
-			}
-		}
-	`);
-	if (pagesResult.errors) {
-		throw pagesResult.errors;
-	}
-	const pages = pagesResult.data.allMarkdownRemark.edges;
 	pages.forEach((page) => {
 		createPage({
-			path: page.node.fields.slug,
-			component: path.resolve('./src/templates/PageTemplate.jsx'),
+			path: page.fields.slug,
+			component: pageTemplate,
 			context: {
-				slug: page.node.fields.slug,
+				id: page.id,
 			},
 		});
 	});

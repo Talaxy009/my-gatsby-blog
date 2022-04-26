@@ -9,11 +9,6 @@ import {splitArray, getTags} from '../utils/dataUtils';
 export default function IndexPage({location}) {
 	const data = useStaticQuery(graphql`
 		{
-			site {
-				siteMetadata {
-					description
-				}
-			}
 			allMarkdownRemark(
 				filter: {fileAbsolutePath: {regex: "/blogs/"}}
 				sort: {fields: [frontmatter___date], order: DESC}
@@ -64,7 +59,6 @@ export default function IndexPage({location}) {
 		}
 	`);
 	const {posts, tagsGroup} = data.allMarkdownRemark;
-	const {description} = data.site.siteMetadata;
 
 	const pageSize = 6;
 
@@ -76,7 +70,7 @@ export default function IndexPage({location}) {
 
 	return (
 		<Layout location={location}>
-			<SEO description={description} />
+			<SEO />
 			<Bio />
 			<PostList allPosts={allPosts} allTags={allTags} />
 		</Layout>

@@ -19,10 +19,9 @@ import Layout from '../components/Layout';
 import Bio from '../components/Bio';
 import SEO from '../components/SEO';
 
-export default function BlogTemplate({data, pageContext, location}) {
+export default function BlogTemplate({data, location}) {
 	const {modifiedTime} = data.file;
-	const post = data.markdownRemark;
-	const {slug, previous, next} = pageContext;
+	const {post, previous, next} = data;
 
 	React.useEffect(() => {
 		if (window.location.hash) {
@@ -100,21 +99,22 @@ export default function BlogTemplate({data, pageContext, location}) {
 					</Right>
 				)}
 			</Pagination>
-			<Valine path={slug} />
+			<Valine path={post.fields.slug} />
 		</Layout>
 	);
 }
 
 export const pageQuery = graphql`
-	query ($slug: String!) {
-		file(
-			childrenMarkdownRemark: {elemMatch: {fields: {slug: {eq: $slug}}}}
-		) {
+	query ($id: String!, $previousId: String, $nextId: String) {
+		file(childrenMarkdownRemark: {elemMatch: {id: {eq: $id}}}) {
 			modifiedTime(formatString: "YYYY 年 MM 月 DD 日")
 		}
-		markdownRemark(fields: {slug: {eq: $slug}}) {
+		post: markdownRemark(id: {eq: $id}) {
 			html
 			timeToRead
+			fields {
+				slug
+			}
 			frontmatter {
 				title
 				tags
@@ -125,6 +125,22 @@ export const pageQuery = graphql`
 						gatsbyImageData(width: 1200)
 					}
 				}
+			}
+		}
+		previous: markdownRemark(id: {eq: $previousId}) {
+			fields {
+				slug
+			}
+			frontmatter {
+				title
+			}
+		}
+		next: markdownRemark(id: {eq: $nextId}) {
+			fields {
+				slug
+			}
+			frontmatter {
+				title
 			}
 		}
 	}
