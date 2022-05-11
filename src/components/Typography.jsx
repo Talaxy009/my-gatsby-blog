@@ -38,18 +38,37 @@ export const Right = styled.div`
 
 export const Section = styled.section`
 	font-size: 1.1em;
+	counter-reset: section;
 	h2,
 	h3,
 	h4,
 	h5,
 	h6 {
-		margin-top: 2.5rem;
-		margin-bottom: 1.5rem;
+		margin-top: 1.6em;
+		margin-bottom: 0.8em;
+		::before {
+			margin-right: 0.4em;
+			color: rgba(128, 128, 128, 0.5);
+		}
+	}
+	h2 {
+		counter-reset: subSection;
+		::before {
+			counter-increment: section;
+			content: counter(section);
+		}
+	}
+	h3::before {
+		counter-increment: subSection;
+		content: counter(section) '.' counter(subSection);
 	}
 	p {
 		line-height: 2rem;
 	}
 	li {
 		margin: 2px 0;
+		::marker {
+			color: rgba(128, 128, 128, 0.5);
+		}
 	}
 `;
