@@ -66,6 +66,9 @@ img: 'img.png'
 ```css
 /* 父元素相对定位 */
 .link-preview-container {
+    /* 使用 inline-block 防止父元素被换行拆分 */
+    display: inline-block;
+    /* 使用 relative 来让子元素的绝对定位生效 */
     position: relative;
 }
 /* 这里的 left 样式经过了优化，所以和上面的效果图有点不同 */
