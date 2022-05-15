@@ -1,8 +1,8 @@
 import React from 'react';
 import {graphql} from 'gatsby';
-import Valine from 'gatsby-plugin-valine';
 import {H1, P, Hr, Section} from '../components/Typography';
 import Layout from '../components/Layout';
+import Valine from '../components/Valine';
 import SEO from '../components/SEO';
 
 export default function PageTemplate({data, location}) {

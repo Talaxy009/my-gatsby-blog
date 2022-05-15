@@ -32,7 +32,6 @@
     "gatsby-plugin-sitemap": "^5.14.0",
     "gatsby-plugin-twitter": "^4.14.0",
     "gatsby-plugin-use-dark-mode": "^1.5.0",
-    "gatsby-plugin-valine": "^1.0.2",
     "gatsby-remark-images": "^6.14.0",
     "gatsby-remark-link-beautify": "^2.0.0",
     "gatsby-remark-prismjs": "^6.14.0",
@@ -45,7 +44,8 @@
     "react-dom": "^17.0.2",
     "react-helmet-async": "^1.3.0",
     "recoil": "^0.7.2",
-    "use-dark-mode": "^2.3.1"
+    "use-dark-mode": "^2.3.1",
+    "valine": "^1.4.18"
   },
   "devDependencies": {
     "eslint": "^8.15.0",

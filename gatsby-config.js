@@ -4,7 +4,7 @@ module.exports = {
 		title: '雪山深处',
 		author: {
 			name: 'Talaxy',
-			summary: '准备暑期实习中······',
+			summary: '普通大学生，准备暑期实习中······',
 		},
 		description: '一个个人博客，记录所思所想',
 		social: {
@@ -23,7 +23,7 @@ module.exports = {
 				trackingIds: ['G-6SQBBZZSQN'],
 				gtagConfig: {
 					anonymize_ip: true,
-				}
+				},
 			},
 		},
 		'gatsby-plugin-react-helmet-async',
@@ -32,7 +32,7 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
-				name: "雪山深处",
+				name: '雪山深处',
 				short_name: '雪山深处',
 				lang: 'zh',
 				start_url: '/',
@@ -61,7 +61,7 @@ module.exports = {
 							puppeteerLaunchArgs: [
 								'--no-first-run',
 								'--proxy-server=yacd.io:7890',
-							]
+							],
 						},
 					},
 				],
@@ -101,16 +101,6 @@ module.exports = {
 				path: './content/pages/',
 			},
 			__key: 'mdPages',
-		},
-		{
-			resolve: 'gatsby-plugin-valine',
-			options: {
-				appId: 'uNA1YWiX0B1smHYzKFAUD9kS-9Nh9j0Va',
-				appKey: 'uTK9cTmOLI8pQ7WSGGmKMP2K',
-				placeholder: '你知道吗？Home 键可以把光标放到行首诶！',
-				avatar: 'mp',
-				pageSize: 5,
-			},
 		},
 		{
 			resolve: 'gatsby-plugin-feed',

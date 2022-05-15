@@ -3,12 +3,12 @@ import {graphql} from 'gatsby';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
-import Valine from 'gatsby-plugin-valine';
 import {GatsbyImage, getImage, getSrc} from 'gatsby-plugin-image';
 import {formatTime} from '../utils/dataUtils';
 import {H1, P, Hr, Section, Pagination} from '../components/Typography';
 import {Next, Previous} from '../components/PostNavigation';
 import Layout from '../components/Layout';
+import Valine from '../components/Valine';
 import Bio from '../components/Bio';
 import SEO from '../components/SEO';
 
