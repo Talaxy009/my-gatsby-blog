@@ -71,6 +71,13 @@ export default function Layout({location, children}) {
 							},
 						},
 					},
+					MuiAlert: {
+						styleOverrides: {
+							root: {
+								borderRadius: '12px',
+							},
+						},
+					}
 				},
 				palette: {
 					primary: {
