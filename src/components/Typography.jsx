@@ -23,19 +23,6 @@ export const Pagination = styled.div`
 	width: 100%;
 `;
 
-export const Left = styled.div`
-	display: flex;
-	max-width: 40%;
-	flex-direction: column;
-`;
-
-export const Right = styled.div`
-	display: flex;
-	max-width: 40%;
-	flex-direction: column;
-	text-align: right;
-`;
-
 export const Section = styled.section`
 	font-size: 1.1em;
 	counter-reset: section;

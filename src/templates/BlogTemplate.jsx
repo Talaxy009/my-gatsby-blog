@@ -1,20 +1,13 @@
 import React from 'react';
-import {Link, graphql} from 'gatsby';
+import {graphql} from 'gatsby';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
 import Valine from 'gatsby-plugin-valine';
 import {GatsbyImage, getImage, getSrc} from 'gatsby-plugin-image';
 import {formatTime} from '../utils/dataUtils';
-import {
-	H1,
-	P,
-	Hr,
-	Section,
-	Pagination,
-	Left,
-	Right,
-} from '../components/Typography';
+import {H1, P, Hr, Section, Pagination} from '../components/Typography';
+import {Next, Previous} from '../components/PostNavigation';
 import Layout from '../components/Layout';
 import Bio from '../components/Bio';
 import SEO from '../components/SEO';
@@ -82,22 +75,8 @@ export default function BlogTemplate({data, location}) {
 				</footer>
 			</article>
 			<Pagination>
-				{previous && (
-					<Left>
-						<span>上一篇</span>
-						<Link to={previous.fields.slug} rel="prev">
-							{previous.frontmatter.title}
-						</Link>
-					</Left>
-				)}
-				{next && (
-					<Right>
-						<span>下一篇</span>
-						<Link to={next.fields.slug} rel="next">
-							{next.frontmatter.title}
-						</Link>
-					</Right>
-				)}
+				<Previous previous={previous} />
+				<Next next={next} />
 			</Pagination>
 			<Valine path={post.fields.slug} />
 		</Layout>
