@@ -6,13 +6,11 @@ tags: ["技术"]
 img: "img.png"
 ---
 
->最近知乎推送了一个介绍 JetBrains Mono 字体的文章，仔细看了看发现这字体已推出一年多了。看来只有火星人才能救得了火星人 (= v =)
+最近知乎推送了一个介绍 JetBrains Mono 字体的文章，仔细看了看发现这字体已推出一年多了。看来只有火星人才能救得了火星人 (= v =)，JetBrains Mono 的官网：
 
-[JetBrains Mono 的官网](https://www.jetbrains.com/lp/mono/)
+[$card](https://www.jetbrains.com/lp/mono/)
 
-正如文章头图那样，官方称此字体是 for developers 的，看了看也确实戳我 XP。
-
-我认为字体的亮点主要在于它对代码符号连接的优化，如官网所示：
+正如大家看到那样，官方称此字体是 for developers 的，看了看也确实在我的审美之上。我认为字体的亮点主要在于它对代码符号连接的优化，如官网所示：
 
 ![特性介绍](./good.png)
 

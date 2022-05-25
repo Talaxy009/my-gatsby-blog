@@ -1,54 +1,54 @@
 ---
 title: 为 Gatsby 添加阅读时长提示
-date: "2020-04-27T14:44:49.233Z"
-description: "一直想要的功能，今天总算实现了"
-tags: ["Gatsby", "技术"]
-img: "img.png"
+date: '2020-04-27T14:44:49.233Z'
+description: '一直想要的功能，今天总算实现了'
+tags: ['Gatsby', '技术']
+img: 'img.png'
 ---
 
 ## 前言
 
 一些博客的时间栏附近会提示阅读完这篇博客大致所需要的时间，原理是统计这篇文章的总字数，然后按照每几百字对应一分钟来进行换算的，今天正好将此功能实现了，现记录在此
 
-参考资料：[Dan Abramov 大佬的博客](https://overreacted.io/)
+参考：
+
+[$card](https://overreacted.io/)
+
+需要注意的是本文的操作皆是基于 gatsby-starter-blog 进行的
 
 ## 修改 index.js
 
 在首页 index.js 的 `pageQuery` 下添加 `timeToRead`
 
-```js
+```diff
 export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        menuLinks {
-          name
-          link
+    query {
+        site {
+            siteMetadata {
+                title
+            }
         }
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          timeToRead
-          frontmatter {
-            date(formatString: "YYYY 年 MM 月 DD 日")
-            title
-            description
-          }
+        allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+            edges {
+                node {
+                    excerpt
+                    fields {
+                        slug
+                    }
++                     timeToRead
+                    frontmatter {
+                        date(formatString: "YYYY 年 MM 月 DD 日")
+                        title
+                        description
+                    }
+                }
+            }
         }
-      }
     }
-  }
 `;
 ```
 
-是的，第一步并不是安装插件，原因是 Gatsby 的 `gatsby-transformer-remark` 自带这个功能，十分神奇，直接添加进 GraphQL 即可
+是的，第一步并不是安装插件，因为 Gatsby 的 `gatsby-transformer-remark` 已经帮我们统计好字数和阅读时间了，所以我们直接用 GraphQL 查询即可。
 
 ## 编写 helper.js
 
@@ -56,16 +56,16 @@ export const pageQuery = graphql`
 
 ```js
 export function formatReadingTime(minutes) {
-  let cups = Math.round(minutes / 5);
-  if (cups > 4) {
-    return `${new Array(Math.round(cups / 4))
-      .fill("🍚")
-      .join("")} 阅读需要 ${minutes} 分钟`;
-  } else {
-    return `${new Array(cups || 1)
-      .fill("🍵")
-      .join("")} 阅读需要 ${minutes} 分钟`;
-  }
+    let cups = Math.round(minutes / 5);
+    if (cups > 4) {
+        return `${new Array(Math.round(cups / 4))
+            .fill('🍚')
+            .join('')} 阅读需要 ${minutes} 分钟`;
+    } else {
+        return `${new Array(cups || 1)
+            .fill('🍵')
+            .join('')} 阅读需要 ${minutes} 分钟`;
+    }
 }
 ```
 
@@ -86,17 +86,17 @@ export function formatReadingTime(minutes) {
 PostList.js 是我将 index.js 拆分后的文件，若你没有修改过 index.js，则应在 index.js 中操作
 
 ```jsx
-import { formatReadingTime } from "../utils/helper"; //导入 helper，路径请自行修改
+import {formatReadingTime} from '../utils/helper'; //导入 helper，路径请自行修改
 //略
 return (
-  <article key={node.fields.slug}>
-    <header>
-      <small>
-        {node.frontmatter.date}
-        {` • ${formatReadingTime(node.timeToRead)}`}
-      </small>
-    </header>
-  </article>
+    <article key={node.fields.slug}>
+        <header>
+            <small>
+                {node.frontmatter.date}
+                {` • ${formatReadingTime(node.timeToRead)}`}
+            </small>
+        </header>
+    </article>
 );
 //略
 ```
@@ -104,38 +104,37 @@ return (
 ## 修改 blog-post.js
 
 ```jsx
-import { formatReadingTime } from "../utils/helper"; //导入 helper，路径请自行修改
+import {formatReadingTime} from '../utils/helper'; //导入 helper，路径请自行修改
 //略
 <p
-  style={{
-    ...scale(-1 / 5),
-    display: `block`,
-    marginBottom: rhythm(1)
-  }}
->
-  {post.frontmatter.date}
-  {` • ${formatReadingTime(post.timeToRead)}`} //插入代码
+    style={{
+        ...scale(-1 / 5),
+        display: `block`,
+        marginBottom: rhythm(1),
+    }}>
+    {post.frontmatter.date}
+    {` • ${formatReadingTime(post.timeToRead)}`} //插入代码
 </p>;
 //略
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
+    query BlogPostBySlug($slug: String!) {
+        site {
+            siteMetadata {
+                title
+            }
+        }
+        markdownRemark(fields: {slug: {eq: $slug}}) {
+            id
+            excerpt(pruneLength: 160)
+            html
+            timeToRead
+            frontmatter {
+                title
+                date(formatString: "YYYY 年 MM 月 DD 日")
+                description
+            }
+        }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      timeToRead
-      frontmatter {
-        title
-        date(formatString: "YYYY 年 MM 月 DD 日")
-        description
-      }
-    }
-  }
 `;
 ```
 
