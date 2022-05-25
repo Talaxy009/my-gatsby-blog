@@ -75,8 +75,8 @@ export default function BlogTemplate({data, location}) {
 				</footer>
 			</article>
 			<Pagination>
-				<Previous previous={previous} />
-				<Next next={next} />
+				<Previous post={previous} />
+				<Next post={next} />
 			</Pagination>
 			<Valine path={post.fields.slug} />
 		</Layout>

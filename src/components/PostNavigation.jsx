@@ -8,29 +8,29 @@ const Box = styled.div`
 	flex-direction: column;
 `;
 
-export function Previous({previous}) {
-	if (!previous) {
+export function Previous({post}) {
+	if (!post) {
 		return null;
 	}
 	return (
 		<Box>
 			<span>上一篇</span>
-			<Link to={previous.fields.slug} rel="prev">
-				{previous.frontmatter.title}
+			<Link to={post.fields.slug} rel="prev">
+				{post.frontmatter.title}
 			</Link>
 		</Box>
 	);
 }
 
-export function Next({next}) {
-	if (!next) {
+export function Next({post}) {
+	if (!post) {
 		return null;
 	}
 	return (
 		<Box style={{textAlign: 'right'}}>
 			<span>下一篇</span>
-			<Link to={next.fields.slug} rel="next">
-				{next.frontmatter.title}
+			<Link to={post.fields.slug} rel="post">
+				{post.frontmatter.title}
 			</Link>
 		</Box>
 	);
