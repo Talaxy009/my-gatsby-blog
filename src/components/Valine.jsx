@@ -1,4 +1,5 @@
 import React from 'react';
+import isSSR from '../utils/isSSR';
 import config from '../../valine-config';
 
 const buildValine = async (options) => {
@@ -10,7 +11,7 @@ export default function Valine({path = '', ...others}) {
 	const ref = React.useRef(null);
 
 	React.useEffect(() => {
-		if (typeof window !== 'undefined' && ref.current) {
+		if (!isSSR() && ref.current) {
 			buildValine({
 				el: ref.current,
 				path,
