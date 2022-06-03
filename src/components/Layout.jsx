@@ -43,7 +43,6 @@ export default function Layout({location, children}) {
 		{
 			site {
 				siteMetadata {
-					siteUrl
 					title
 				}
 			}
@@ -51,7 +50,6 @@ export default function Layout({location, children}) {
 	`);
 	const rootPath = '/';
 	const title = data.site.siteMetadata.title;
-	const siteUrl = data.site.siteMetadata.siteUrl;
 	const header =
 		location.pathname === rootPath ? (
 			<h1>{title}</h1>
@@ -77,7 +75,7 @@ export default function Layout({location, children}) {
 								borderRadius: '12px',
 							},
 						},
-					}
+					},
 				},
 				palette: {
 					primary: {
@@ -124,8 +122,7 @@ export default function Layout({location, children}) {
 					<span>
 						<a
 							target="_blank"
-							rel="noopener noreferrer"
-							href={`${siteUrl}/rss.xml`}>
+							href="/rss/">
 							RSS 订阅
 						</a>
 						<svg

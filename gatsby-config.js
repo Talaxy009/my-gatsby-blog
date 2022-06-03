@@ -133,9 +133,6 @@ module.exports = {
 										guid:
 											site.siteMetadata.siteUrl +
 											edge.node.fields.slug,
-										custom_elements: [
-											{'content:encoded': edge.node.html},
-										],
 									},
 								);
 							});
@@ -148,7 +145,6 @@ module.exports = {
 					  		) {
 								edges {
 									node {
-										html
 										fields { slug }
 										frontmatter {
 											description
@@ -161,7 +157,6 @@ module.exports = {
 						}`,
 						output: '/rss.xml',
 						title: '雪山深处的 RSS Feed',
-						match: '^/blogs/',
 					},
 				],
 			},
