@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React from 'react';
 import {Link} from 'gatsby';
 import styled from '@emotion/styled';
@@ -20,16 +19,17 @@ const Img = styled.img`
 `;
 
 const P = styled.p`
+	font-size: 1.1em;
 	text-align: center;
 `;
 
 export default function NotFoundPage() {
 	return (
 		<Main>
-			<SEO title="找不到页面 QAQ" />
+			<SEO title="找不到页面" />
 			<Img src={NoFoundImg} alt="404 image from Storyset" />
 			<P>
-				抱歉 😭 找不到你要的页面
+				抱歉 😭 找不到你要的页面，该页面可能已经被删除或者更改了位置。
 				<br />
 				<Link to="/">返回首页</Link>
 			</P>
