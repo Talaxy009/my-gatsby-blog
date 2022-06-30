@@ -15,7 +15,7 @@ code[class*="language-"],
 pre[class*="language-"] {
     color: #ccc;
     background: none;
-    font-family: JetBrains Mono, Consolas monospace;
+    font-family: JetBrains Mono, Consolas, monospace;
     font-size: 1em;
     text-align: left;
     white-space: pre;
@@ -66,17 +66,17 @@ pre[class*="language-"] {
 }
 
 pre[class*="language-"]::before {
-    background: #d9d7e0;
     border-radius: 0px 0px 4px 4px;
-    color: #232129;
-    font-size: 0.9rem;
-    letter-spacing: 0.075em;
-    line-height: 1;
     padding: 0.25rem 0.5rem;
+    background: #d9d7e0;
     position: absolute;
-    right: 2rem;
-    text-align: right;
     text-transform: uppercase;
+    letter-spacing: 0.075em;
+    text-align: right;
+    font-size: 0.9rem;
+    color: #232129;
+    line-height: 1;
+    right: 2rem;
     top: 0px;
 }
 

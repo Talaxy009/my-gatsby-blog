@@ -28,6 +28,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 hr {
     border: none;
     height: 0.6px;
