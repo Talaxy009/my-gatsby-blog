@@ -35,11 +35,6 @@ export default function BlogTemplate({data, location}) {
 
 	return (
 		<Layout location={location}>
-			<SEO
-				title={post.frontmatter.title}
-				description={post.frontmatter.description}
-				image={getSrc(post.frontmatter.img)}
-			/>
 			<article>
 				<header>
 					<GatsbyImage
@@ -80,6 +75,17 @@ export default function BlogTemplate({data, location}) {
 			</Pagination>
 			<Valine path={post.fields.slug} />
 		</Layout>
+	);
+}
+
+export function Head({data}) {
+	const {frontmatter} = data.post;
+	return (
+		<SEO
+			title={frontmatter.title}
+			description={frontmatter.description}
+			image={getSrc(frontmatter.img)}
+		/>
 	);
 }
 

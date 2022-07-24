@@ -1,9 +1,10 @@
 import React from 'react';
-import {useStaticQuery, graphql, navigate} from 'gatsby';
+import {navigate} from 'gatsby';
 import {createTheme, ThemeProvider} from '@mui/material';
 import useDarkMode from 'use-dark-mode';
 import styled from '@emotion/styled';
 import DarkModeButton from './DarkModeButton';
+import {useSiteMetadata} from '../utils/hooks';
 
 const Root = styled.div`
 	margin: auto;
@@ -38,18 +39,10 @@ const Footer = styled.footer`
 
 export default function Layout({location, children}) {
 	const darkMode = useDarkMode(false);
+	const siteMetadata = useSiteMetadata();
 
-	const data = useStaticQuery(graphql`
-		{
-			site {
-				siteMetadata {
-					title
-				}
-			}
-		}
-	`);
 	const rootPath = '/';
-	const title = data.site.siteMetadata.title;
+	const title = siteMetadata.title;
 	const header =
 		location.pathname === rootPath ? (
 			<h1>{title}</h1>

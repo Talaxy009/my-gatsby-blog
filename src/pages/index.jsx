@@ -70,9 +70,12 @@ export default function IndexPage({location}) {
 
 	return (
 		<Layout location={location}>
-			<SEO />
 			<Bio />
 			<PostList allPosts={allPosts} allTags={allTags} />
 		</Layout>
 	);
+}
+
+export function Head() {
+	return <SEO />;
 }

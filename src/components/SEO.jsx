@@ -1,44 +1,26 @@
 import React from 'react';
-import {Helmet} from 'react-helmet-async';
-import {useStaticQuery, graphql} from 'gatsby';
+import { useSiteMetadata } from '../utils/hooks';
 
 export default function SEO({
 	title = '',
-	lang = 'zh',
 	description = '',
 	image = '/site-image.jpg',
 }) {
-	const data = useStaticQuery(graphql`
-		{
-			site {
-				siteMetadata {
-					title
-					siteUrl
-					description
-					social {
-						twitter
-					}
-				}
-			}
-		}
-	`);
+	const siteMetadata = useSiteMetadata();
 
 	const {
 		title: siteName,
 		siteUrl,
 		description: siteDescription,
 		social: {twitter},
-	} = data.site.siteMetadata;
+	} = siteMetadata;
 
 	const metaTitle = title ? `${title} | ${siteName}` : siteName;
 	const metaDescription = description || siteDescription;
 	const metaImage = `${siteUrl}${image}`;
 
 	return (
-		<Helmet
-			htmlAttributes={{
-				lang,
-			}}>
+		<React.Fragment>
 			<title>{metaTitle}</title>
 			<meta name="description" content={metaDescription} />
 			<meta name="og:title" content={metaTitle} />
@@ -47,8 +29,9 @@ export default function SEO({
 			<meta name="og:image" content={metaImage} />
 			<meta name="og:type" content="website" />
 			<meta name="og:url" content={siteUrl} />
+			<meta name="twitter:image" content={metaImage} />
 			<meta name="twitter:card" content="summary_large_image" />
 			<meta name="twitter:creator" content={`@${twitter}`} />
-		</Helmet>
+		</React.Fragment>
 	);
 }

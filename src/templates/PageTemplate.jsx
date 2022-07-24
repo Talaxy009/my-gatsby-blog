@@ -6,17 +6,10 @@ import Valine from '../components/Valine';
 import SEO from '../components/SEO';
 
 export default function PageTemplate({data, location}) {
-	const {siteMetadata} = data.site;
 	const {frontmatter, html, fields} = data.markdownRemark;
 
 	return (
 		<Layout location={location}>
-			<SEO
-				title={frontmatter.title}
-				description={
-					frontmatter.description || siteMetadata.description
-				}
-			/>
 			<article>
 				<header>
 					<H1>{frontmatter.title}</H1>
@@ -30,6 +23,13 @@ export default function PageTemplate({data, location}) {
 	);
 }
 
+export function Head({data}) {
+	const {frontmatter} = data.markdownRemark;
+	return (
+		<SEO title={frontmatter.title} description={frontmatter.description} />
+	);
+}
+
 export const pageQuery = graphql`
 	query ($id: String!) {
 		markdownRemark(id: {eq: $id}) {
@@ -38,12 +38,6 @@ export const pageQuery = graphql`
 				slug
 			}
 			frontmatter {
-				title
-				description
-			}
-		}
-		site {
-			siteMetadata {
 				title
 				description
 			}

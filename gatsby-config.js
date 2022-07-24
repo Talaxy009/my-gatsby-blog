@@ -26,7 +26,6 @@ module.exports = {
 				},
 			},
 		},
-		'gatsby-plugin-react-helmet-async',
 		'gatsby-plugin-sitemap',
 		'gatsby-plugin-twitter',
 		{
@@ -60,7 +59,7 @@ module.exports = {
 							timeout: 50000,
 							puppeteerLaunchArgs: [
 								'--no-first-run',
-								'--proxy-server=yacd.io:7890',
+								'--proxy-server=192.168.3.11:7890',
 							],
 						},
 					},
