@@ -44,6 +44,7 @@
 }
 
 .link-card-container:hover {
+    text-decoration: none;
     background-color: rgba(150, 180, 180, 0.1);
     -webkit-box-shadow: 0 6px 10px rgba(10, 20, 20, 0.2);
     box-shadow: 0 6px 10px rgba(10, 20, 20, 0.2);
