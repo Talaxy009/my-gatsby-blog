@@ -3,7 +3,7 @@ title: 第一篇博客
 date: "2020-02-28T18:00:00.000Z"
 description: "开天辟地"
 tags: ["记录"]
-img: "bing.jpg"
+img: "img.jpg"
 ---
 
 花了一天现学现做，找了很多大佬们的博客网站来参考，总算是把一个博客网站的 html 写好了 QAQ
