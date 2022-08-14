@@ -10,6 +10,9 @@ const Root = styled.div`
 	margin: auto;
 	max-width: 50rem;
 	padding: 3rem 5rem 0 5rem;
+	@media (max-width: 780px) {
+		padding: 3rem 2rem 0 2rem;
+	}
 	@media (max-width: 580px) {
 		padding: 3rem 1rem 0 1rem;
 	}
@@ -113,9 +116,7 @@ export default function Layout({location, children}) {
 						&nbsp;强力驱动
 					</span>
 					<span>
-						<a
-							target="_blank"
-							href="/rss/">
+						<a target="_blank" href="/rss/">
 							RSS 订阅
 						</a>
 						<svg

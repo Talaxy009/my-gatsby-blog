@@ -32,8 +32,6 @@ pre[class*="language-"] {
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
-
-    position: relative;
 }
 
 /* Code blocks */
@@ -44,6 +42,7 @@ pre[class*="language-"] {
     border-radius: 10px;
     background: #282828;
     -webkit-overflow-scrolling: touch;
+    position: relative;
     overflow: auto;
 }
 
@@ -65,7 +64,8 @@ pre[class*="language-"] {
     background: #282828;
 }
 
-pre[class*="language-"]::before {
+.gatsby-highlight::before {
+    font-family: JetBrains Mono, Consolas, monospace;
     border-radius: 0px 0px 4px 4px;
     padding: 0.25rem 0.5rem;
     background: #d9d7e0;
@@ -80,56 +80,56 @@ pre[class*="language-"]::before {
     top: 0px;
 }
 
-pre[class="language-html"]::before {
+div[data-language="html"]::before {
     content: "html";
     background: #005A9C;
     color: #FFFFFF;
 }
 
-pre[class="language-js"]::before {
+div[data-language="js"]::before {
     content: "js";
     background: #F7DF1E;
 }
 
-pre[class="language-ts"]::before {
+div[data-language="ts"]::before {
     content: "ts";
     background: #294E80;
     color: #FFFFFF;
 }
 
-pre[class="language-jsx"]::before {
+div[data-language="jsx"]::before {
     content: "jsx";
     background: #61DAFB;
 }
 
-pre[class="language-tsx"]::before {
+div[data-language="tsx"]::before {
     content: "tsx";
     background: #294E80;
     color: #FFFFFF;
 }
 
-pre[class="language-css"]::before {
+div[data-language="css"]::before {
     content: "css";
     background: #FF9800;
     color: #FFFFFF;
 }
 
-pre[class="language-diff"]::before {
+div[data-language="diff"]::before {
     content: "diff";
     background: #E6FFED;
 }
 
-pre[class="language-json"]::before,
-pre[class="language-json5"]::before {
+div[data-language="json"]::before,
+div[data-language="json5"]::before {
     content: "json";
     background: linen;
 }
 
-pre[class="language-shell"]::before {
+div[data-language="shell"]::before {
     content: "shell";
 }
 
-pre[class="language-ini"]::before {
+div[data-language="ini"]::before {
     content: "ini";
     background: gray;
     color: #FFFFFF;
