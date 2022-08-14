@@ -56,10 +56,10 @@ img: 'img.png'
 
 ```html
 <span class="link-preview-container">
-    <a target="_blank" rel="noopener noreferrer" href="{目标链接}">
+    <a target="_blank" rel="noopener noreferrer" href="/目标链接">
         链接文字
     </a>
-    <img src="data:image/webp;base64,{base64 预览图}" />`}
+    <img src="data:image/webp;base64,{base64 预览图}" />
 </span>
 ```
 
