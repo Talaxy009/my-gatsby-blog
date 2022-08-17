@@ -3,7 +3,7 @@
  * @param {number} minutes
  * @returns 包含 emoji 和文字的字符串
  */
-export function formatTime(minutes) {
+export function formatTime(minutes: number): string {
 	let cups = Math.round(minutes / 5);
 	if (cups > 4) {
 		return `${new Array(Math.round(cups / 4))
@@ -22,7 +22,7 @@ export function formatTime(minutes) {
  * @param {number} size 每段数组的大小
  * @returns 已分割的数组
  */
-export function splitArray(arr, size) {
+export function splitArray<T>(arr: readonly T[], size: number):T[][] {
 	let newArr = [];
 	for (let i = 0; i < arr.length; ) {
 		newArr.push(arr.slice(i, (i += size)));
@@ -35,7 +35,7 @@ export function splitArray(arr, size) {
  * @param {array} tagsGroup 标签列表
  * @returns 包含标签的数组
  */
-export function getTags(tagsGroup = []) {
+export function getTags(tagsGroup: readonly any[]): string[] {
 	const tags = tagsGroup.map((item) => item.tag);
 	tags.unshift('全部');
 	return tags;

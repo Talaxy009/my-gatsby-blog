@@ -6,6 +6,8 @@ import {GatsbyImage, getImage} from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import {formatTime} from '../utils/dataUtils';
 
+type Post = Queries.PostQuery['allMarkdownRemark']['posts'][0]['node'];
+
 const PostItemBody = styled.div`
 	width: 100%;
 	display: flex;
@@ -57,21 +59,33 @@ const Section = styled.section`
 	font-size: 1.05rem;
 `;
 
-export default function PostItem({post}) {
+const Skeleton = styled.div`
+	flex: 1;
+	background-color: rgba(150, 180, 180, 0.05);
+`;
+
+export default function PostItem({post}: {post: Post}) {
+	if (!post) return null;
+	const image = getImage(post.frontmatter.img?.childImageSharp || null);
+
 	return (
 		<PostItemBody onClick={() => navigate(post.fields.slug)}>
-			<GatsbyImage
-				style={{flex: 1}}
-				image={getImage(post.frontmatter.img)}
-				alt={post.frontmatter.title || post.fields.slug}
-			/>
+			{image ? (
+				<GatsbyImage
+					style={{flex: 1}}
+					image={image}
+					alt={post.frontmatter.title}
+				/>
+			) : (
+				<Skeleton />
+			)}
 			<PostItemContent>
 				<header>
-					<Title>{post.frontmatter.title || post.fields.slug}</Title>
+					<Title>{post.frontmatter.title}</Title>
 					<Line>
 						<span>
 							{`${post.frontmatter.date} • ${formatTime(
-								post.timeToRead,
+								post.timeToRead || 1,
 							)}`}
 						</span>
 						<Stack direction="row" spacing={1}>

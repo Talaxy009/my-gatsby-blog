@@ -1,18 +1,24 @@
 import React from 'react';
-import { useSiteMetadata } from '../utils/hooks';
+import {useSiteMetadata} from '../utils/hooks';
+
+type SEOProps = {
+	title?: string | undefined | null;
+	description?: string | undefined | null;
+	image?: string;
+};
 
 export default function SEO({
-	title = '',
-	description = '',
+	title = null,
+	description = null,
 	image = '/site-image.jpg',
-}) {
+}: SEOProps) {
 	const siteMetadata = useSiteMetadata();
 
 	const {
 		title: siteName,
 		siteUrl,
 		description: siteDescription,
-		social: {twitter},
+		social,
 	} = siteMetadata;
 
 	const metaTitle = title ? `${title} | ${siteName}` : siteName;
@@ -31,7 +37,7 @@ export default function SEO({
 			<meta name="og:url" content={siteUrl} />
 			<meta name="twitter:image" content={metaImage} />
 			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:creator" content={`@${twitter}`} />
+			<meta name="twitter:creator" content={`@${social?.twitter}`} />
 		</React.Fragment>
 	);
 }

@@ -8,6 +8,22 @@ import {atom, useRecoilState} from 'recoil';
 import PostItem from './PostItem';
 import {useHasMounted} from '../utils/hooks';
 
+type Props = {
+	allPosts: Queries.PostQuery['allMarkdownRemark']['posts'][][];
+	allTags: string[];
+};
+
+interface tagMenu {
+	index: number;
+	anchorEl:
+		| null
+		| React.BaseSyntheticEvent<
+				MouseEvent,
+				EventTarget & Element,
+				EventTarget
+		  >['currentTarget'];
+}
+
 const ListBody = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -23,28 +39,30 @@ const pageState = atom({
 
 const tagMenuState = atom({
 	key: 'tagMenuState',
-	default: {
-		index: 0,
-		anchorEl: null,
-	},
+	default: {index: 0, anchorEl: null} as tagMenu,
 });
 
-export default function PostList({allPosts = [], allTags = []}) {
+export default function PostList({allPosts, allTags}: Props) {
 	const hasMounted = useHasMounted();
 	const [page, setPage] = useRecoilState(pageState);
 	const [tagMenu, setTagMenu] = useRecoilState(tagMenuState);
 
-	const handleChangePage = (_event, value) => {
+	const handleChangePage = (
+		_event: React.ChangeEvent<unknown>,
+		value: number,
+	) => {
 		setPage(value);
 		const target = document.getElementById('listBody');
-		setTimeout(() => target.scrollIntoView({behavior: 'smooth'}), 150);
+		if (target) {
+			setTimeout(() => target.scrollIntoView({behavior: 'smooth'}), 150);
+		}
 	};
 
-	const handleClickMenuButton = (event) => {
+	const handleClickMenuButton: React.MouseEventHandler = (event) => {
 		setTagMenu({...tagMenu, anchorEl: event.currentTarget});
 	};
 
-	const handleClickTag = (index) => {
+	const handleClickTag = (index: number) => {
 		setTagMenu({index: index, anchorEl: null});
 		setPage(1);
 	};

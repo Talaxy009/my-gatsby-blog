@@ -12,8 +12,13 @@ import Valine from '../components/Valine';
 import Bio from '../components/Bio';
 import SEO from '../components/SEO';
 
-export default function BlogTemplate({data, location}) {
-	const {modifiedTime} = data.file;
+import type {HeadProps, PageProps} from 'gatsby';
+
+export default function BlogTemplate({
+	data,
+	path,
+}: PageProps<Queries.BlogDataQuery>) {
+	const modifiedTime = data.file?.modifiedTime;
 	const {post, previous, next} = data;
 
 	React.useEffect(() => {
@@ -33,18 +38,23 @@ export default function BlogTemplate({data, location}) {
 		}
 	}, []);
 
+	if (!post) return null;
+	const image = getImage(post.frontmatter.img?.childImageSharp || null);
+
 	return (
-		<Layout location={location}>
+		<Layout path={path}>
 			<article>
 				<header>
-					<GatsbyImage
-						image={getImage(post.frontmatter.img)}
-						alt={post.frontmatter.title || post.fields.slug}
-					/>
+					{image && (
+						<GatsbyImage
+							image={image}
+							alt={post.frontmatter.title || post.fields.slug}
+						/>
+					)}
 					<H1>{post.frontmatter.title}</H1>
 					<P>
 						{post.frontmatter.date}
-						{` • ${formatTime(post.timeToRead)}`}
+						{` • ${formatTime(post.timeToRead || 1)}`}
 					</P>
 					<Stack direction="row" spacing={1}>
 						{post.frontmatter.tags.map((tag) => (
@@ -57,7 +67,7 @@ export default function BlogTemplate({data, location}) {
 						))}
 					</Stack>
 				</header>
-				<Section dangerouslySetInnerHTML={{__html: post.html}} />
+				<Section dangerouslySetInnerHTML={{__html: post.html || ''}} />
 				{post.frontmatter.tags.includes('技术') && (
 					<Alert severity="info">
 						本文最后于<strong>{modifiedTime}</strong>
@@ -78,19 +88,23 @@ export default function BlogTemplate({data, location}) {
 	);
 }
 
-export function Head({data}) {
-	const {frontmatter} = data.post;
+export function Head({data}: HeadProps<Queries.BlogDataQuery>) {
+	if (!data.post) return null;
+	const frontmatter = data.post.frontmatter;
+
 	return (
 		<SEO
 			title={frontmatter.title}
 			description={frontmatter.description}
-			image={getSrc(frontmatter.img)}
+			{...(frontmatter.img?.childImageSharp && {
+				image: getSrc(frontmatter.img.childImageSharp),
+			})}
 		/>
 	);
 }
 
 export const pageQuery = graphql`
-	query ($id: String!, $previousId: String, $nextId: String) {
+	query BlogData($id: String!, $previousId: String, $nextId: String) {
 		file(childrenMarkdownRemark: {elemMatch: {id: {eq: $id}}}) {
 			modifiedTime(formatString: "YYYY 年 MM 月 DD 日")
 		}

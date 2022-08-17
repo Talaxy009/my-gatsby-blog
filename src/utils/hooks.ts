@@ -5,7 +5,7 @@ import {graphql, useStaticQuery} from 'gatsby';
  * 当页面加载完成时由 false 变为 true
  * @returns {boolean} hasMounted
  */
-export function useHasMounted() {
+export function useHasMounted(): boolean {
 	const [hasMounted, setHasMounted] = React.useState(false);
 	React.useEffect(() => {
 		setHasMounted(true);
@@ -17,7 +17,7 @@ export function useHasMounted() {
  * 获取 siteMetadata
  * @returns {object} siteMetadata
  */
-export function useSiteMetadata() {
+export function useSiteMetadata(): Queries.SiteMetadata {
 	const data = useStaticQuery(graphql`
 		query {
 			site {

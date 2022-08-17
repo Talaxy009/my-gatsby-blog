@@ -5,15 +5,18 @@ import Skeleton from '@mui/material/Skeleton';
 import styled from '@emotion/styled';
 import {useHasMounted} from '../utils/hooks';
 
+import type {DarkMode} from 'use-dark-mode';
+
 const Svg = styled.svg`
 	width: 32px;
 	height: 32px;
 `;
 
-export default function DarkModeButton({mode}) {
+export default function DarkModeButton({mode}: {mode: DarkMode}) {
 	const hasMounted = useHasMounted();
 
-	if (!hasMounted) return <Skeleton variant="circular" width={48} height={48} />;
+	if (!hasMounted)
+		return <Skeleton variant="circular" width={48} height={48} />;
 	return (
 		<Tooltip title={`${mode.value ? '关闭' : '打开'}夜间模式`}>
 			<IconButton onClick={mode.toggle}>

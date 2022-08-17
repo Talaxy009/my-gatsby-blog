@@ -2,16 +2,18 @@ import React from 'react';
 import styled from '@emotion/styled';
 import {Link} from 'gatsby';
 
+type Props = {
+	post: Queries.BlogDataQuery['previous'];
+};
+
 const Box = styled.div`
 	display: flex;
 	max-width: 40%;
 	flex-direction: column;
 `;
 
-export function Previous({post}) {
-	if (!post) {
-		return null;
-	}
+export function Previous({post}: Props) {
+	if (!post) return null;
 	return (
 		<Box>
 			<span>上一篇</span>
@@ -22,10 +24,8 @@ export function Previous({post}) {
 	);
 }
 
-export function Next({post}) {
-	if (!post) {
-		return null;
-	}
+export function Next({post}: Props) {
+	if (!post) return null;
 	return (
 		<Box style={{textAlign: 'right'}}>
 			<span>下一篇</span>

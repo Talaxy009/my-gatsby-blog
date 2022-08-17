@@ -1,8 +1,21 @@
-const {createFilePath} = require(`gatsby-source-filesystem`);
-const path = require('path');
+import {createFilePath} from 'gatsby-source-filesystem';
+import path from 'path';
+
+import type {GatsbyNode} from 'gatsby';
+
+type MarkdownData = {
+	blogPosts: {
+		nodes: Queries.MarkdownRemark[];
+	}
+	pages: {
+		nodes: Queries.MarkdownRemark[];
+	}
+}
 
 /* 勿用 @mui/styled-engine-sc
-exports.onCreateWebpackConfig = ({actions}) => {
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
+	actions,
+}) => {
 	actions.setWebpackConfig({
 		resolve: {
 			alias: {
@@ -12,7 +25,12 @@ exports.onCreateWebpackConfig = ({actions}) => {
 	});
 };
 */
-exports.onCreateNode = ({node, getNode, actions}) => {
+
+export const onCreateNode: GatsbyNode['onCreateNode'] = ({
+	node,
+	getNode,
+	actions,
+}) => {
 	const {createNodeField} = actions;
 	if (node.internal.type === 'MarkdownRemark') {
 		const slug = createFilePath({node, getNode});
@@ -24,12 +42,43 @@ exports.onCreateNode = ({node, getNode, actions}) => {
 	}
 };
 
-exports.createPages = async ({graphql, actions, reporter}) => {
-	const {createPage} = actions;
-	const blogTemplate = path.resolve('./src/templates/BlogTemplate.jsx');
-	const pageTemplate = path.resolve('./src/templates/PageTemplate.jsx');
+export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] =
+	({actions}) => {
+		actions.createTypes(`
+    		type Site {
+      			siteMetadata: SiteMetadata!
+    		}
+    		type SiteMetadata {
+      			title: String!
+				siteUrl: String!
+				description: String!
+			}
 
-	const result = await graphql(`
+			type MarkdownRemark implements Node {
+				frontmatter: Frontmatter!
+				fields: Fields!
+			}
+			type Frontmatter {
+    			title: String!
+				tags: [String!]!
+    			description: String!
+			}
+			type Fields {
+				slug: String!
+			}
+  		`);
+	};
+
+export const createPages: GatsbyNode['createPages'] = async ({
+	graphql,
+	actions,
+	reporter,
+}) => {
+	const {createPage} = actions;
+	const blogTemplate = path.resolve('./src/templates/BlogTemplate.tsx');
+	const pageTemplate = path.resolve('./src/templates/PageTemplate.tsx');
+
+	const result = await graphql<MarkdownData>(`
 		query {
 			blogPosts: allMarkdownRemark(
 				filter: {fileAbsolutePath: {regex: "/blogs/"}}
@@ -56,11 +105,12 @@ exports.createPages = async ({graphql, actions, reporter}) => {
 			}
 		}
 	`);
-	if (result.errors) {
+	if (result.errors || !result.data) {
 		reporter.panicOnBuild(
 			'Error while running GraphQL query.',
 			result.errors,
 		);
+		return;
 	}
 	const posts = result.data.blogPosts.nodes;
 	const pages = result.data.pages.nodes;

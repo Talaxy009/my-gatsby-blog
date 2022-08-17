@@ -6,6 +6,11 @@ import styled from '@emotion/styled';
 import DarkModeButton from './DarkModeButton';
 import {useSiteMetadata} from '../utils/hooks';
 
+type LayoutProps = {
+	path: string;
+	children: React.ReactNode;
+};
+
 const Root = styled.div`
 	margin: auto;
 	max-width: 50rem;
@@ -40,14 +45,14 @@ const Footer = styled.footer`
 	margin: 1rem;
 `;
 
-export default function Layout({location, children}) {
+export default function Layout({path, children}: LayoutProps) {
 	const darkMode = useDarkMode(false);
 	const siteMetadata = useSiteMetadata();
 
 	const rootPath = '/';
 	const title = siteMetadata.title;
 	const header =
-		location.pathname === rootPath ? (
+		path === rootPath ? (
 			<h1>{title}</h1>
 		) : (
 			<h2 onClick={() => navigate(rootPath)}>{title}</h2>

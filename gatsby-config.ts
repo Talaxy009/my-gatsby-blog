@@ -13,6 +13,7 @@ module.exports = {
 			pixiv: '009ba1',
 		},
 	},
+	graphqlTypegen: true,
 	plugins: [
 		'gatsby-plugin-emotion',
 		'gatsby-plugin-material-ui',

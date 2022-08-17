@@ -1,4 +1,5 @@
 import React from 'react';
+import Skeleton from '@mui/material/Skeleton';
 import {useStaticQuery, graphql} from 'gatsby';
 import {GatsbyImage, getImage} from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
@@ -65,21 +66,26 @@ export default function Bio() {
 	`);
 
 	const {author, social} = data.site.siteMetadata;
+	const avatar = getImage(data.avatar);
 
 	return (
 		<Root>
-			<GatsbyImage
-				image={getImage(data.avatar)}
-				alt={author.name}
-				style={{
-					width: '90px',
-					height: '90px',
-					borderRadius: '50%',
-				}}
-				imgStyle={{
-					borderRadius: '50%',
-				}}
-			/>
+			{avatar ? (
+				<GatsbyImage
+					image={avatar}
+					alt={author.name}
+					style={{
+						width: '90px',
+						height: '90px',
+						borderRadius: '50%',
+					}}
+					imgStyle={{
+						borderRadius: '50%',
+					}}
+				/>
+			) : (
+				<Skeleton variant="circular" width={90} height={90} />
+			)}
 			<Section>
 				<Area>
 					<Line>
