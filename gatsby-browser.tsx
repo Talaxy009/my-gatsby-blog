@@ -4,12 +4,14 @@ import './src/styles/style.css';
 import './src/styles/code.css';
 import './src/styles/link.css';
 
+import type {GatsbyBrowser} from 'gatsby';
+
 const options = {
 	color: '#009ba1',
 	showSpinner: false,
 };
 
-export const onClientEntry = () => {
+export const onClientEntry: GatsbyBrowser['onClientEntry'] = () => {
 	const styles = `
       #nprogress {
         pointer-events: none;
@@ -46,12 +48,13 @@ export const onClientEntry = () => {
 	NProgress.start();
 };
 
-export const onInitialClientRender = () => {
+export const onInitialClientRender: GatsbyBrowser['onInitialClientRender'] =
+	() => {
+		NProgress.done();
+	};
+
+export const onRouteUpdate: GatsbyBrowser['onRouteUpdate'] = () => {
 	NProgress.done();
 };
 
-export const onRouteUpdate = () => {
-	NProgress.done();
-};
-
-export const wrapRootElement = GatsbyRecoil;
+export const wrapRootElement: GatsbyBrowser['wrapRootElement'] = GatsbyRecoil;

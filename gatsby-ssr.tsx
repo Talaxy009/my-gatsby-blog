@@ -1,7 +1,11 @@
 import GatsbyRecoil from './src/components/GatsbyRecoil';
 
-export const wrapRootElement = GatsbyRecoil;
+import type {GatsbySSR} from 'gatsby';
 
-export const onRenderBody = ({setHtmlAttributes}) => {
+export const wrapRootElement: GatsbySSR['wrapRootElement'] = GatsbyRecoil;
+
+export const onRenderBody: GatsbySSR['onRenderBody'] = ({
+	setHtmlAttributes,
+}) => {
 	setHtmlAttributes({lang: 'zh'});
 };
