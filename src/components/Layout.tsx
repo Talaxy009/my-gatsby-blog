@@ -50,7 +50,7 @@ export default function Layout({path, children}: LayoutProps) {
 	const siteMetadata = useSiteMetadata();
 
 	const rootPath = '/';
-	const title = siteMetadata.title;
+	const {title, author} = siteMetadata;
 	const header =
 		path === rootPath ? (
 			<h1>{title}</h1>
@@ -103,7 +103,7 @@ export default function Layout({path, children}: LayoutProps) {
 						href="http://beian.miit.gov.cn/">
 						粤 ICP 备 20015580 号
 					</a>
-					<span>© {new Date().getFullYear()}</span>
+					<span>© {new Date().getFullYear()} {author?.name}</span>
 					<a
 						target="_blank"
 						rel="noopener noreferrer"

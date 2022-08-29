@@ -1,5 +1,5 @@
 import React from 'react';
-import {useStaticQuery, graphql} from 'gatsby';
+import {graphql} from 'gatsby';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 import Bio from '../components/Bio';
