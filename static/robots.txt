@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: /about/
 Sitemap: https://www.talaxy.site/sitemap/sitemap-index.xml
