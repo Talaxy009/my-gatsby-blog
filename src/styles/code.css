@@ -37,8 +37,8 @@ pre[class*="language-"] {
 /* Code blocks */
 .gatsby-highlight {
     margin-bottom: 1.75rem;
-    margin-left: -1.3125rem;
-    margin-right: -1.3125rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
     border-radius: 10px;
     background: #282828;
     -webkit-overflow-scrolling: touch;
@@ -46,14 +46,14 @@ pre[class*="language-"] {
     overflow: auto;
 }
 
-@media (max-width: 672px) {
+@media (max-width: 580px) {
     .gatsby-highlight {
         border-radius: 0;
     }
 }
 
 pre[class*="language-"] {
-    padding: 1.5em 1em 1em 1em;
+    padding: 1.75em 1.25em 1.25em 1.25em;
     margin-top: 0;
     margin-bottom: .5em;
     overflow: auto;
