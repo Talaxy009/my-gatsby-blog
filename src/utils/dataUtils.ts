@@ -22,7 +22,7 @@ export function formatTime(minutes: number): string {
  * @param {number} size 每段数组的大小
  * @returns 已分割的数组
  */
-export function splitArray<T>(arr: readonly T[], size: number):T[][] {
+export function splitArray<T>(arr: readonly T[], size: number): T[][] {
 	let newArr = [];
 	for (let i = 0; i < arr.length; ) {
 		newArr.push(arr.slice(i, (i += size)));
@@ -35,8 +35,10 @@ export function splitArray<T>(arr: readonly T[], size: number):T[][] {
  * @param {array} tagsGroup 标签列表
  * @returns 包含标签的数组
  */
-export function getTags(tagsGroup: readonly any[]): string[] {
-	const tags = tagsGroup.map((item) => item.tag);
+export function getTags(
+	tagsGroup: Queries.PostQuery['allMarkdownRemark']['tagsGroup'],
+): string[] {
+	const tags = tagsGroup.map((item) => item.tag || '');
 	tags.unshift('全部');
 	return tags;
 }

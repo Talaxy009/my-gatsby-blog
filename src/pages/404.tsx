@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'gatsby';
 import styled from '@emotion/styled';
 import SEO from '../components/SEO';
+import NoFoundImg from '../assets/images/404.svg';
 
 const Main = styled.main`
 	padding: 10vh 0 0;
@@ -25,10 +26,7 @@ const P = styled.p`
 export default function NotFoundPage() {
 	return (
 		<Main>
-			<Img
-				src={require('../assets/images/404.svg')}
-				alt="404 image from Storyset"
-			/>
+			<Img src={NoFoundImg} alt="404 image from Storyset" />
 			<P>
 				抱歉 😭 找不到你要的页面，该页面可能已经被删除或者更改了位置。
 				<br />
