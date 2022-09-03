@@ -60,7 +60,7 @@ module.exports = {
 							timeout: 50000,
 							puppeteerLaunchArgs: [
 								'--no-first-run',
-								'--proxy-server=192.168.3.11:7890',
+								'--proxy-server=yacd.io:7890',
 							],
 						},
 					},
