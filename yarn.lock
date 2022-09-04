@@ -8640,15 +8640,15 @@ __metadata:
   linkType: hard
 
 "gatsby-remark-link-beautify@npm:latest":
-  version: 2.0.2
-  resolution: "gatsby-remark-link-beautify@npm:2.0.2"
+  version: 2.0.3
+  resolution: "gatsby-remark-link-beautify@npm:2.0.3"
   dependencies:
-    puppeteer: ^16.1.1
+    puppeteer: 17.0.0
     sharp: ^0.30.7
     unist-util-visit: ^2.0.3
   peerDependencies:
     gatsby-transformer-remark: ">=5.8.0"
-  checksum: 12c8b1fe4c074a4bb37e4f90691fee8648f9bbad6bbe089c46e7ac771e3b8f06e7142b082fad6f629a7bcc193ee0f25910508d1983277c9a52d2940efa1c3b4c
+  checksum: 701e973531957a5bbed174e9cf588bda49b14811c028f6538e1d805f6154a15cbc785ccaf405ffda342bf4a100950f3a337595334c6b3d67ff5c9f08e2814e72
   languageName: node
   linkType: hard
 
@@ -13060,7 +13060,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pkg-dir@npm:4.2.0, pkg-dir@npm:^4.1.0":
+"pkg-dir@npm:^4.1.0":
   version: 4.2.0
   resolution: "pkg-dir@npm:4.2.0"
   dependencies:
@@ -13724,23 +13724,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer@npm:^16.1.1":
-  version: 16.1.1
-  resolution: "puppeteer@npm:16.1.1"
+"puppeteer@npm:17.0.0":
+  version: 17.0.0
+  resolution: "puppeteer@npm:17.0.0"
   dependencies:
     cross-fetch: 3.1.5
     debug: 4.3.4
     devtools-protocol: 0.0.1019158
     extract-zip: 2.0.1
     https-proxy-agent: 5.0.1
-    pkg-dir: 4.2.0
     progress: 2.0.3
     proxy-from-env: 1.1.0
     rimraf: 3.0.2
     tar-fs: 2.1.1
     unbzip2-stream: 1.4.3
     ws: 8.8.1
-  checksum: 19ab48370fc13bd525e2992c11e12f1e46d379b9d15dfd45f31ee568a16f1e8f08f0a98aca652bd1090bdb52d1891202e1b13c2e00c339c16a8c09e864e433f4
+  checksum: 435c03852a8f9606d169e646d7f5a98ca2637bc8fc882c2abf3a60d8e42eace07b6625cafbf0d46f61eda908715fe8f98741bcbb115bfebffb7c2b47624bf691
   languageName: node
   linkType: hard
 
