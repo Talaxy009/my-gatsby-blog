@@ -6,7 +6,7 @@ import Alert from '@mui/material/Alert';
 import {GatsbyImage, getImage, getSrc} from 'gatsby-plugin-image';
 import {formatTime} from '../utils/dataUtils';
 import {H1, P, Hr, Section, Pagination} from '../components/Typography';
-import {Next, Previous} from '../components/PostNavigation';
+import PostNavigation from '../components/PostNavigation';
 import Layout from '../components/Layout';
 import Valine from '../components/Valine';
 import Bio from '../components/Bio';
@@ -80,8 +80,8 @@ export default function BlogTemplate({
 				</footer>
 			</article>
 			<Pagination>
-				<Previous post={previous} />
-				<Next post={next} />
+				<PostNavigation post={previous} />
+				<PostNavigation post={next} />
 			</Pagination>
 			<Valine path={post.fields.slug} />
 		</Layout>
@@ -132,6 +132,11 @@ export const pageQuery = graphql`
 			}
 			frontmatter {
 				title
+				img {
+					childImageSharp {
+						gatsbyImageData(width: 600)
+					}
+				}
 			}
 		}
 		next: markdownRemark(id: {eq: $nextId}) {
@@ -140,6 +145,11 @@ export const pageQuery = graphql`
 			}
 			frontmatter {
 				title
+				img {
+					childImageSharp {
+						gatsbyImageData(width: 600)
+					}
+				}
 			}
 		}
 	}

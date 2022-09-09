@@ -15,12 +15,15 @@ export const Hr = styled.hr`
 	margin-bottom: 0.8rem;
 `;
 
-export const Pagination = styled.div`
+export const Pagination = styled.nav`
+	width: 100%;
+	display: flex;
 	margin-top: 2rem;
 	margin-bottom: 1rem;
-	display: flex;
 	justify-content: space-between;
-	width: 100%;
+	@media (max-width: 600px) {
+		flex-direction: column;
+	}
 `;
 
 export const Section = styled.section`
