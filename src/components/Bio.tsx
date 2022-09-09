@@ -7,8 +7,18 @@ import {Twitter, Github, Pixiv, Link} from './Links';
 
 const Root = styled.div`
 	display: flex;
+	padding: 1rem;
+	overflow: hidden;
 	flex-direction: row;
 	margin-bottom: 1rem;
+	border-radius: 12px;
+	background-color: rgba(150, 180, 180, 0.05);
+	box-shadow: 0 2px 5px rgba(10, 20, 20, 0.2);
+	transition: all 0.6s cubic-bezier(0, 0, 0.4, 1);
+	:hover {
+		background-color: rgba(150, 180, 180, 0.1);
+		box-shadow: 0 6px 10px rgba(10, 20, 20, 0.2);
+	}
 `;
 
 const Section = styled.div`
@@ -32,8 +42,8 @@ const Area = styled.div`
 const Line = styled.div`
 	display: flex;
 	flex-direction: row;
-	margin: 1px 0;
 	align-items: center;
+	margin-top: 4px;
 `;
 
 const NameBox = styled.a`
@@ -41,8 +51,8 @@ const NameBox = styled.a`
 `;
 
 export default function Bio() {
-	const data = useStaticQuery(graphql`
-		{
+	const data = useStaticQuery<Queries.BioDataQuery>(graphql`
+		query BioData {
 			avatar: file(relativePath: {regex: "/profile.png/"}) {
 				childImageSharp {
 					gatsbyImageData(layout: FIXED)
@@ -65,8 +75,12 @@ export default function Bio() {
 		}
 	`);
 
+	if (!data.site) {
+		return null;
+	}
+
 	const {author, social} = data.site.siteMetadata;
-	const avatar = getImage(data.avatar);
+	const avatar = getImage(data.avatar?.childImageSharp || null);
 
 	return (
 		<Root>
@@ -88,14 +102,10 @@ export default function Bio() {
 			)}
 			<Section>
 				<Area>
-					<Line>
-						由
-						<NameBox href="/about/" title="关于">
-							{author.name}
-						</NameBox>
-						创作
-					</Line>
-					<Line>{author.summary}</Line>
+					<NameBox href="/about/" title="关于">
+						{author.name}
+					</NameBox>
+					<span>{author.summary}</span>
 					<Line>
 						<Twitter id={social.twitter} />
 						<Github id={social.github} />
@@ -104,10 +114,8 @@ export default function Bio() {
 					</Line>
 				</Area>
 				<Area>
-					<Line>
-						<strong>上次更新</strong>
-					</Line>
-					<Line>{data.site.buildTime}</Line>
+					<strong>上次更新</strong>
+					<span>{data.site.buildTime}</span>
 				</Area>
 			</Section>
 		</Root>
