@@ -37,7 +37,7 @@ export default function SEO({
 			<meta name="og:url" content={siteUrl} />
 			<meta name="twitter:image" content={metaImage} />
 			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:creator" content={`@${social?.twitter}`} />
+			<meta name="twitter:creator" content={`@${social.twitter}`} />
 		</React.Fragment>
 	);
 }

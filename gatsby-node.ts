@@ -3,15 +3,6 @@ import path from 'path';
 
 import type {GatsbyNode} from 'gatsby';
 
-type MarkdownData = {
-	blogPosts: {
-		nodes: Queries.MarkdownRemark[];
-	}
-	pages: {
-		nodes: Queries.MarkdownRemark[];
-	}
-}
-
 /* 勿用 @mui/styled-engine-sc
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
 	actions,
@@ -52,6 +43,17 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       			title: String!
 				siteUrl: String!
 				description: String!
+				social: Social!
+				author: Author!
+			}
+			type Social {
+				twitter: String!
+				github: String!
+				pixiv: String!
+			}
+			type Author {
+				name: String!
+				summary: String!
 			}
 
 			type MarkdownRemark implements Node {
@@ -78,8 +80,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
 	const blogTemplate = path.resolve('./src/templates/BlogTemplate.tsx');
 	const pageTemplate = path.resolve('./src/templates/PageTemplate.tsx');
 
-	const result = await graphql<MarkdownData>(`
-		query {
+	const result = await graphql<Queries.PagesDataQuery>(`
+		query PagesData {
 			blogPosts: allMarkdownRemark(
 				filter: {fileAbsolutePath: {regex: "/blogs/"}}
 				sort: {fields: [frontmatter___date], order: ASC}
