@@ -10,7 +10,7 @@ img: "img.jpg"
 
 ## 有用的资料
 
-[$card](https://edward40.com/a-guide-to-building-a-personal-website-with-gatsby)
+[$card](https://edward40.com/posts/a-guide-to-building-a-personal-website-with-gatsby/)
 
 [$card](https://www.gatsbyjs.com/docs/tutorial/)
 
