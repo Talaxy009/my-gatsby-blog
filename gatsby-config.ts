@@ -1,4 +1,6 @@
-module.exports = {
+import type {GatsbyConfig} from 'gatsby';
+
+const config: GatsbyConfig = {
 	siteMetadata: {
 		siteUrl: 'https://www.talaxy.site',
 		title: '雪山深处',
@@ -163,3 +165,5 @@ module.exports = {
 		},
 	],
 };
+
+export default config;
