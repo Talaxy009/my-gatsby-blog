@@ -8,7 +8,7 @@ import {splitArray, getTags} from '../utils/dataUtils';
 
 import type {PageProps} from 'gatsby';
 
-export default function IndexPage({data, path}: PageProps<Queries.PostQuery>) {
+export default function IndexPage({data}: PageProps<Queries.PostQuery>) {
 	const {posts, tagsGroup} = data.allMarkdownRemark;
 	const pageSize = 6;
 
@@ -19,7 +19,7 @@ export default function IndexPage({data, path}: PageProps<Queries.PostQuery>) {
 	const allTags = getTags(tagsGroup);
 
 	return (
-		<Layout path={path}>
+		<Layout isIndex>
 			<Bio />
 			<PostList allPosts={allPosts} allTags={allTags} />
 		</Layout>

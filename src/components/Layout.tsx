@@ -7,7 +7,7 @@ import DarkModeButton from './DarkModeButton';
 import {useSiteMetadata} from '../utils/hooks';
 
 type LayoutProps = {
-	path: string;
+	isIndex?: boolean;
 	children: React.ReactNode;
 };
 
@@ -45,18 +45,12 @@ const Footer = styled.footer`
 	margin: 1rem;
 `;
 
-export default function Layout({path, children}: LayoutProps) {
+export default function Layout({isIndex = false, children}: LayoutProps) {
 	const darkMode = useDarkMode(false);
 	const siteMetadata = useSiteMetadata();
 
 	const rootPath = '/';
 	const {title, author} = siteMetadata;
-	const header =
-		path === rootPath ? (
-			<h1>{title}</h1>
-		) : (
-			<h2 onClick={() => navigate(rootPath)}>{title}</h2>
-		);
 
 	const theme = React.useMemo(
 		() =>
@@ -92,7 +86,11 @@ export default function Layout({path, children}: LayoutProps) {
 		<Root>
 			<ThemeProvider theme={theme}>
 				<Header>
-					{header}
+					{isIndex ? (
+						<h1>{title}</h1>
+					) : (
+						<h2 onClick={() => navigate(rootPath)}>{title}</h2>
+					)}
 					<DarkModeButton mode={darkMode} />
 				</Header>
 				<main>{children}</main>
@@ -103,7 +101,9 @@ export default function Layout({path, children}: LayoutProps) {
 						href="http://beian.miit.gov.cn/">
 						粤 ICP 备 20015580 号
 					</a>
-					<span>© {new Date().getFullYear()} {author?.name}</span>
+					<span>
+						© {new Date().getFullYear()} {author.name}
+					</span>
 					<a
 						target="_blank"
 						rel="noopener noreferrer"

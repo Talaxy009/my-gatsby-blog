@@ -14,10 +14,7 @@ import SEO from '../components/SEO';
 
 import type {HeadProps, PageProps} from 'gatsby';
 
-export default function BlogTemplate({
-	data,
-	path,
-}: PageProps<Queries.BlogDataQuery>) {
+export default function BlogTemplate({data}: PageProps<Queries.BlogDataQuery>) {
 	const modifiedTime = data.file?.modifiedTime;
 	const {post, previous, next} = data;
 
@@ -42,7 +39,7 @@ export default function BlogTemplate({
 	const image = getImage(post.frontmatter.img?.childImageSharp || null);
 
 	return (
-		<Layout path={path}>
+		<Layout>
 			<article>
 				<header>
 					{image && (

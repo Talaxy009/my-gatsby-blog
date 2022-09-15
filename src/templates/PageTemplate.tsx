@@ -7,15 +7,12 @@ import SEO from '../components/SEO';
 
 import type {HeadProps, PageProps} from 'gatsby';
 
-export default function PageTemplate({
-	data,
-	path,
-}: PageProps<Queries.PageDataQuery>) {
+export default function PageTemplate({data}: PageProps<Queries.PageDataQuery>) {
 	if (!data.markdownRemark) return null;
 	const {frontmatter, html, fields} = data.markdownRemark;
 
 	return (
-		<Layout path={path}>
+		<Layout>
 			<article>
 				<header>
 					<H1>{frontmatter.title}</H1>
