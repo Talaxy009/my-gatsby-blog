@@ -1,5 +1,5 @@
 import React from 'react';
-import {navigate} from 'gatsby';
+import {Link} from 'gatsby';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import {GatsbyImage, getImage} from 'gatsby-plugin-image';
@@ -8,17 +8,19 @@ import {formatTime} from '../utils/dataUtils';
 
 type Post = Queries.PostQuery['allMarkdownRemark']['posts'][0]['node'];
 
-const PostItemBody = styled.div`
+const PostItemBody = styled(Link)`
 	width: 100%;
 	display: flex;
+	color: inherit;
 	margin: 1rem 0;
 	overflow: hidden;
 	border-radius: 12px;
+	text-decoration: none;
 	background-color: rgba(150, 180, 180, 0.05);
 	box-shadow: 0 2px 5px rgba(10, 20, 20, 0.2);
 	transition: all 0.6s cubic-bezier(0, 0, 0.4, 1);
-	cursor: pointer;
 	:hover {
+		text-decoration: none;
 		background-color: rgba(150, 180, 180, 0.1);
 		box-shadow: 0 6px 10px rgba(10, 20, 20, 0.2);
 	}
@@ -69,7 +71,7 @@ export default function PostItem({post}: {post: Post}) {
 	const image = getImage(post.frontmatter.img?.childImageSharp || null);
 
 	return (
-		<PostItemBody onClick={() => navigate(post.fields.slug)}>
+		<PostItemBody to={post.fields.slug}>
 			{image ? (
 				<GatsbyImage
 					style={{flex: 1}}
