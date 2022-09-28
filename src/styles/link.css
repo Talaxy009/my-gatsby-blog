@@ -85,6 +85,7 @@
 .link-card-url {
     display: flex;
     margin-top: 6px;
+    align-items: center;
 }
 
 .link-card-favicon {
