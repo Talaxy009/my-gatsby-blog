@@ -62,7 +62,7 @@ const config: GatsbyConfig = {
 							timeout: 50000,
 							puppeteerLaunchArgs: [
 								'--no-first-run',
-								'--proxy-server=yacd.io:7890',
+								'--proxy-server=clash.io:7890',
 							],
 						},
 					},
