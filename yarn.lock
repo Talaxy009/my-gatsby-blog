@@ -8529,9 +8529,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-remark-link-beautify@npm:latest":
-  version: 2.1.0
-  resolution: "gatsby-remark-link-beautify@npm:2.1.0"
+"gatsby-remark-link-beautify@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "gatsby-remark-link-beautify@npm:2.1.1"
   dependencies:
     md5: ^2.3.0
     puppeteer: ^19.1.0
@@ -8539,7 +8539,7 @@ __metadata:
   peerDependencies:
     gatsby-plugin-sharp: ">=4.0.0"
     gatsby-transformer-remark: ">=5.0.0"
-  checksum: 2e3a8801708f28f714d95ac5aadad594812e36625e0cdb6a281f2c096bb45978e7478bafc4123ae32926bb24408228a4ce9ae963973121ce690e8892a02c598b
+  checksum: 6277eb5f7aa36fc954f70bff69bd6a6c8c4ccf1c4e4a32d930686a61ebb8bfbfca7ebd7383898684e813ff5773c71d2713aed5b656bbdcd2f19ba71c0891fda4
   languageName: node
   linkType: hard
 
@@ -8680,9 +8680,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby@npm:4.24.4":
-  version: 4.24.4
-  resolution: "gatsby@npm:4.24.4"
+"gatsby@npm:4.24.5":
+  version: 4.24.5
+  resolution: "gatsby@npm:4.24.5"
   dependencies:
     "@babel/code-frame": ^7.14.0
     "@babel/core": ^7.15.5
@@ -8857,7 +8857,7 @@ __metadata:
       optional: true
   bin:
     gatsby: ./cli.js
-  checksum: e67cf944ff94518bbedc9c8277451d779463e17c3104b6ab587d0ae6f26b71af3aedea73d913d1539c7683143ef8c1f1b71d34fc34e4cfdff7a629a60f2ce241
+  checksum: 9dfe5d8c7308151c815115a842d1a0ff6fa8763f43fc64616ae37b1ce02db531b9e7b5e9bda549b6d188013bb69f67b6a4580e2775e8f5ec9e8df33c590f3109
   languageName: node
   linkType: hard
 
@@ -11916,7 +11916,7 @@ __metadata:
     "@types/react-dom": ^18.0.6
     eslint: latest
     eslint-plugin-react: latest
-    gatsby: 4.24.4
+    gatsby: 4.24.5
     gatsby-plugin-emotion: 7.24.0
     gatsby-plugin-feed: 4.24.0
     gatsby-plugin-google-gtag: 4.24.0
@@ -11928,7 +11928,7 @@ __metadata:
     gatsby-plugin-twitter: 4.24.0
     gatsby-plugin-use-dark-mode: 1.5.0
     gatsby-remark-images: 6.24.0
-    gatsby-remark-link-beautify: latest
+    gatsby-remark-link-beautify: ^2.1.1
     gatsby-remark-prismjs: 6.24.0
     gatsby-source-filesystem: 4.24.0
     gatsby-transformer-remark: 5.24.0
