@@ -1,24 +1,24 @@
 ---
 title: 利用 gatsby-plugin-use-dark-mode 来添加夜间模式功能
 date: '2020-05-01T15:37:09.233Z'
-description: '一直以来，夜间模式都是人类眼睛的好朋友，但却常常被忽视。为了推动 “夜间模式革命”，为人类带去黑暗，特写此文'
+description: '一直以来，夜间模式都是人类眼睛的好朋友，但却常常被忽视。为了推动“夜间模式革命”，为人类带去黑暗，特写此文'
 tags: ['Gatsby', '技术']
 img: 'img.png'
 ---
 
-> 一直以来，夜间模式都是人类眼睛的好朋友，但却常常被忽视。为了推动 “夜间模式革命”，为人类带去黑暗，特写此文。
+> 一直以来，夜间模式都是人类眼睛的好朋友，但却常常被忽视。为了推动“夜间模式革命”，为人类带去黑暗，特写此文。
 
 ## 前言
 
 ### 介绍
 
-看完众大佬们的教程后还是选择了直接上插件，毕竟可以省去很多时间和精力（真香）。下文会介绍如何使用 [gatsby-plugin-use-dark-mode](https://www.gatsbyjs.com/plugins/gatsby-plugin-use-dark-mode/)、[use-dark-mode](https://github.com/donavon/use-dark-mode) 以及 Material UI 的 [Icons](https://mui.com/zh/components/icons/) 和 [Button](https://mui.com/zh/components/buttons/) 来制作一个顶级棒的夜间模式 ( •̀ ω •́ )y
+看完众大佬们的教程后还是选择了直接上插件，毕竟可以省去很多时间和精力（真香）。下文会介绍如何使用 [gatsby-plugin-use-dark-mode](https://www.gatsbyjs.com/plugins/gatsby-plugin-use-dark-mode/)、[use-dark-mode](https://github.com/donavon/use-dark-mode) 以及 [Material-UI](https://mui.com/zh/) 的 Icon 和 Button 组件来制作一个顶级棒的夜间模式 ( •̀ ω •́ )y
 
 ### 各组件的作用
 
-- use-dark-mode：接受调用、提供主要的模式切换；
+- use-dark-mode：接受调用、提供主要的模式切换
 
-- gatsby-plugin-use-dark-mode：注入`noflash.js`来防止刷新时模式切换照成的闪光；
+- gatsby-plugin-use-dark-mode：注入`noflash.js`来防止刷新时白屏
 
 - gatsby-plugin-material-ui：优化 Material UI 在 Gatsby 中的使用
 
