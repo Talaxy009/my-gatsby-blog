@@ -23,7 +23,7 @@
     "@emotion/styled": "11.10.4",
     "@mui/material": "5.10.10",
     "@mui/styled-engine": "5.10.7",
-    "gatsby": "4.24.5",
+    "gatsby": "4.24.7",
     "gatsby-plugin-emotion": "7.24.0",
     "gatsby-plugin-feed": "4.24.0",
     "gatsby-plugin-google-gtag": "4.24.0",
