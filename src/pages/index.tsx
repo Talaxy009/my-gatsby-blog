@@ -34,9 +34,9 @@ export const pageQuery = graphql`
 	query Post {
 		allMarkdownRemark(
 			filter: {fileAbsolutePath: {regex: "/blogs/"}}
-			sort: {fields: [frontmatter___date], order: DESC}
+			sort: {frontmatter: {date: DESC}}
 		) {
-			tagsGroup: group(field: frontmatter___tags) {
+			tagsGroup: group(field: {frontmatter: {tags: SELECT}}) {
 				tag: fieldValue
 				totalCount
 				edges {

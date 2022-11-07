@@ -143,7 +143,7 @@ const config: GatsbyConfig = {
 						{
 					  		allMarkdownRemark(
 								filter: {fileAbsolutePath: {regex: "/blogs/"}}
-								sort: { order: DESC, fields: [frontmatter___date] },
+								sort: {frontmatter: {date: DESC}}
 					  		) {
 								edges {
 									node {

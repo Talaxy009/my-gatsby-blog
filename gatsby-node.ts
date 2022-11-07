@@ -84,7 +84,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 		query PagesData {
 			blogPosts: allMarkdownRemark(
 				filter: {fileAbsolutePath: {regex: "/blogs/"}}
-				sort: {fields: [frontmatter___date], order: ASC}
+				sort: {frontmatter: {date: ASC}}
 				limit: 1000
 			) {
 				nodes {
