@@ -69,7 +69,15 @@ const config: GatsbyConfig = {
 				],
 			},
 		},
-		'gatsby-plugin-sharp',
+		{
+			resolve: `gatsby-plugin-sharp`,
+			options: {
+				defaults: {
+					placeholder: `blurred`,
+					quality: 80,
+				},
+			},
+		},
 		'gatsby-transformer-sharp',
 		'gatsby-plugin-use-dark-mode',
 		{
