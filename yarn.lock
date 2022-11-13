@@ -8137,7 +8137,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-emotion@npm:latest":
+"gatsby-plugin-emotion@npm:^8.0.0":
   version: 8.0.0
   resolution: "gatsby-plugin-emotion@npm:8.0.0"
   dependencies:
@@ -8151,7 +8151,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-feed@npm:latest":
+"gatsby-plugin-feed@npm:^5.0.0":
   version: 5.0.0
   resolution: "gatsby-plugin-feed@npm:5.0.0"
   dependencies:
@@ -8170,7 +8170,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-google-gtag@npm:latest":
+"gatsby-plugin-google-gtag@npm:^5.0.0":
   version: 5.0.0
   resolution: "gatsby-plugin-google-gtag@npm:5.0.0"
   dependencies:
@@ -8184,7 +8184,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-image@npm:latest":
+"gatsby-plugin-image@npm:^3.0.0":
   version: 3.0.0
   resolution: "gatsby-plugin-image@npm:3.0.0"
   dependencies:
@@ -8213,7 +8213,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-manifest@npm:latest":
+"gatsby-plugin-manifest@npm:^5.0.0":
   version: 5.0.0
   resolution: "gatsby-plugin-manifest@npm:5.0.0"
   dependencies:
@@ -8228,7 +8228,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-material-ui@npm:4.1.0":
+"gatsby-plugin-material-ui@npm:^4.1.0":
   version: 4.1.0
   resolution: "gatsby-plugin-material-ui@npm:4.1.0"
   dependencies:
@@ -8263,7 +8263,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-sharp@npm:latest":
+"gatsby-plugin-sharp@npm:^5.0.0":
   version: 5.0.0
   resolution: "gatsby-plugin-sharp@npm:5.0.0"
   dependencies:
@@ -8288,7 +8288,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-sitemap@npm:latest":
+"gatsby-plugin-sitemap@npm:^6.0.0":
   version: 6.0.0
   resolution: "gatsby-plugin-sitemap@npm:6.0.0"
   dependencies:
@@ -8304,7 +8304,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-twitter@npm:latest":
+"gatsby-plugin-twitter@npm:^5.0.0":
   version: 5.0.0
   resolution: "gatsby-plugin-twitter@npm:5.0.0"
   dependencies:
@@ -8332,7 +8332,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-use-dark-mode@npm:1.6.0":
+"gatsby-plugin-use-dark-mode@npm:^1.6.0":
   version: 1.6.0
   resolution: "gatsby-plugin-use-dark-mode@npm:1.6.0"
   dependencies:
@@ -8381,7 +8381,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-remark-images@npm:latest":
+"gatsby-remark-images@npm:^7.0.0":
   version: 7.0.0
   resolution: "gatsby-remark-images@npm:7.0.0"
   dependencies:
@@ -8417,7 +8417,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-remark-prismjs@npm:latest":
+"gatsby-remark-prismjs@npm:^7.0.0":
   version: 7.0.0
   resolution: "gatsby-remark-prismjs@npm:7.0.0"
   dependencies:
@@ -8452,7 +8452,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-source-filesystem@npm:latest":
+"gatsby-source-filesystem@npm:^5.0.0":
   version: 5.0.0
   resolution: "gatsby-source-filesystem@npm:5.0.0"
   dependencies:
@@ -8492,7 +8492,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-transformer-remark@npm:latest":
+"gatsby-transformer-remark@npm:^6.0.0":
   version: 6.0.0
   resolution: "gatsby-transformer-remark@npm:6.0.0"
   dependencies:
@@ -8524,7 +8524,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-transformer-sharp@npm:latest":
+"gatsby-transformer-sharp@npm:^5.0.0":
   version: 5.0.0
   resolution: "gatsby-transformer-sharp@npm:5.0.0"
   dependencies:
@@ -8554,9 +8554,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby@npm:latest":
-  version: 5.0.0
-  resolution: "gatsby@npm:5.0.0"
+"gatsby@npm:^5.0.0":
+  version: 5.0.1
+  resolution: "gatsby@npm:5.0.1"
   dependencies:
     "@babel/code-frame": ^7.14.0
     "@babel/core": ^7.15.5
@@ -8732,7 +8732,7 @@ __metadata:
       optional: true
   bin:
     gatsby: ./cli.js
-  checksum: 5d44177332d95e2608b1159d1823ee97489e26ff3ea3b5c95f678f5e9138b3504899aca897e1dd8b03cddd8cd2b97f2de83597a5e65f8003196c2c919de488ea
+  checksum: 905d2be52de108b0a1478452147a3b9a9df9ae172c40ead931a3686fc9d2aa6c895bef2ab093ed94162c6a6a63e8ee10da0897dc7e26e310fae946b91873bb31
   languageName: node
   linkType: hard
 
@@ -11591,23 +11591,23 @@ __metadata:
     "@types/react-dom": ^18.0.6
     eslint: latest
     eslint-plugin-react: latest
-    gatsby: latest
-    gatsby-plugin-emotion: latest
-    gatsby-plugin-feed: latest
-    gatsby-plugin-google-gtag: latest
-    gatsby-plugin-image: latest
-    gatsby-plugin-manifest: latest
-    gatsby-plugin-material-ui: 4.1.0
-    gatsby-plugin-sharp: latest
-    gatsby-plugin-sitemap: latest
-    gatsby-plugin-twitter: latest
-    gatsby-plugin-use-dark-mode: 1.6.0
-    gatsby-remark-images: latest
+    gatsby: ^5.0.0
+    gatsby-plugin-emotion: ^8.0.0
+    gatsby-plugin-feed: ^5.0.0
+    gatsby-plugin-google-gtag: ^5.0.0
+    gatsby-plugin-image: ^3.0.0
+    gatsby-plugin-manifest: ^5.0.0
+    gatsby-plugin-material-ui: ^4.1.0
+    gatsby-plugin-sharp: ^5.0.0
+    gatsby-plugin-sitemap: ^6.0.0
+    gatsby-plugin-twitter: ^5.0.0
+    gatsby-plugin-use-dark-mode: ^1.6.0
+    gatsby-remark-images: ^7.0.0
     gatsby-remark-link-beautify: latest
-    gatsby-remark-prismjs: latest
-    gatsby-source-filesystem: latest
-    gatsby-transformer-remark: latest
-    gatsby-transformer-sharp: latest
+    gatsby-remark-prismjs: ^7.0.0
+    gatsby-source-filesystem: ^5.0.0
+    gatsby-transformer-remark: ^6.0.0
+    gatsby-transformer-sharp: ^5.0.0
     nprogress: 0.2.0
     prismjs: 1.29.0
     react: 18.2.0
