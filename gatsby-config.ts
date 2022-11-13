@@ -60,10 +60,12 @@ const config: GatsbyConfig = {
 						options: {
 							screenshotQuality: 90,
 							timeout: 50000,
-							puppeteerLaunchArgs: [
-								'--no-first-run',
-								'--proxy-server=clash.io:7890',
-							],
+							puppeteerLaunchArgs: process.env.GATSBY_CLOUD
+								? ['--no-first-run']
+								: [
+										'--no-first-run',
+										'--proxy-server=clash.io:7890',
+								  ],
 						},
 					},
 				],
