@@ -19,10 +19,10 @@
     "dlx": "yarn dlx @yarnpkg/sdks vscode"
   },
   "dependencies": {
-    "@emotion/react": "11.10.4",
-    "@emotion/styled": "11.10.4",
-    "@mui/material": "5.10.10",
-    "@mui/styled-engine": "5.10.7",
+    "@emotion/react": "11.10.5",
+    "@emotion/styled": "11.10.5",
+    "@mui/material": "5.10.13",
+    "@mui/styled-engine": "5.10.8",
     "gatsby": "latest",
     "gatsby-plugin-emotion": "latest",
     "gatsby-plugin-feed": "latest",
@@ -33,7 +33,7 @@
     "gatsby-plugin-sharp": "latest",
     "gatsby-plugin-sitemap": "latest",
     "gatsby-plugin-twitter": "latest",
-    "gatsby-plugin-use-dark-mode": "1.5.0",
+    "gatsby-plugin-use-dark-mode": "1.6.0",
     "gatsby-remark-images": "latest",
     "gatsby-remark-link-beautify": "latest",
     "gatsby-remark-prismjs": "latest",
