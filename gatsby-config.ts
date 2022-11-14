@@ -60,7 +60,7 @@ const config: GatsbyConfig = {
 						options: {
 							screenshotQuality: 90,
 							timeout: 50000,
-							puppeteerLaunchArgs: process.env.GATSBY_CLOUD
+							puppeteerLaunchArgs: process.env.CI
 								? ['--no-first-run']
 								: [
 										'--no-first-run',

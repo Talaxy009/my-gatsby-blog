@@ -7,6 +7,8 @@
   我的博客
 </h1>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1ed8533f-3036-495f-9492-303beab16c85/deploy-status)](https://app.netlify.com/sites/talaxy-site/deploys)
+
 由 [gatsby](https://www.gatsbyjs.com/) 强力驱动，排版基本上源自旧的的 [博客](https://github.com/Talaxy009/My-blog)
 
 ## 目录
