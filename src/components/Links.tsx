@@ -63,7 +63,7 @@ export function Pixiv({id = ''}) {
 
 export function Link() {
 	return (
-		<Target href="./friends" title="友链">
+		<Target href="/friends" title="友链">
 			<Svg id="fl" viewBox="0 0 512 512">
 				<path
 					fill="none"
