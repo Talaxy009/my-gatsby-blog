@@ -69,3 +69,4 @@ img: "img.jpg"
 - 2022/08/17——将源码迁移至 TypeScript 并启用 graphqlTypegen
 - 2022/11/08——更新至 Gatsby 5
 - 2022/11/14——抛弃 VPS 并投入 Netlify 的怀抱
+- 2022/11/19——使用 GitHub Actions 进行构建并部署至 Netlify
