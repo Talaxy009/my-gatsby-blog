@@ -29,15 +29,16 @@ export default function SEO({
 		<React.Fragment>
 			<title>{metaTitle}</title>
 			<meta name="description" content={metaDescription} />
-			<meta name="og:title" content={metaTitle} />
-			<meta name="og:site_name" content={siteName} />
-			<meta name="og:description" content={metaDescription} />
-			<meta name="og:image" content={metaImage} />
-			<meta name="og:type" content="website" />
-			<meta name="og:url" content={siteUrl} />
+			<meta property="og:title" content={metaTitle} />
+			<meta property="og:site_name" content={siteName} />
+			<meta property="og:description" content={metaDescription} />
+			<meta property="og:image" content={metaImage} />
+			<meta property="og:type" content="website" />
+			<meta property="og:url" content={siteUrl} />
 			<meta name="twitter:image" content={metaImage} />
 			<meta name="twitter:card" content="summary_large_image" />
 			<meta name="twitter:creator" content={`@${social.twitter}`} />
+			<meta name="twitter:description" content={metaDescription} />
 		</React.Fragment>
 	);
 }
