@@ -37,13 +37,13 @@ const Area = styled.div`
 	display: flex;
 	margin-left: 1rem;
 	flex-direction: column;
+	gap: 4px;
 `;
 
-const Line = styled.div`
+const LinkList = styled.nav`
 	display: flex;
 	flex-direction: row;
-	align-items: center;
-	margin-top: 4px;
+	gap: 8px;
 `;
 
 const NameBox = styled.a`
@@ -55,7 +55,10 @@ export default function Bio() {
 		query BioData {
 			avatar: file(relativePath: {regex: "/profile.png/"}) {
 				childImageSharp {
-					gatsbyImageData(layout: FIXED)
+					gatsbyImageData(
+						width: 100
+						layout: FIXED
+					)
 				}
 			}
 			site {
@@ -106,12 +109,12 @@ export default function Bio() {
 						{author.name}
 					</NameBox>
 					<span>{author.summary}</span>
-					<Line>
+					<LinkList>
 						<Twitter id={social.twitter} />
 						<Github id={social.github} />
 						<Pixiv id={social.pixiv} />
 						<Link />
-					</Line>
+					</LinkList>
 				</Area>
 				<Area>
 					<strong>上次更新</strong>
