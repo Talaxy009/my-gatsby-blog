@@ -58,8 +58,9 @@ const config: GatsbyConfig = {
 					{
 						resolve: 'gatsby-remark-link-beautify',
 						options: {
-							screenshotQuality: 90,
 							timeout: 50000,
+							showFavicon: false,
+							screenshotQuality: 90,
 							puppeteerLaunchArgs: process.env.CI
 								? ['--no-first-run']
 								: [
