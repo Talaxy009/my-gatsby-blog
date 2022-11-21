@@ -118,7 +118,7 @@ export const pageQuery = graphql`
 				description
 				img {
 					childImageSharp {
-						gatsbyImageData(width: 1200)
+						gatsbyImageData(width: 800)
 					}
 				}
 			}
@@ -131,7 +131,7 @@ export const pageQuery = graphql`
 				title
 				img {
 					childImageSharp {
-						gatsbyImageData(width: 600)
+						gatsbyImageData(width: 400)
 					}
 				}
 			}
@@ -144,7 +144,7 @@ export const pageQuery = graphql`
 				title
 				img {
 					childImageSharp {
-						gatsbyImageData(width: 600)
+						gatsbyImageData(width: 400)
 					}
 				}
 			}

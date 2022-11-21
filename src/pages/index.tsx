@@ -52,7 +52,7 @@ export const pageQuery = graphql`
 							description
 							img {
 								childImageSharp {
-									gatsbyImageData(width: 600)
+									gatsbyImageData(width: 400)
 								}
 							}
 						}
@@ -72,7 +72,7 @@ export const pageQuery = graphql`
 						description
 						img {
 							childImageSharp {
-								gatsbyImageData(width: 600)
+								gatsbyImageData(width: 400)
 							}
 						}
 					}
