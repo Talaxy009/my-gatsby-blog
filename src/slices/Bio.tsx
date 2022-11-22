@@ -3,7 +3,7 @@ import Skeleton from '@mui/material/Skeleton';
 import {useStaticQuery, graphql} from 'gatsby';
 import {GatsbyImage, getImage} from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
-import {Twitter, Github, Pixiv, Link} from './Links';
+import {Twitter, Github, Pixiv, Link} from '../components/Links';
 
 const Root = styled.div`
 	display: flex;

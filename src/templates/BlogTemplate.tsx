@@ -1,5 +1,5 @@
 import React from 'react';
-import {graphql} from 'gatsby';
+import {Slice, graphql} from 'gatsby';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
@@ -9,7 +9,6 @@ import {H1, P, Hr, Section, Pagination} from '../components/Typography';
 import PostNavigation from '../components/PostNavigation';
 import Layout from '../components/Layout';
 import Valine from '../components/Valine';
-import Bio from '../components/Bio';
 import SEO from '../components/SEO';
 
 import type {HeadProps, PageProps} from 'gatsby';
@@ -73,7 +72,7 @@ export default function BlogTemplate({data}: PageProps<Queries.BlogDataQuery>) {
 				)}
 				<Hr />
 				<footer>
-					<Bio />
+					<Slice alias="bio" />
 				</footer>
 			</article>
 			<Pagination>

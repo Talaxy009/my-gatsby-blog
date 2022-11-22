@@ -1,8 +1,7 @@
 import React from 'react';
-import {graphql} from 'gatsby';
+import {Slice, graphql} from 'gatsby';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
-import Bio from '../components/Bio';
 import SEO from '../components/SEO';
 import {splitArray, getTags} from '../utils/dataUtils';
 
@@ -20,7 +19,7 @@ export default function IndexPage({data}: PageProps<Queries.PostQuery>) {
 
 	return (
 		<Layout isIndex>
-			<Bio />
+			<Slice alias="bio" />
 			<PostList allPosts={allPosts} allTags={allTags} />
 		</Layout>
 	);
