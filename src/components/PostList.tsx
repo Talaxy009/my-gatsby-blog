@@ -78,15 +78,16 @@ export default function PostList({allPosts, allTags}: Props) {
 				variant="outlined"
 				aria-haspopup="true"
 				aria-controls="tag-menu"
-				aria-expanded={tagMenu.anchorEl !== null ? 'true' : undefined}
+				aria-expanded={tagMenu.anchorEl !== null ? 'true' : 'false'}
 				onClick={handleClickMenuButton}>
 				{allTags[tagMenu.index]}
 			</Button>
 			<Menu
+				keepMounted
 				id="tag-menu"
+				onClose={handleClose}
 				anchorEl={tagMenu.anchorEl}
 				open={tagMenu.anchorEl !== null}
-				onClose={handleClose}
 				MenuListProps={{
 					'aria-labelledby': 'menu-button',
 				}}>
