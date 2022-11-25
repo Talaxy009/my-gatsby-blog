@@ -61,6 +61,7 @@ const config: GatsbyConfig = {
 							timeout: 50000,
 							showFavicon: false,
 							screenshotQuality: 90,
+							enableLinkPreview: true,
 							puppeteerLaunchArgs: process.env.CI
 								? ['--no-first-run']
 								: [
