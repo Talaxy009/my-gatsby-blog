@@ -8353,6 +8353,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-valine-comment@npm:latest":
+  version: 1.0.0
+  resolution: "gatsby-plugin-valine-comment@npm:1.0.0"
+  dependencies:
+    valine: ^1.5.1
+  peerDependencies:
+    react: ">=16.8"
+  checksum: 71e39954f88d235faa74ce92bb2df6bc7e1e83d1e60e5e4f4f19964c077fcf3b82fab435b760d7cb9094bac8b3ae6bf1088948b4c584f0de3f3cff7f445fa085
+  languageName: node
+  linkType: hard
+
 "gatsby-react-router-scroll@npm:^6.1.0":
   version: 6.1.0
   resolution: "gatsby-react-router-scroll@npm:6.1.0"
@@ -11584,6 +11595,7 @@ __metadata:
     gatsby-plugin-sitemap: 6.1.0
     gatsby-plugin-twitter: 5.1.0
     gatsby-plugin-use-dark-mode: ^1.6.0
+    gatsby-plugin-valine-comment: latest
     gatsby-remark-images: 7.1.0
     gatsby-remark-link-beautify: latest
     gatsby-remark-prismjs: 7.1.0
@@ -11597,7 +11609,6 @@ __metadata:
     recoil: 0.7.6
     typescript: ~4.7.4
     use-dark-mode: 2.3.1
-    valine: 1.5.1
   languageName: unknown
   linkType: soft
 
@@ -15715,7 +15726,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"valine@npm:1.5.1":
+"valine@npm:^1.5.1":
   version: 1.5.1
   resolution: "valine@npm:1.5.1"
   dependencies:
