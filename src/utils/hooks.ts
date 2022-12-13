@@ -33,6 +33,7 @@ export function useSiteMetadata(): Queries.SiteMetadata {
 						twitter
 						github
 						pixiv
+						youtube
 					}
 				}
 			}

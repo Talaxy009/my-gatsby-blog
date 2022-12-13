@@ -2709,24 +2709,28 @@ type Social = {
   readonly github: Scalars['String'];
   readonly pixiv: Scalars['String'];
   readonly twitter: Scalars['String'];
+  readonly youtube: Maybe<Scalars['String']>;
 };
 
 type SocialFieldSelector = {
   readonly github: InputMaybe<FieldSelectorEnum>;
   readonly pixiv: InputMaybe<FieldSelectorEnum>;
   readonly twitter: InputMaybe<FieldSelectorEnum>;
+  readonly youtube: InputMaybe<FieldSelectorEnum>;
 };
 
 type SocialFilterInput = {
   readonly github: InputMaybe<StringQueryOperatorInput>;
   readonly pixiv: InputMaybe<StringQueryOperatorInput>;
   readonly twitter: InputMaybe<StringQueryOperatorInput>;
+  readonly youtube: InputMaybe<StringQueryOperatorInput>;
 };
 
 type SocialSortInput = {
   readonly github: InputMaybe<SortOrderEnum>;
   readonly pixiv: InputMaybe<SortOrderEnum>;
   readonly twitter: InputMaybe<SortOrderEnum>;
+  readonly youtube: InputMaybe<SortOrderEnum>;
 };
 
 type SortOrderEnum =

@@ -13,6 +13,7 @@ const config: GatsbyConfig = {
 			twitter: 'Taozc009',
 			github: 'Talaxy009',
 			pixiv: '009ba1',
+			youtube: 'taozc009'
 		},
 	},
 	graphqlTypegen: true,
@@ -70,7 +71,7 @@ const config: GatsbyConfig = {
 							timeout: 50000,
 							showFavicon: false,
 							screenshotQuality: 90,
-							enableLinkPreview: true,
+							enableLinkPreview: Boolean(process.env.CI),
 							puppeteerLaunchArgs: process.env.CI
 								? ['--no-first-run']
 								: [
