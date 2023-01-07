@@ -2300,21 +2300,25 @@ type SiteFunctionSortInput = {
 };
 
 type SiteGraphqlTypegen = {
+  readonly documentSearchPaths: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly generateOnBuild: Maybe<Scalars['Boolean']>;
   readonly typesOutputPath: Maybe<Scalars['String']>;
 };
 
 type SiteGraphqlTypegenFieldSelector = {
+  readonly documentSearchPaths: InputMaybe<FieldSelectorEnum>;
   readonly generateOnBuild: InputMaybe<FieldSelectorEnum>;
   readonly typesOutputPath: InputMaybe<FieldSelectorEnum>;
 };
 
 type SiteGraphqlTypegenFilterInput = {
+  readonly documentSearchPaths: InputMaybe<StringQueryOperatorInput>;
   readonly generateOnBuild: InputMaybe<BooleanQueryOperatorInput>;
   readonly typesOutputPath: InputMaybe<StringQueryOperatorInput>;
 };
 
 type SiteGraphqlTypegenSortInput = {
+  readonly documentSearchPaths: InputMaybe<SortOrderEnum>;
   readonly generateOnBuild: InputMaybe<SortOrderEnum>;
   readonly typesOutputPath: InputMaybe<SortOrderEnum>;
 };
@@ -2762,7 +2766,7 @@ type WebPOptions = {
 type BioDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type BioDataQuery = { readonly avatar: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly site: { readonly buildTime: string | null, readonly siteMetadata: { readonly author: { readonly name: string, readonly summary: string }, readonly social: { readonly twitter: string, readonly github: string, readonly pixiv: string } } } | null };
+type BioDataQuery = { readonly avatar: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly site: { readonly buildTime: string | null, readonly siteMetadata: { readonly author: { readonly name: string, readonly summary: string }, readonly social: { readonly twitter: string, readonly github: string, readonly pixiv: string, readonly youtube: string | null } } } | null };
 
 type BlogDataQueryVariables = Exact<{
   id: Scalars['String'];
