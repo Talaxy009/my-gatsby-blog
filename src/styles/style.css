@@ -23,6 +23,10 @@ article img {
     max-width: 100%;
 }
 
+.twitter-tweet {
+    margin: 10px auto;
+}
+
 a {
     color: #009ba1;
     box-shadow: none;
