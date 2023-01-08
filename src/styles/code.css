@@ -4,170 +4,170 @@
  */
 
 @font-face {
-    font-family: 'JetBrains Mono';
-    src: url('../assets/fonts/JetBrainsMono-Regular.woff2') format('woff2'),
-        url('../assets/fonts/JetBrainsMono-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'JetBrains Mono';
+	src: url('../assets/fonts/JetBrainsMono-Regular.woff2') format('woff2'),
+		url('../assets/fonts/JetBrainsMono-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
-code[class*="language-"],
-pre[class*="language-"] {
-    color: #ccc;
-    background: none;
-    font-family: JetBrains Mono, Consolas, monospace;
-    font-size: 1em;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
-    line-height: 1.5;
+code[class*='language-'],
+pre[class*='language-'] {
+	color: #ccc;
+	background: none;
+	font-family: JetBrains Mono, Consolas, monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
 
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
 
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
 }
 
 /* Code blocks */
 .gatsby-highlight {
-    margin-bottom: 1.75rem;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    border-radius: 10px;
-    background: #282828;
-    -webkit-overflow-scrolling: touch;
-    position: relative;
-    overflow: auto;
+	margin-bottom: 1.75rem;
+	margin-left: -1rem;
+	margin-right: -1rem;
+	border-radius: 10px;
+	background: #282828;
+	-webkit-overflow-scrolling: touch;
+	position: relative;
+	overflow: auto;
 }
 
 @media (max-width: 580px) {
-    .gatsby-highlight {
-        border-radius: 0;
-    }
+	.gatsby-highlight {
+		border-radius: 0;
+	}
 }
 
-pre[class*="language-"] {
-    padding: 1.75em 1.25em 1.25em 1.25em;
-    margin-top: 0;
-    margin-bottom: .5em;
-    overflow: auto;
+pre[class*='language-'] {
+	padding: 1.75em 1.25em 1.25em 1.25em;
+	margin-top: 0;
+	margin-bottom: 0.5em;
+	overflow: auto;
 }
 
-:not(pre)>code[class*="language-"],
-pre[class*="language-"] {
-    background: #282828;
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+	background: #282828;
 }
 
 .gatsby-highlight::before {
-    font-family: JetBrains Mono, Consolas, monospace;
-    border-radius: 0px 0px 4px 4px;
-    padding: 0.25rem 0.5rem;
-    background: #d9d7e0;
-    position: absolute;
-    text-transform: uppercase;
-    letter-spacing: 0.075em;
-    text-align: right;
-    font-size: 0.9rem;
-    color: #232129;
-    line-height: 1;
-    right: 2rem;
-    top: 0px;
+	font-family: JetBrains Mono, Consolas, monospace;
+	border-radius: 0px 0px 4px 4px;
+	padding: 0.25rem 0.5rem;
+	background: #d9d7e0;
+	position: absolute;
+	text-transform: uppercase;
+	letter-spacing: 0.075em;
+	text-align: right;
+	font-size: 0.9rem;
+	color: #232129;
+	line-height: 1;
+	right: 2rem;
+	top: 0px;
 }
 
-div[data-language="html"]::before {
-    content: "html";
-    background: #005A9C;
-    color: #FFFFFF;
+div[data-language='html']::before {
+	content: 'html';
+	background: #005a9c;
+	color: #ffffff;
 }
 
-div[data-language="js"]::before {
-    content: "js";
-    background: #F7DF1E;
+div[data-language='js']::before {
+	content: 'js';
+	background: #f7df1e;
 }
 
-div[data-language="ts"]::before {
-    content: "ts";
-    background: #294E80;
-    color: #FFFFFF;
+div[data-language='ts']::before {
+	content: 'ts';
+	background: #294e80;
+	color: #ffffff;
 }
 
-div[data-language="jsx"]::before {
-    content: "jsx";
-    background: #61DAFB;
+div[data-language='jsx']::before {
+	content: 'jsx';
+	background: #61dafb;
 }
 
-div[data-language="tsx"]::before {
-    content: "tsx";
-    background: #294E80;
-    color: #FFFFFF;
+div[data-language='tsx']::before {
+	content: 'tsx';
+	background: #294e80;
+	color: #ffffff;
 }
 
-div[data-language="css"]::before {
-    content: "css";
-    background: #FF9800;
-    color: #FFFFFF;
+div[data-language='css']::before {
+	content: 'css';
+	background: #ff9800;
+	color: #ffffff;
 }
 
-div[data-language="diff"]::before {
-    content: "diff";
-    background: #E6FFED;
+div[data-language='diff']::before {
+	content: 'diff';
+	background: #e6ffed;
 }
 
-div[data-language="json"]::before,
-div[data-language="json5"]::before {
-    content: "json";
-    background: linen;
+div[data-language='json']::before,
+div[data-language='json5']::before {
+	content: 'json';
+	background: linen;
 }
 
-div[data-language="shell"]::before {
-    content: "shell";
+div[data-language='shell']::before {
+	content: 'shell';
 }
 
-div[data-language="ini"]::before {
-    content: "ini";
-    background: gray;
-    color: #FFFFFF;
+div[data-language='ini']::before {
+	content: 'ini';
+	background: gray;
+	color: #ffffff;
 }
 
 pre::-webkit-scrollbar {
-    width: 8px;
-    height: 8px
+	width: 8px;
+	height: 8px;
 }
 
 pre::-webkit-scrollbar-track {
-    background-color: inherit;
-    border-radius: 8px;
+	background-color: inherit;
+	border-radius: 8px;
 }
 
 pre::-webkit-scrollbar {
-    width: 8px;
-    background-color: inherit;
+	width: 8px;
+	background-color: inherit;
 }
 
 pre::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    background-color: #009ba1;
+	border-radius: 8px;
+	background-color: #009ba1;
 }
 
 pre::-webkit-scrollbar-thumb:hover {
-    background-color: #008ba1;
+	background-color: #008ba1;
 }
 
 /* Inline code */
-:not(pre)>code[class*="language-"] {
-    padding: .1em;
-    border-radius: .3em;
-    white-space: normal;
+:not(pre) > code[class*='language-'] {
+	padding: 0.1em;
+	border-radius: 0.3em;
+	white-space: normal;
 }
 
 .token.doctype .token.doctype-tag {
-	color: #569CD6;
+	color: #569cd6;
 }
 
 .token.doctype .token.name {
@@ -182,7 +182,7 @@ pre::-webkit-scrollbar-thumb:hover {
 .token.punctuation,
 .language-html .language-css .token.punctuation,
 .language-html .language-javascript .token.punctuation {
-	color: #C792EA;
+	color: #c792ea;
 }
 
 .token.property,
@@ -215,7 +215,7 @@ pre::-webkit-scrollbar-thumb:hover {
 }
 
 .token.operator.arrow {
-	color: #569CD6;
+	color: #569cd6;
 }
 
 .token.atrule {
@@ -239,7 +239,7 @@ pre::-webkit-scrollbar-thumb:hover {
 }
 
 .token.keyword {
-	color: #569CD6;
+	color: #569cd6;
 }
 
 .token.keyword.module,

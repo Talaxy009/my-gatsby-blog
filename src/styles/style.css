@@ -1,105 +1,120 @@
 /* html 样式 */
 html::-webkit-scrollbar-track {
-    background-color: inherit;
-    border-radius: 8px;
+	background-color: inherit;
+	border-radius: 8px;
 }
 
 html::-webkit-scrollbar {
-    width: 8px;
-    background-color: inherit;
+	width: 8px;
+	background-color: inherit;
 }
 
 html::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    background-color: #009ba1;
+	border-radius: 8px;
+	background-color: #009ba1;
 }
 
 html::-webkit-scrollbar-thumb:hover {
-    background-color: #008ba1;
+	background-color: #008ba1;
 }
 
 article img {
-    border-radius: 8px;
-    max-width: 100%;
+	border-radius: 8px;
+	max-width: 100%;
 }
 
 .twitter-tweet {
-    margin: 10px auto;
+	margin: 10px auto;
 }
 
 a {
-    color: #009ba1;
-    box-shadow: none;
-    text-decoration: none;
+	color: #009ba1;
+	box-shadow: none;
+	text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 hr {
-    border: none;
-    height: 0.6px;
-    background-color: #333;
+	border: none;
+	height: 0.6px;
+	background-color: #333;
 }
 
 body {
-    font-family:
-        "Helvetica Neue",
-        Helvetica, Arial,
-        "Microsoft Yahei",
-        "Hiragino Sans GB",
-        "Heiti SC",
-        "WenQuanYi Micro Hei",
-        sans-serif;
-    margin: 0;
-    transition: background-color 0.5s ease;
+	font-family: 'Helvetica Neue', Helvetica, Arial, 'Microsoft Yahei',
+		'Hiragino Sans GB', 'Heiti SC', 'WenQuanYi Micro Hei', sans-serif;
+	margin: 0;
+	transition: background-color 0.5s ease;
 }
 
 blockquote {
-    margin-left: -1.75rem;
-    margin-right: 1.75rem;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 1.42188rem;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.75rem;
-    font-size: 1.20112rem;
-    line-height: 1.75rem;
-    color: hsla(0, 0%, 0%, 0.59);
-    font-style: italic;
-    border-left: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
+	margin-left: -1.75rem;
+	margin-right: 1.75rem;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-left: 1.42188rem;
+	padding-right: 0;
+	padding-top: 0;
+	margin-bottom: 1.75rem;
+	font-size: 1.20112rem;
+	line-height: 1.75rem;
+	color: hsla(0, 0%, 0%, 0.59);
+	font-style: italic;
+	border-left: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
+}
+
+table {
+	background-color: rgba(150, 180, 180, 0.05);
+	border-collapse: collapse;
+	border-spacing: 0px;
+	border-radius: 8px;
+	overflow: hidden;
+    width: 100%;
+}
+
+tbody tr {
+	border-top: 1px solid #eee;
+}
+
+td:nth-child(2n) {
+	background-color: rgba(150, 180, 180, 0.1);
+}
+
+th, td {
+	padding: 8px;
 }
 
 /* 夜间模式样式 */
 body.light-mode {
-    background-color: #fff;
-    color: #333;
+	background-color: #fff;
+	color: #333;
 }
 
 body.dark-mode {
-    background-color: #212121;
-    color: #999;
+	background-color: #212121;
+	color: #999;
 }
 
 .dark-mode hr {
-    background-color: #999;
+	background-color: #999;
 }
 
 .dark-mode blockquote {
-    color: #999;
-    border-left: 0.32813rem solid #999;
+	color: #999;
+	border-left: 0.32813rem solid #999;
 }
 
 .dark-mode #gh path {
-    fill: #fff;
+	fill: #fff;
 }
 
 .dark-mode #sun-icon {
-    display: none;
+	display: none;
 }
 
 .light-mode #moon-icon {
-    display: none;
+	display: none;
 }
