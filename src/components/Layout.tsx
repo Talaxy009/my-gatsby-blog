@@ -95,12 +95,6 @@ export default function Layout({isIndex = false, children}: LayoutProps) {
 				</Header>
 				<main>{children}</main>
 				<Footer>
-					<a
-						target="_blank"
-						rel="noopener noreferrer"
-						href="http://beian.miit.gov.cn/">
-						粤 ICP 备 20015580 号
-					</a>
 					<span>
 						© {new Date().getFullYear()} {author.name}
 					</span>
