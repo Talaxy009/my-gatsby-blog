@@ -47,6 +47,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
 				author: Author!
 			}
 			type Social {
+				youtube: String!
 				twitter: String!
 				github: String!
 				pixiv: String!
