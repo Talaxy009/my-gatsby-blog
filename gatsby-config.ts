@@ -97,34 +97,26 @@ const config: GatsbyConfig = {
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
-				name: 'images',
-				path: './src/assets/images/',
+				name: 'assets',
+				path: './src/assets/',
+				fastHash: true,
 			},
-			__key: 'images',
 		},
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				name: 'pages',
 				path: './src/pages/',
+				fastHash: true,
 			},
-			__key: 'pages',
 		},
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
-				name: 'blogs',
-				path: './content/blogs/',
+				name: 'content',
+				path: './content/',
+				fastHash: true,
 			},
-			__key: 'blogs',
-		},
-		{
-			resolve: 'gatsby-source-filesystem',
-			options: {
-				name: 'mdPages',
-				path: './content/pages/',
-			},
-			__key: 'mdPages',
 		},
 		{
 			resolve: 'gatsby-plugin-feed',
