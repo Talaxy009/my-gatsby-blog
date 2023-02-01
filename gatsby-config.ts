@@ -113,8 +113,16 @@ const config: GatsbyConfig = {
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
-				name: 'content',
-				path: './content/',
+				name: 'blogs',
+				path: './content/blogs/',
+				fastHash: true,
+			},
+		},
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: 'mdPages',
+				path: './content/pages/',
 				fastHash: true,
 			},
 		},
