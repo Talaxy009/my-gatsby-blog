@@ -52,6 +52,7 @@ const config: GatsbyConfig = {
 				appKey: 'uTK9cTmOLI8pQ7WSGGmKMP2K',
 				placeholder: '你知道吗？Home 键可以把光标放到行首诶！',
 				pageSize: 5,
+				pure: true,
 			},
 		},
 		{
