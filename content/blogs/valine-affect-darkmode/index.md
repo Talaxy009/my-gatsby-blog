@@ -26,15 +26,15 @@ use-dark-mode 是一个为站点提供夜间模式的 React 组件，夜间模�
 
 先梳理一下目前的事件脉络：
 
--   进行评论
--   ???
--   重新加载网页
--   夜间模式插件读取到 `undefined` 并直接调用 `JSON.parse` 导致网站崩溃
+- 进行评论
+- ???
+- 重新加载网页
+- 夜间模式插件读取到 `undefined` 并直接调用 `JSON.parse` 导致网站崩溃
 
 问号部分究竟发生了什么？于是我又把目光看向了评论区组件：打开开发者模式的应用部分可以看到所有保存在网站的数据，随着评论操作的一步步进行 darkMode 的值果然发生了变化（也不用“一步步进行”，第一步就抓到了）
 
 <video controls loop>
-    <source src="/videos/test.mp4" type="video/mp4" />
+    <source src="/videos/storage-test.mp4" type="video/mp4" />
 </video>
 
 一看到这我感觉 Valine 的嫌疑很大，因为 Valine 也会使用本地储存以保存用户输入的昵称、邮箱等。但我在 Valine 的源码中遨游了半个下午也没找到证据，我决定不管了！直接去提 issue！正当我编写复现步骤时，我发现我无法在 Valine 的官网上复现，因为其官网没有夜间模式，所以我先在控制台执行 `localStorage.setItem('darkMode', 'false')` 以模仿夜间模式组件保存 __darkMode__ 值，随后无论我对评论区怎么操作 __darkMode__ 都还是那个 `false`。至此我想 Valine 大抵是清白的了，可我还是没想通为什么在我的网站上会出问题。
