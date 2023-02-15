@@ -62,7 +62,7 @@ const config: GatsbyConfig = {
 					{
 						resolve: 'gatsby-remark-images',
 						options: {
-							maxWidth: 700,
+							maxWidth: 800,
 						},
 					},
 					'gatsby-remark-prismjs',

@@ -87,6 +87,10 @@ th, td {
 	padding: 8px;
 }
 
+video {
+	max-width: 100%;
+}
+
 /* 夜间模式样式 */
 body.light-mode {
 	background-color: #fff;
