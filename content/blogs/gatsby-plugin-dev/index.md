@@ -39,7 +39,9 @@ img: 'img.png'
 
 我把这些工作完成后发布了 1.0.0 版本，这个版本我保留了 gatsby-remark-link-preview 的嵌入卡片功能（因为我正好可以用这来生成友情链接页面），并且支持了自定义卡片的样式，效果如下。
 
-![GitHub 上的效果图](https://raw.githubusercontent.com/Talaxy009/gatsby-remark-link-beautify/26472f1d40ac54183433e88740285eb3c22ce797/assets/example.gif)
+<video controls loop>
+    <source src="/videos/link-beautify-first.mp4" type="video/mp4" />
+</video>
 
 上述工作结束后，完整的流程如下：
 
@@ -342,7 +344,9 @@ module.exports = async () => {
 </span>
 ```
 
-![大功告成](https://raw.githubusercontent.com/Talaxy009/gatsby-remark-link-beautify/main/assets/example.gif)
+<video controls loop>
+    <source src="/videos/link-beautify-final.mp4" type="video/mp4" />
+</video>
 
 大功告成！原本是想发个 3.0 版本的，但是介于这次变动并无改动插件配置，最后还是选择了 2.1 做版本号。
 
