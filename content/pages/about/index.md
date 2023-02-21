@@ -30,9 +30,29 @@ img: ''
 
 ## 尝过的东西
 
-- JavaScript / Node.js
-- React / ReactNatie
+- JavaScript / TypeScript / Node.js
+- React / React Natie
 - styled-components / sass
 - Parcel / Webpack
 - Gatsby
 - Electron
+
+## 我的课余作品
+
+### Moedaily 每日一萌
+
+轻量的 P 站作品推荐 APP，某次失眠夜的突发奇想。我的第一个 APP。
+
+[$card](https://github.com/Talaxy009/Moedaily)
+
+### gatsby-remark-link-beautify 插件
+
+为 Markdown 文件中的链接生成预览图或是基本信息卡的 Gatsby 插件。我的第一个 NPM 包，千里之行的第一步。花了半年时间来打磨，学到了很多东西。
+
+[$card](https://github.com/Talaxy009/gatsby-remark-link-beautify)
+
+### gatsby-plugin-valine-comment 插件
+
+又一个为站点嵌入 Valine 评论系统的 Gatsby 插件。因为社区的另一个已经不再维护了，所以自己又写了一个，拥有更新更轻量的依赖，并融入了我自己的一些想法。
+
+[$card](https://github.com/Talaxy009/gatsby-plugin-valine-comment)
