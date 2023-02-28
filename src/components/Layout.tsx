@@ -56,14 +56,6 @@ export default function Layout({isIndex = false, children}: LayoutProps) {
 		() =>
 			createTheme({
 				components: {
-					MuiPaper: {
-						styleOverrides: {
-							root: {
-								backgroundColor: 'transparent',
-								backdropFilter: 'blur(25px)',
-							},
-						},
-					},
 					MuiAlert: {
 						styleOverrides: {
 							root: {
