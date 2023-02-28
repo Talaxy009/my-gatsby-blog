@@ -1,7 +1,7 @@
 ---
-title: '友链'
+title: '友情链接'
 date: '2022-01-31T14:37:11.231Z'
-description: '朋友们和项目们'
+description: '我的朋友们和值得推荐的项目们'
 tags: []
 img: ''
 ---
