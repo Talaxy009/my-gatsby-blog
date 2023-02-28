@@ -100,7 +100,6 @@ const config: GatsbyConfig = {
 			options: {
 				name: 'assets',
 				path: './src/assets/',
-				fastHash: true,
 			},
 		},
 		{
@@ -108,7 +107,6 @@ const config: GatsbyConfig = {
 			options: {
 				name: 'pages',
 				path: './src/pages/',
-				fastHash: true,
 			},
 		},
 		{
@@ -116,7 +114,6 @@ const config: GatsbyConfig = {
 			options: {
 				name: 'blogs',
 				path: './content/blogs/',
-				fastHash: true,
 			},
 		},
 		{
