@@ -56,3 +56,9 @@ img: ''
 又一个为站点嵌入 Valine 评论系统的 Gatsby 插件。因为社区的另一个已经不再维护了，所以自己又写了一个，拥有更新更轻量的依赖，并融入了我自己的一些想法。
 
 [$card](https://github.com/Talaxy009/gatsby-plugin-valine-comment)
+
+### gatsby-plugin-waline 插件
+
+一个为站点嵌入 Waline 评论系统的 Gatsby 插件。因为换用 Waline 后发现 Gatsby 没有任何相关的插件，本着方便自己和大众的目的就也写了个插件。
+
+[$card](https://github.com/Talaxy009/gatsby-plugin-waline)

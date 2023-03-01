@@ -70,3 +70,4 @@ img: "img.jpg"
 - 2022/11/08——更新至 Gatsby 5
 - 2022/11/14——抛弃 VPS 并投入 Netlify 的怀抱
 - 2022/11/19——使用 GitHub Actions 进行构建并部署至 Netlify
+- 2023/03/01——切换至 Waline 评论系统
