@@ -3,8 +3,8 @@ import {Slice, graphql} from 'gatsby';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
+import Waline from 'gatsby-plugin-waline';
 import {GatsbyImage, getImage, getSrc} from 'gatsby-plugin-image';
-import Valine from 'gatsby-plugin-valine-comment';
 import {formatTime} from '../utils/dataUtils';
 import {H1, P, Hr, Section, Pagination} from '../components/Typography';
 import PostNavigation from '../components/PostNavigation';
@@ -79,7 +79,7 @@ export default function BlogTemplate({data}: PageProps<Queries.BlogDataQuery>) {
 				<PostNavigation post={previous} />
 				<PostNavigation post={next} />
 			</Pagination>
-			<Valine path={post.fields.slug} />
+			<Waline path={post.fields.slug} />
 		</Layout>
 	);
 }

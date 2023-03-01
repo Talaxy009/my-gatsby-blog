@@ -13,7 +13,7 @@ const config: GatsbyConfig = {
 			twitter: 'Taozc009',
 			github: 'Talaxy009',
 			pixiv: '009ba1',
-			youtube: 'taozc009'
+			youtube: 'taozc009',
 		},
 	},
 	graphqlTypegen: true,
@@ -46,13 +46,11 @@ const config: GatsbyConfig = {
 			},
 		},
 		{
-			resolve: 'gatsby-plugin-valine-comment',
+			resolve: 'gatsby-plugin-waline',
 			options: {
-				appId: 'uNA1YWiX0B1smHYzKFAUD9kS-9Nh9j0Va',
-				appKey: 'uTK9cTmOLI8pQ7WSGGmKMP2K',
-				placeholder: '你知道吗？Home 键可以把光标放到行首诶！',
-				pageSize: 5,
-				pure: true,
+				dark: 'body[class="dark-mode"]',
+				serverURL: 'https://comment.talaxy.site',
+				emoji: ['https://unpkg.com/@waline/emojis@1.1.0/tieba'],
 			},
 		},
 		{

@@ -1,6 +1,6 @@
 import React from 'react';
 import {graphql} from 'gatsby';
-import Valine from 'gatsby-plugin-valine-comment';
+import Waline from 'gatsby-plugin-waline';
 import {H1, P, Hr, Section} from '../components/Typography';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
@@ -21,7 +21,7 @@ export default function PageTemplate({data}: PageProps<Queries.PageDataQuery>) {
 				<Section dangerouslySetInnerHTML={{__html: html || ''}} />
 				<Hr />
 			</article>
-			<Valine path={fields.slug || ''} />
+			<Waline path={fields.slug} />
 		</Layout>
 	);
 }

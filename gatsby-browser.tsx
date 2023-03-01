@@ -1,6 +1,7 @@
 import NProgress from 'nprogress';
 import GatsbyRecoil from './src/components/GatsbyRecoil';
-import './src/styles/valine.css';
+
+import '@waline/client/dist/waline.css';
 import './src/styles/style.css';
 import './src/styles/code.css';
 import './src/styles/link.css';
