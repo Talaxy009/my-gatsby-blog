@@ -9,6 +9,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Restore file timestamps
+        run: git ls-files | while read file; do touch -d $(git log -1 --format="@%ct" "$file") "$file"; done
 
       - name: Install fonts
         uses: awalsh128/cache-apt-pkgs-action@latest
