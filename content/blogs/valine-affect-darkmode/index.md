@@ -2,7 +2,7 @@
 title: Valine 和 use-dark-mode 不小心把家拆了
 date: '2023-02-14T10:27:26.393Z'
 description: '前端奇遇记之发个评论就能搞崩一个网站'
-tags: ['记录']
+tags: ['技术', '记录']
 img: 'img.png'
 ---
 
@@ -162,3 +162,7 @@ use-dark-mode 已经差不多有三年没维护，Github 上堆积了大量 SSR 
 同时我也向 gatsby-plugin-use-dark-mode 提了 issue，毕竟除了这次事件其他人可能也会遇到本地存储被意外改写成不可用值的情况，要是网站就这样崩了是很不稳定的。目前这个问题已经修复了，开发者的反应十分迅速，我也为能贡献一份力而感到开心。
 
 [$card](https://github.com/wKovacs64/gatsby-plugin-use-dark-mode/issues/145)
+
+## 后记（更新于 2023/03/02）
+
+最近把评论迁移到了 Waline，又出现了这个情况，实在受不了！就把 use-dark-mode 赶跑了，自己写了一个实现，果然还是自己的再最适合自己啊，use-dark-mode 的问题都没有再发生了。我的实现思路有点不同：我用 React Context 来作顶层的状态管理，使每个钩子背后变成单纯的上下文变量；同时将监听逻辑放在了 useEffect 下，使监听器在客户端环境下正确挂载；而对本地储存的使用则是一脉相承的，这样可以完美兼容 gatsby-plugin-use-dark-mode。本来想把这个轮子也作为组件发布的，在 NPM 上一看，已经有一大堆以 "react" "dark-mode" "hook" 排列组合为名的包了，还是自己用吧······
