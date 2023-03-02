@@ -1,5 +1,6 @@
 import NProgress from 'nprogress';
 import GatsbyRecoil from './src/components/GatsbyRecoil';
+import PageRoot from './src/components/PageRoot';
 
 import '@waline/client/dist/waline.css';
 import './src/styles/style.css';
@@ -60,3 +61,5 @@ export const onRouteUpdate: GatsbyBrowser['onRouteUpdate'] = () => {
 };
 
 export const wrapRootElement: GatsbyBrowser['wrapRootElement'] = GatsbyRecoil;
+
+export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = PageRoot;

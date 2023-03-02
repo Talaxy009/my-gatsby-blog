@@ -1,10 +1,10 @@
 import React from 'react';
 import {navigate} from 'gatsby';
 import {createTheme, ThemeProvider} from '@mui/material';
-import useDarkMode from 'use-dark-mode';
 import styled from '@emotion/styled';
 import DarkModeButton from './DarkModeButton';
 import {useSiteMetadata} from '../utils/hooks';
+import {useDarkModeValue} from '../utils/darkMode';
 
 type LayoutProps = {
 	isIndex?: boolean;
@@ -46,7 +46,7 @@ const Footer = styled.footer`
 `;
 
 export default function Layout({isIndex = false, children}: LayoutProps) {
-	const darkMode = useDarkMode(false);
+	const darkMode = useDarkModeValue();
 	const siteMetadata = useSiteMetadata();
 
 	const rootPath = '/';
@@ -68,10 +68,10 @@ export default function Layout({isIndex = false, children}: LayoutProps) {
 					primary: {
 						main: '#009ba1',
 					},
-					mode: darkMode.value ? 'dark' : 'light',
+					mode: darkMode ? 'dark' : 'light',
 				},
 			}),
-		[darkMode.value],
+		[darkMode],
 	);
 
 	return (
@@ -83,7 +83,7 @@ export default function Layout({isIndex = false, children}: LayoutProps) {
 					) : (
 						<h2 onClick={() => navigate(rootPath)}>{title}</h2>
 					)}
-					<DarkModeButton mode={darkMode} />
+					<DarkModeButton />
 				</Header>
 				<main>{children}</main>
 				<Footer>
