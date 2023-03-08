@@ -22,8 +22,8 @@
   "dependencies": {
     "@emotion/react": "~11.10.6",
     "@emotion/styled": "~11.10.6",
-    "@mui/material": "~5.11.10",
-    "@mui/styled-engine": "~5.11.9",
+    "@mui/material": "~5.11.11",
+    "@mui/styled-engine": "~5.11.11",
     "gatsby": "~5.7.0",
     "gatsby-plugin-emotion": "~8.7.0",
     "gatsby-plugin-feed": "~5.7.0",
@@ -46,13 +46,13 @@
     "prismjs": "1.29.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "recoil": "0.7.6"
+    "recoil": "0.7.7"
   },
   "devDependencies": {
     "@types/node": "^18.7.5",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
-    "@waline/client": "^2.14.7",
+    "@waline/client": "^2.14.8",
     "eslint": "latest",
     "eslint-plugin-react": "latest",
     "typescript": "^4.9.5"
