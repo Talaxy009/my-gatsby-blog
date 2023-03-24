@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from '@mui/material/Menu';
 import Button from '@mui/material/Button';
+import Skeleton from '@mui/material/Skeleton';
 import MenuItem from '@mui/material/MenuItem';
 import Pagination from '@mui/material/Pagination';
 import styled from '@emotion/styled';
@@ -30,6 +31,14 @@ const ListBody = styled.div`
 	align-items: center;
 	margin: 1rem 0;
 	padding: 1rem 0;
+`;
+
+const SkeletonList = styled.div`
+	display: flex;
+	align-items: center;
+	.MuiSkeleton-root {
+		margin: 0 3px;
+	}
 `;
 
 const pageState = atom({
@@ -100,13 +109,27 @@ export default function PostList({allPosts, allTags}: Props) {
 			{allPosts[tagMenu.index][page - 1].map(({node}) => (
 				<PostItem key={node.fields.slug} post={node} />
 			))}
-			{hasMounted && (
+			{hasMounted ? (
 				<Pagination
 					size="large"
 					count={allPosts[tagMenu.index].length}
 					page={page}
 					onChange={handleChangePage}
 				/>
+			) : (
+				// 根据当前页数生成对应骨架数
+				<SkeletonList>
+					<Skeleton variant="circular" width={40} height={40} />
+					{allPosts[0].map((_v, i) => (
+						<Skeleton
+							key={i}
+							width={40}
+							height={40}
+							variant="circular"
+						/>
+					))}
+					<Skeleton variant="circular" width={40} height={40} />
+				</SkeletonList>
 			)}
 		</ListBody>
 	);
