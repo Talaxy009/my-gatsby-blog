@@ -17,23 +17,6 @@ export default function BlogTemplate({data}: PageProps<Queries.BlogDataQuery>) {
 	const modifiedTime = data.file?.modifiedTime;
 	const {post, previous, next} = data;
 
-	React.useEffect(() => {
-		if (window.location.hash) {
-			const checkExist = setInterval(() => {
-				const target = document.getElementById(
-					window.location.hash.split('#')[1],
-				);
-				if (target) {
-					target.scrollIntoView({
-						behavior: 'smooth',
-						block: 'center',
-					});
-					clearInterval(checkExist);
-				}
-			}, 500);
-		}
-	}, []);
-
 	if (!post) return null;
 	const image = getImage(post.frontmatter.img?.childImageSharp || null);
 
