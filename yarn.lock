@@ -2603,6 +2603,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@icons-pack/react-simple-icons@npm:~7.1.1":
+  version: 7.1.1
+  resolution: "@icons-pack/react-simple-icons@npm:7.1.1"
+  peerDependencies:
+    react: ^16.13 || ^17 || ^18
+  checksum: e2ad32a522eb23a4d3d48fc5e3bb15815e4a49e55a3d1455566de800814b1fdcbbb9be94013d397a4b18c8ed30511e4a089296a3a76b88e3a24699fca00dbd7c
+  languageName: node
+  linkType: hard
+
 "@jridgewell/gen-mapping@npm:^0.1.0":
   version: 0.1.1
   resolution: "@jridgewell/gen-mapping@npm:0.1.1"
@@ -11947,6 +11956,7 @@ __metadata:
   dependencies:
     "@emotion/react": ~11.10.6
     "@emotion/styled": ~11.10.6
+    "@icons-pack/react-simple-icons": ~7.1.1
     "@mui/material": ~5.11.13
     "@mui/styled-engine": ~5.11.11
     "@types/node": ^18.15.3

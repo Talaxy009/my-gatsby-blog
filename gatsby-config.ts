@@ -14,6 +14,7 @@ const config: GatsbyConfig = {
 			github: 'Talaxy009',
 			pixiv: '009ba1',
 			youtube: 'taozc009',
+			telegram: 'x009ba1',
 		},
 	},
 	graphqlTypegen: true,

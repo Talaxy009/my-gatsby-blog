@@ -3,7 +3,7 @@ import Skeleton from '@mui/material/Skeleton';
 import {useStaticQuery, graphql} from 'gatsby';
 import {GatsbyImage, getImage} from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
-import {Twitter, Github, Pixiv, YouTube, Link} from '../components/Links';
+import {Twitter, Github, Pixiv, YouTube, Telegram, Link} from '../components/Links';
 
 const Root = styled.div`
 	display: flex;
@@ -73,6 +73,7 @@ export default function Bio() {
 						github
 						pixiv
 						youtube
+						telegram
 					}
 				}
 			}
@@ -115,6 +116,7 @@ export default function Bio() {
 						<Github id={social.github} />
 						<Pixiv id={social.pixiv} />
 						<YouTube id={social.youtube} />
+						<Telegram id={social.telegram} />
 						<Link />
 					</LinkList>
 				</Area>
