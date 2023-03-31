@@ -61,4 +61,7 @@ export const Section = styled.section`
 			color: rgba(128, 128, 128, 0.5);
 		}
 	}
+	a.anchor {
+		vertical-align: middle;
+	}
 `;

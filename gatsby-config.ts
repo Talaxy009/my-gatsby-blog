@@ -65,6 +65,22 @@ const config: GatsbyConfig = {
 							maxWidth: 800,
 						},
 					},
+					{
+						resolve: 'gatsby-remark-autolink-headers',
+						options: {
+							isIconAfterHeader: true,
+							elements: ['h2', 'h3'],
+							icon: `<Svg aria-hidden="true" viewBox="0 0 512 512" width="24" height="24">
+									<path
+										fill="none"
+										stroke-width="48"
+										stroke="#80808080"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M200.66 352H144a96 96 0 010-192h55.41M312.59 160H368a96 96 0 010 192h-56.66M169.07 256h175.86" />
+								</Svg>`,
+						},
+					},
 					'gatsby-remark-prismjs',
 					{
 						resolve: 'gatsby-remark-link-beautify',
