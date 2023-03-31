@@ -8,7 +8,7 @@ import {splitArray, getTags} from '../utils/dataUtils';
 import type {PageProps} from 'gatsby';
 
 export default function IndexPage({data}: PageProps<Queries.PostQuery>) {
-	const {posts, tagsGroup} = data.allMarkdownRemark;
+	const {posts, tagsGroup} = data.allMdx;
 	const pageSize = 6;
 
 	const allPosts = [
@@ -31,8 +31,8 @@ export function Head() {
 
 export const pageQuery = graphql`
 	query Post {
-		allMarkdownRemark(
-			filter: {fileAbsolutePath: {regex: "/blogs/"}}
+		allMdx(
+			filter: {internal: {contentFilePath: {regex: "/blogs/"}}}
 			sort: {frontmatter: {date: DESC}}
 		) {
 			tagsGroup: group(field: {frontmatter: {tags: SELECT}}) {
@@ -42,8 +42,10 @@ export const pageQuery = graphql`
 					node {
 						fields {
 							slug
+							timeToRead {
+								minutes
+							}
 						}
-						timeToRead
 						frontmatter {
 							date(formatString: "YYYY-MM-DD")
 							title
@@ -62,8 +64,10 @@ export const pageQuery = graphql`
 				node {
 					fields {
 						slug
+						timeToRead {
+							minutes
+						}
 					}
-					timeToRead
 					frontmatter {
 						date(formatString: "YYYY-MM-DD")
 						title

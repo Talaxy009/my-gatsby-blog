@@ -7,9 +7,9 @@ import SEO from '../components/SEO';
 
 import type {HeadProps, PageProps} from 'gatsby';
 
-export default function PageTemplate({data}: PageProps<Queries.PageDataQuery>) {
-	if (!data.markdownRemark) return null;
-	const {frontmatter, html, fields} = data.markdownRemark;
+export default function PageTemplate({data, children}: PageProps<Queries.PageDataQuery>) {
+	if (!data.mdx) return null;
+	const {frontmatter, fields} = data.mdx;
 
 	return (
 		<Layout>
@@ -18,7 +18,7 @@ export default function PageTemplate({data}: PageProps<Queries.PageDataQuery>) {
 					<H1>{frontmatter.title}</H1>
 					<P>{frontmatter.description}</P>
 				</header>
-				<Section dangerouslySetInnerHTML={{__html: html || ''}} />
+				<Section>{children}</Section>
 				<Hr />
 			</article>
 			<Waline path={fields.slug} />
@@ -27,8 +27,8 @@ export default function PageTemplate({data}: PageProps<Queries.PageDataQuery>) {
 }
 
 export function Head({data}: HeadProps<Queries.PageDataQuery>) {
-	if (!data.markdownRemark) return null;
-	const {frontmatter} = data.markdownRemark;
+	if (!data.mdx) return null;
+	const {frontmatter} = data.mdx;
 
 	return (
 		<SEO title={frontmatter.title} description={frontmatter.description} />
@@ -37,8 +37,7 @@ export function Head({data}: HeadProps<Queries.PageDataQuery>) {
 
 export const pageQuery = graphql`
 	query PageData($id: String!) {
-		markdownRemark(id: {eq: $id}) {
-			html
+		mdx(id: {eq: $id}) {
 			fields {
 				slug
 			}

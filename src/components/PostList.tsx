@@ -10,7 +10,7 @@ import PostItem from './PostItem';
 import {useHasMounted} from '../utils/hooks';
 
 type Props = {
-	allPosts: Queries.PostQuery['allMarkdownRemark']['posts'][][];
+	allPosts: Queries.PostQuery['allMdx']['posts'][][];
 	allTags: string[];
 };
 

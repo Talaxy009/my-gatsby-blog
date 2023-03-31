@@ -13,7 +13,7 @@ import SEO from '../components/SEO';
 
 import type {HeadProps, PageProps} from 'gatsby';
 
-export default function BlogTemplate({data}: PageProps<Queries.BlogDataQuery>) {
+export default function BlogTemplate({data, children}: PageProps<Queries.BlogDataQuery>) {
 	const modifiedTime = data.file?.modifiedTime;
 	const {post, previous, next} = data;
 
@@ -33,7 +33,7 @@ export default function BlogTemplate({data}: PageProps<Queries.BlogDataQuery>) {
 					<H1>{post.frontmatter.title}</H1>
 					<P>
 						{post.frontmatter.date}
-						{` • ${formatTime(post.timeToRead || 1)}`}
+						{` • ${formatTime(post.fields.timeToRead?.minutes || 1)}`}
 					</P>
 					<Stack direction="row" spacing={1}>
 						{post.frontmatter.tags.map((tag) => (
@@ -46,7 +46,7 @@ export default function BlogTemplate({data}: PageProps<Queries.BlogDataQuery>) {
 						))}
 					</Stack>
 				</header>
-				<Section dangerouslySetInnerHTML={{__html: post.html || ''}} />
+				<Section>{children}</Section>
 				{post.frontmatter.tags.includes('技术') && (
 					<Alert severity="info">
 						本文最后于<strong>{modifiedTime}</strong>
@@ -84,14 +84,15 @@ export function Head({data}: HeadProps<Queries.BlogDataQuery>) {
 
 export const pageQuery = graphql`
 	query BlogData($id: String!, $previousId: String, $nextId: String) {
-		file(childrenMarkdownRemark: {elemMatch: {id: {eq: $id}}}) {
+		file(childrenMdx: {elemMatch: {id: {eq: $id}}}) {
 			modifiedTime(formatString: "YYYY 年 MM 月 DD 日")
 		}
-		post: markdownRemark(id: {eq: $id}) {
-			html
-			timeToRead
+		post: mdx(id: {eq: $id}) {
 			fields {
 				slug
+				timeToRead {
+					minutes
+				}
 			}
 			frontmatter {
 				title
@@ -105,7 +106,7 @@ export const pageQuery = graphql`
 				}
 			}
 		}
-		previous: markdownRemark(id: {eq: $previousId}) {
+		previous: mdx(id: {eq: $previousId}) {
 			fields {
 				slug
 			}
@@ -118,7 +119,7 @@ export const pageQuery = graphql`
 				}
 			}
 		}
-		next: markdownRemark(id: {eq: $nextId}) {
+		next: mdx(id: {eq: $nextId}) {
 			fields {
 				slug
 			}

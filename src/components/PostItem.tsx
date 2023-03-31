@@ -6,7 +6,7 @@ import {GatsbyImage, getImage} from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import {formatTime} from '../utils/dataUtils';
 
-type Post = Queries.PostQuery['allMarkdownRemark']['posts'][0]['node'];
+type Post = Queries.PostQuery['allMdx']['posts'][0]['node'];
 
 const PostItemBody = styled(Link)`
 	width: 100%;
@@ -87,7 +87,7 @@ export default function PostItem({post}: {post: Post}) {
 					<Line>
 						<span>
 							{`${post.frontmatter.date} • ${formatTime(
-								post.timeToRead || 1,
+								post.fields.timeToRead?.minutes || 1,
 							)}`}
 						</span>
 						<Stack direction="row" spacing={1}>
@@ -104,11 +104,7 @@ export default function PostItem({post}: {post: Post}) {
 					</Line>
 				</header>
 				<hr />
-				<Section
-					dangerouslySetInnerHTML={{
-						__html: post.frontmatter.description,
-					}}
-				/>
+				<Section>{post.frontmatter.description}</Section>
 			</PostItemContent>
 		</PostItemBody>
 	);

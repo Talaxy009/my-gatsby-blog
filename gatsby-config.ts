@@ -55,9 +55,10 @@ const config: GatsbyConfig = {
 			},
 		},
 		{
-			resolve: 'gatsby-transformer-remark',
+			resolve: 'gatsby-plugin-mdx',
 			options: {
-				plugins: [
+				extensions: ['.md', '.mdx'],
+				gatsbyRemarkPlugins: [
 					{
 						resolve: 'gatsby-remark-images',
 						options: {
@@ -68,9 +69,12 @@ const config: GatsbyConfig = {
 					{
 						resolve: 'gatsby-remark-link-beautify',
 						options: {
+							delimiter: '$card',
+							browserNumer: 4,
 							timeout: 50000,
 							showFavicon: false,
 							screenshotQuality: 90,
+							error: {title: 'Not Found Site'},
 							enableLinkPreview: Boolean(process.env.CI),
 							puppeteerLaunchArgs: process.env.CI
 								? ['--no-first-run']
@@ -84,10 +88,10 @@ const config: GatsbyConfig = {
 			},
 		},
 		{
-			resolve: `gatsby-plugin-sharp`,
+			resolve: 'gatsby-plugin-sharp',
 			options: {
 				defaults: {
-					placeholder: `blurred`,
+					placeholder: 'blurred',
 					quality: 80,
 				},
 			},
@@ -139,8 +143,8 @@ const config: GatsbyConfig = {
 				}`,
 				feeds: [
 					{
-						serialize: ({query: {site, allMarkdownRemark}}) => {
-							return allMarkdownRemark.edges.map((edge) => {
+						serialize: ({query: {site, allMdx}}) => {
+							return allMdx.edges.map((edge) => {
 								return Object.assign(
 									{},
 									edge.node.frontmatter,
@@ -160,8 +164,8 @@ const config: GatsbyConfig = {
 						},
 						query: `
 						{
-					  		allMarkdownRemark(
-								filter: {fileAbsolutePath: {regex: "/blogs/"}}
+					  		allMdx(
+								filter: {internal: {contentFilePath: {regex: "/blogs/"}}}
 								sort: {frontmatter: {date: DESC}}
 					  		) {
 								edges {
