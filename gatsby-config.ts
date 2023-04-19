@@ -85,12 +85,9 @@ const config: GatsbyConfig = {
 					{
 						resolve: 'gatsby-remark-link-beautify',
 						options: {
-							delimiter: '$card',
-							browserNumer: 4,
 							timeout: 50000,
 							showFavicon: false,
 							screenshotQuality: 90,
-							error: {title: 'Not Found Site'},
 							enableLinkPreview: Boolean(process.env.CI),
 							puppeteerLaunchArgs: process.env.CI
 								? ['--no-first-run']
