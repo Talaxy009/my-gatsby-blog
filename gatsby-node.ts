@@ -1,4 +1,5 @@
 import {createFilePath} from 'gatsby-source-filesystem';
+import readingTime from 'reading-time';
 import path from 'path';
 
 import type {GatsbyNode} from 'gatsby';
@@ -23,13 +24,18 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({
 	actions,
 }) => {
 	const {createNodeField} = actions;
-	if (node.internal.type === 'MarkdownRemark') {
+	if (node.internal.type === 'Mdx') {
 		const slug = createFilePath({node, getNode});
 		createNodeField({
 			node,
 			name: 'slug',
 			value: slug,
 		});
+		createNodeField({
+			node,
+			name: 'timeToRead',
+			value: readingTime(node.body as string)
+		  })
 	}
 };
 
@@ -57,8 +63,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
 				name: String!
 				summary: String!
 			}
-
-			type MarkdownRemark implements Node {
+			type Mdx implements Node {
 				frontmatter: Frontmatter!
 				fields: Fields!
 			}
@@ -92,8 +97,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
 	const result = await graphql<Queries.PagesDataQuery>(`
 		query PagesData {
-			blogPosts: allMarkdownRemark(
-				filter: {fileAbsolutePath: {regex: "/blogs/"}}
+			blogPosts: allMdx(
+				filter: {internal: {contentFilePath: {regex: "/blogs/"}}}
 				sort: {frontmatter: {date: ASC}}
 				limit: 1000
 			) {
@@ -102,16 +107,22 @@ export const createPages: GatsbyNode['createPages'] = async ({
 					fields {
 						slug
 					}
+					internal {
+						contentFilePath
+					}
 				}
 			}
-			pages: allMarkdownRemark(
-				filter: {fileAbsolutePath: {regex: "/pages/"}}
+			pages: allMdx(
+				filter: {internal: {contentFilePath: {regex: "/pages/"}}}
 				limit: 1000
 			) {
 				nodes {
 					id
 					fields {
 						slug
+					}
+					internal {
+						contentFilePath
 					}
 				}
 			}
@@ -132,7 +143,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 		const nextId = index === posts.length - 1 ? null : posts[index + 1].id;
 		createPage({
 			path: post.fields.slug,
-			component: blogTemplate,
+			component: `${blogTemplate}?__contentFilePath=${post.internal.contentFilePath}`,
 			context: {
 				id: post.id,
 				previousId,
@@ -144,7 +155,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 	pages.forEach((page) => {
 		createPage({
 			path: page.fields.slug,
-			component: pageTemplate,
+			component: `${pageTemplate}?__contentFilePath=${page.internal.contentFilePath}`,
 			context: {
 				id: page.id,
 			},

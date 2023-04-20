@@ -4,16 +4,9 @@
  * @returns 包含 emoji 和文字的字符串
  */
 export function formatTime(minutes: number): string {
-	let cups = Math.round(minutes / 5);
-	if (cups > 4) {
-		return `${new Array(Math.round(cups / 4))
-			.fill('🍚')
-			.join('')} 需要 ${minutes} 分钟`;
-	} else {
-		return `${new Array(cups || 1)
-			.fill('🍵')
-			.join('')} 需要 ${minutes} 分钟`;
-	}
+	const bowls = new Array(Math.floor(minutes / 20)).fill('🍚');
+	const cups = new Array(Math.ceil((minutes % 20) / 5)).fill('🍵');
+	return `${bowls.concat(cups).join('')} 需要 ${Math.ceil(minutes)} 分钟`;
 }
 
 /**
@@ -36,7 +29,7 @@ export function splitArray<T>(arr: readonly T[], size: number): T[][] {
  * @returns 包含标签的数组
  */
 export function getTags(
-	tagsGroup: Queries.PostQuery['allMarkdownRemark']['tagsGroup'],
+	tagsGroup: Queries.PostQuery['allMdx']['tagsGroup'],
 ): string[] {
 	const tags = tagsGroup.map((item) => item.tag || '');
 	tags.unshift('全部');

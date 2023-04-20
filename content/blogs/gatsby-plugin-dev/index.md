@@ -39,7 +39,7 @@ img: 'img.png'
 
 我把这些工作完成后发布了 1.0.0 版本，这个版本我保留了 gatsby-remark-link-preview 的嵌入卡片功能（因为我正好可以用这来生成友情链接页面），并且支持了自定义卡片的样式，效果如下。
 
-<video controls autoplay loop>
+<video controls autoPlay loop>
     <source src="/videos/link-beautify-first.mp4" type="video/mp4" />
 </video>
 
@@ -344,7 +344,7 @@ module.exports = async () => {
 </span>
 ```
 
-<video controls autoplay loop>
+<video controls autoPlay loop>
     <source src="/videos/link-beautify-final.mp4" type="video/mp4" />
 </video>
 

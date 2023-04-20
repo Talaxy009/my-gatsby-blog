@@ -33,7 +33,7 @@ use-dark-mode 是一个为站点提供夜间模式的 React 组件，夜间模�
 
 问号部分究竟发生了什么？于是我又把目光看向了评论区组件：打开开发者模式的应用部分可以看到所有保存在网站的数据，随着评论操作的一步步进行 darkMode 的值果然发生了变化（也不用“一步步进行”，第一步就抓到了）
 
-<video controls autoplay loop>
+<video controls autoPlay loop>
     <source src="/videos/storage-test.mp4" type="video/mp4" />
 </video>
 

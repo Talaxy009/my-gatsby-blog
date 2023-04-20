@@ -55,13 +55,30 @@ const config: GatsbyConfig = {
 			},
 		},
 		{
-			resolve: 'gatsby-transformer-remark',
+			resolve: 'gatsby-plugin-mdx',
 			options: {
-				plugins: [
+				extensions: ['.md', '.mdx'],
+				gatsbyRemarkPlugins: [
 					{
 						resolve: 'gatsby-remark-images',
 						options: {
 							maxWidth: 800,
+						},
+					},
+					{
+						resolve: 'gatsby-remark-autolink-headers',
+						options: {
+							isIconAfterHeader: true,
+							elements: ['h2', 'h3'],
+							icon: `<Svg aria-hidden="true" viewBox="0 0 512 512" width="24" height="24">
+									<path
+										fill="none"
+										stroke-width="48"
+										stroke="#80808080"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M200.66 352H144a96 96 0 010-192h55.41M312.59 160H368a96 96 0 010 192h-56.66M169.07 256h175.86" />
+								</Svg>`,
 						},
 					},
 					'gatsby-remark-prismjs',
@@ -84,10 +101,10 @@ const config: GatsbyConfig = {
 			},
 		},
 		{
-			resolve: `gatsby-plugin-sharp`,
+			resolve: 'gatsby-plugin-sharp',
 			options: {
 				defaults: {
-					placeholder: `blurred`,
+					placeholder: 'blurred',
 					quality: 80,
 				},
 			},
@@ -139,8 +156,8 @@ const config: GatsbyConfig = {
 				}`,
 				feeds: [
 					{
-						serialize: ({query: {site, allMarkdownRemark}}) => {
-							return allMarkdownRemark.edges.map((edge) => {
+						serialize: ({query: {site, allMdx}}) => {
+							return allMdx.edges.map((edge) => {
 								return Object.assign(
 									{},
 									edge.node.frontmatter,
@@ -160,8 +177,8 @@ const config: GatsbyConfig = {
 						},
 						query: `
 						{
-					  		allMarkdownRemark(
-								filter: {fileAbsolutePath: {regex: "/blogs/"}}
+					  		allMdx(
+								filter: {internal: {contentFilePath: {regex: "/blogs/"}}}
 								sort: {frontmatter: {date: DESC}}
 					  		) {
 								edges {
