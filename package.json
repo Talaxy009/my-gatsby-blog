@@ -14,7 +14,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "new": "node ./new.js",
-    "link:LA": "yarn link ../gatsby-remark-link-beautify",
+    "link:LB": "yarn link ../gatsby-remark-link-beautify",
     "link:W": "yarn link ../gatsby-plugin-waline",
     "unlink": "yarn unlink -A",
     "dlx": "yarn dlx @yarnpkg/sdks vscode"
