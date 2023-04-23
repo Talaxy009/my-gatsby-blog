@@ -40,7 +40,7 @@ img: 'img.jpg'
 
 14 年的次旗舰显卡放在 22 年还是能用的，性能和 GTX1060 差不多。开学后花了 800 ￥ 买了一个二手的 AKiTiO Node 雷电三拓展坞，终于在学校也能玩 3A 大作了 😭 不枉我当初把预算花在了雷电三上。体验推文：
 
-<blockquote class="twitter-tweet"><p lang="zh" dir="ltr">感觉损耗不大🧐，雷电三似乎能喂得饱 970，好些的卡损耗应该会更大。3DMark 如图，台式的跑分之前的推文里有。<a href="https://t.co/zask4LmvCI">https://t.co/zask4LmvCI</a> <a href="https://t.co/yXLdjD1dPF">pic.twitter.com/yXLdjD1dPF</a></p>&mdash; 鲮鱼罐头009 (@Taozc009) <a href="https://twitter.com/Taozc009/status/1497456977340866560?ref_src=twsrc%5Etfw">February 26, 2022</a></blockquote>
+<blockquote className="twitter-tweet"><p lang="zh" dir="ltr">感觉损耗不大🧐，雷电三似乎能喂得饱 970，好些的卡损耗应该会更大。3DMark 如图，台式的跑分之前的推文里有。<a href="https://t.co/zask4LmvCI">https://t.co/zask4LmvCI</a> <a href="https://t.co/yXLdjD1dPF">pic.twitter.com/yXLdjD1dPF</a></p>&mdash; 鲮鱼罐头 009 (@Taozc009) <a href="https://twitter.com/Taozc009/status/1497456977340866560?ref_src=twsrc%5Etfw">February 26, 2022</a></blockquote>
 
 ### 新笔电
 
@@ -70,7 +70,7 @@ img: 'img.jpg'
 
 一天晚上看到宿舍群里有同学在卖剪线键盘，百十块钱就能买到一把机械键盘，正好家里的旧键盘“坏了”我就心动了。
 
-<blockquote class="twitter-tweet"><p lang="zh" dir="ltr">清洗键盘不小心搞折了，拼回去继续用😌 <a href="https://t.co/T5OX0i5vJG">pic.twitter.com/T5OX0i5vJG</a></p>&mdash; 鲮鱼罐头009 (@Taozc009) <a href="https://twitter.com/Taozc009/status/1562676955874357249?ref_src=twsrc%5Etfw">August 25, 2022</a></blockquote>
+<blockquote className="twitter-tweet"><p lang="zh" dir="ltr">清洗键盘不小心搞折了，拼回去继续用😌 <a href="https://t.co/T5OX0i5vJG">pic.twitter.com/T5OX0i5vJG</a></p>&mdash; 鲮鱼罐头 009 (@Taozc009) <a href="https://twitter.com/Taozc009/status/1562676955874357249?ref_src=twsrc%5Etfw">August 25, 2022</a></blockquote>
 
 目标是 100 ￥ 左右收一把 87 配列的段落轴键盘。宿舍里用的是 RK61，个人也比较偏好青轴。
 
