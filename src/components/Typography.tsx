@@ -18,11 +18,18 @@ export const Hr = styled.hr`
 export const Pagination = styled.nav`
 	width: 100%;
 	display: flex;
+	flex-wrap: wrap;
 	margin-top: 2rem;
 	margin-bottom: 1rem;
 	justify-content: space-between;
 	@media (max-width: 600px) {
 		flex-direction: column;
+	}
+	&:before {
+		content: '接下来不妨看看：';
+		margin: 1rem 0;
+		font-size: 1.4rem;
+		width: 100%;
 	}
 `;
 
@@ -38,7 +45,7 @@ export const Section = styled.section`
 		margin-bottom: 0.8em;
 		::before {
 			margin-right: 0.4em;
-			color: rgba(128, 128, 128, 0.5);
+			color: var(--md-sys-color-outline);
 		}
 	}
 	h2 {
@@ -58,7 +65,7 @@ export const Section = styled.section`
 	li {
 		margin: 2px 0;
 		::marker {
-			color: rgba(128, 128, 128, 0.5);
+			color: var(--md-sys-color-outline);
 		}
 	}
 	a.anchor {

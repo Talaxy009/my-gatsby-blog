@@ -1,13 +1,17 @@
 import React from 'react';
 import {graphql} from 'gatsby';
 import Waline from 'gatsby-plugin-waline';
-import {H1, P, Hr, Section} from '../components/Typography';
+import {Hr, Section} from '../components/Typography';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 
 import type {HeadProps, PageProps} from 'gatsby';
+import Banner from '../components/Banner';
 
-export default function PageTemplate({data, children}: PageProps<Queries.PageDataQuery>) {
+export default function PageTemplate({
+	data,
+	children,
+}: PageProps<Queries.PageDataQuery>) {
 	if (!data.mdx) return null;
 	const {frontmatter, fields} = data.mdx;
 
@@ -15,8 +19,10 @@ export default function PageTemplate({data, children}: PageProps<Queries.PageDat
 		<Layout>
 			<article>
 				<header>
-					<H1>{frontmatter.title}</H1>
-					<P>{frontmatter.description}</P>
+					<Banner
+						title={frontmatter.title}
+						description={frontmatter.description}
+					/>
 				</header>
 				<Section>{children}</Section>
 				<Hr />

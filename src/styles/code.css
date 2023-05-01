@@ -36,10 +36,8 @@ pre[class*='language-'] {
 
 /* Code blocks */
 .gatsby-highlight {
-	margin-bottom: 1.75rem;
-	margin-left: -1rem;
-	margin-right: -1rem;
-	border-radius: 10px;
+	margin: 0 -1rem 1.75rem;
+	border-radius: 18px;
 	background: #282828;
 	-webkit-overflow-scrolling: touch;
 	position: relative;

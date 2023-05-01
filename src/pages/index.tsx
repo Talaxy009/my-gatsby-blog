@@ -1,8 +1,9 @@
 import React from 'react';
-import {Slice, graphql} from 'gatsby';
+import {graphql} from 'gatsby';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 import SEO from '../components/SEO';
+import Banner from '../components/Banner';
 import {splitArray, getTags} from '../utils/dataUtils';
 
 import type {PageProps} from 'gatsby';
@@ -18,8 +19,8 @@ export default function IndexPage({data}: PageProps<Queries.PostQuery>) {
 	const allTags = getTags(tagsGroup);
 
 	return (
-		<Layout isIndex>
-			<Slice alias="bio" />
+		<Layout>
+			<Banner />
 			<PostList allPosts={allPosts} allTags={allTags} />
 		</Layout>
 	);
@@ -47,7 +48,7 @@ export const pageQuery = graphql`
 							}
 						}
 						frontmatter {
-							date(formatString: "YYYY-MM-DD")
+							date(formatString: "YYYY.MM.DD")
 							title
 							tags
 							description
@@ -69,7 +70,7 @@ export const pageQuery = graphql`
 						}
 					}
 					frontmatter {
-						date(formatString: "YYYY-MM-DD")
+						date(formatString: "YYYY.MM.DD")
 						title
 						tags
 						description
