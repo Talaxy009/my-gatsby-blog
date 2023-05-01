@@ -13,7 +13,7 @@ export default function DarkModeButton() {
 	const [mode, {toggle}] = useDarkMode();
 
 	if (!hasMounted)
-		return <Skeleton variant="circular" width={43} height={43} />;
+		return <Skeleton variant="circular" width={51} height={51} />;
 	return (
 		<Tooltip title={`${mode ? '关闭' : '打开'}夜间模式`}>
 			<IconButton className='darkModeBtn' onClick={toggle}>
