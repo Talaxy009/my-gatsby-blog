@@ -4,9 +4,7 @@
  * @returns 包含 emoji 和文字的字符串
  */
 export function formatTime(minutes: number): string {
-	const bowls = new Array(Math.floor(minutes / 20)).fill('🍚');
-	const cups = new Array(Math.ceil((minutes % 20) / 5)).fill('🍵');
-	return `${bowls.concat(cups).join('')} 需要 ${Math.ceil(minutes)} 分钟`;
+	return `${Math.round(minutes)} 分钟`;
 }
 
 /**

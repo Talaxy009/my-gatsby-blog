@@ -10,27 +10,36 @@ type Props = {
 const NavItem = styled(Link)`
 	width: 46%;
 	margin: 8px 0;
-	color: inherit;
 	overflow: hidden;
-	border-radius: 12px;
+	border-radius: 24px;
 	text-decoration: none;
 	flex-direction: column;
-	background-color: rgba(150, 180, 180, 0.05);
-	box-shadow: 0 2px 5px rgba(10, 20, 20, 0.2);
-	transition: all 0.6s cubic-bezier(0, 0, 0.4, 1);
+	transition: var(--sys-transition);
+	background-color: var(--md-sys-color-surface-container);
+	.gatsby-image-wrapper {
+		width: 100%;
+		border-radius: 24px;
+		background-color: var(--md-sys-color-surface-container);
+	}
 	:hover {
+		border-radius: 48px;
 		text-decoration: none;
-		background-color: rgba(150, 180, 180, 0.1);
-		box-shadow: 0 6px 10px rgba(10, 20, 20, 0.2);
 	}
 	@media (max-width: 600px) {
 		width: 100%;
 	}
 `;
 
+const NavTitle = styled.h3`
+	margin: 0.5em 0;
+	color: var(--md-sys-color-primary);
+`;
+
 const NavContent = styled.div`
 	width: 100%;
-	padding: 6px;
+	padding: 18px;
+	box-sizing: border-box;
+	color: var(--md-sys-color-on-surface-variant);
 `;
 
 export default function PostNavigation({post}: Props) {
@@ -46,7 +55,10 @@ export default function PostNavigation({post}: Props) {
 					alt={post.frontmatter.title}
 				/>
 			)}
-			<NavContent>{post.frontmatter.title}</NavContent>
+			<NavContent>
+				<NavTitle>{post.frontmatter.title}</NavTitle>
+				{post.frontmatter.description}
+			</NavContent>
 		</NavItem>
 	);
 }

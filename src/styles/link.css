@@ -15,8 +15,6 @@
 	z-index: 9;
 	max-width: none;
 	border: 1px solid rgba(207, 217, 222, 0.4);
-	-webkit-box-shadow: 0px 2px 5px rgba(10, 20, 20, 0.2);
-	box-shadow: 0 2px 5px rgba(10, 20, 20, 0.2);
 }
 
 .link-preview-container:hover img {
@@ -27,28 +25,24 @@
 .link-card-container {
 	cursor: pointer;
 	user-select: none;
-	transition: all 0.6s cubic-bezier(0, 0, 0.4, 1);
+	transition: var(--sys-transition);
 	width: 100%;
 	display: flex;
 	align-items: stretch;
 	text-align: left;
 	overflow: hidden;
 	position: relative;
-	color: inherit;
+	color: var(--md-sys-color-on-surface);
 	fill: inherit;
 	margin: 8px 0;
-	background-color: rgba(150, 180, 180, 0.05);
-	-webkit-box-shadow: 0px 2px 5px rgba(10, 20, 20, 0.2);
-	box-shadow: 0 2px 5px rgba(10, 20, 20, 0.2);
+	background-color: rgba(155, 187, 187, 0.1);
 	border-radius: 12px;
 	max-height: 120px;
 }
 
 .link-card-container:hover {
 	text-decoration: none;
-	background-color: rgba(150, 180, 180, 0.1);
-	-webkit-box-shadow: 0 6px 10px rgba(10, 20, 20, 0.2);
-	box-shadow: 0 6px 10px rgba(10, 20, 20, 0.2);
+	border-radius: 24px;
 }
 
 .link-card-wrapper {
@@ -65,6 +59,7 @@
 	font-weight: bold;
 	line-height: 22px;
 	height: 22px;
+	color: var(--md-sys-color-primary);
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -87,6 +82,7 @@
 	display: flex;
 	margin-top: 6px;
 	align-items: center;
+	color: var(--md-sys-color-on-surface-variant);
 }
 
 .link-card-favicon {
@@ -114,7 +110,6 @@
 .link-card-image {
 	display: block;
 	object-fit: cover;
-	border-radius: 1px;
 	width: 100%;
 	height: 100%;
 }

@@ -19,8 +19,12 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 article img {
-	border-radius: 8px;
+	border-radius: 12px;
 	max-width: 100%;
+}
+
+header img {
+	border-radius: 24px;
 }
 
 .twitter-tweet {
@@ -28,7 +32,7 @@ article img {
 }
 
 a {
-	color: #009ba1;
+	color: var(--md-sys-color-primary);
 	box-shadow: none;
 	text-decoration: none;
 }
@@ -40,14 +44,18 @@ a:hover {
 hr {
 	border: none;
 	height: 0.6px;
-	background-color: #333;
+	background-color: var(--md-sys-color-outline);
 }
 
 body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, 'Microsoft Yahei',
 		'Hiragino Sans GB', 'Heiti SC', 'WenQuanYi Micro Hei', sans-serif;
 	margin: 0;
-	transition: background-color 0.5s ease;
+	transition: background-color 0.5s ease, color 0.5s ease;
+	background-color: var(--md-sys-color-surface);
+	color: var(--md-sys-color-on-surface);
+	--sys-transition: all 100ms 0ms cubic-bezier(0.4, 0, 0.2, 1);
+	--md-sys-color-surface-container: rgba(155, 187, 187, 0.1);
 }
 
 blockquote {
@@ -61,29 +69,31 @@ blockquote {
 	margin-bottom: 1.75rem;
 	font-size: 1.20112rem;
 	line-height: 1.75rem;
-	color: hsla(0, 0%, 0%, 0.59);
+	color: var(--md-sys-color-on-surface-variant);
 	font-style: italic;
-	border-left: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
+	border-left: 0.32813rem solid var(--md-sys-color-outline);
 }
 
 table {
-	background-color: rgba(150, 180, 180, 0.05);
+	background-color: var(--md-sys-color-surface-container);
 	border-collapse: collapse;
 	border-spacing: 0px;
-	border-radius: 8px;
+	border-radius: 12px;
 	overflow: hidden;
-    width: 100%;
+	width: 100%;
 }
 
 tbody tr {
-	border-top: 1px solid #ddd;
+	border-top: 1px solid var(--md-sys-color-outline-variant);
 }
 
+th:nth-child(2n),
 td:nth-child(2n) {
-	background-color: rgba(150, 180, 180, 0.1);
+	background-color: var(--md-sys-color-surface-container);
 }
 
-th, td {
+th,
+td {
 	padding: 8px;
 }
 
@@ -93,22 +103,71 @@ video {
 
 /* 夜间模式样式 */
 body.light-mode {
-	background-color: #fff;
-	color: #333;
+	--md-sys-color-primary: #00696d;
+	--md-sys-color-on-primary: #ffffff;
+	--md-sys-color-primary-container: #6ff6fd;
+	--md-sys-color-on-primary-container: #002021;
+	--md-sys-color-secondary: #4a6364;
+	--md-sys-color-on-secondary: #ffffff;
+	--md-sys-color-secondary-container: #cce8e9;
+	--md-sys-color-on-secondary-container: #041f21;
+	--md-sys-color-tertiary: #4e5f7d;
+	--md-sys-color-on-tertiary: #ffffff;
+	--md-sys-color-tertiary-container: #d5e3ff;
+	--md-sys-color-on-tertiary-container: #081c36;
+	--md-sys-color-error: #ba1a1a;
+	--md-sys-color-on-error: #ffffff;
+	--md-sys-color-error-container: #ffdad6;
+	--md-sys-color-on-error-container: #410002;
+	--md-sys-color-background: #fafdfc;
+	--md-sys-color-on-background: #191c1c;
+	--md-sys-color-surface: #fafdfc;
+	--md-sys-color-on-surface: #191c1c;
+	--md-sys-color-surface-variant: #dae4e5;
+	--md-sys-color-on-surface-variant: #3f4949;
+	--md-sys-color-outline: #6f7979;
+	--md-sys-color-outline-variant: #bec8c9;
+	--md-sys-color-shadow: #000000;
+	--md-sys-color-scrim: #000000;
+	--md-sys-color-inverse-surface: #2d3131;
+	--md-sys-color-inverse-on-surface: #eff1f1;
+	--md-sys-color-inverse-primary: #4cd9e0;
 }
 
 body.dark-mode {
-	background-color: #212121;
-	color: #999;
+	--md-sys-color-primary: #4cd9e0;
+	--md-sys-color-on-primary: #003739;
+	--md-sys-color-primary-container: #004f52;
+	--md-sys-color-on-primary-container: #6ff6fd;
+	--md-sys-color-secondary: #b1cccd;
+	--md-sys-color-on-secondary: #1b3436;
+	--md-sys-color-secondary-container: #324b4c;
+	--md-sys-color-on-secondary-container: #cce8e9;
+	--md-sys-color-tertiary: #b5c7e9;
+	--md-sys-color-on-tertiary: #1f314c;
+	--md-sys-color-tertiary-container: #364764;
+	--md-sys-color-on-tertiary-container: #d5e3ff;
+	--md-sys-color-error: #ffb4ab;
+	--md-sys-color-on-error: #690005;
+	--md-sys-color-error-container: #93000a;
+	--md-sys-color-on-error-container: #ffb4ab;
+	--md-sys-color-background: #191c1c;
+	--md-sys-color-on-background: #e0e3e3;
+	--md-sys-color-surface: #191c1c;
+	--md-sys-color-on-surface: #e0e3e3;
+	--md-sys-color-surface-variant: #3f4949;
+	--md-sys-color-on-surface-variant: #bec8c9;
+	--md-sys-color-outline: #899393;
+	--md-sys-color-outline-variant: #3f4949;
+	--md-sys-color-shadow: #000000;
+	--md-sys-color-scrim: #000000;
+	--md-sys-color-inverse-surface: #e0e3e3;
+	--md-sys-color-inverse-on-surface: #2d3131;
+	--md-sys-color-inverse-primary: #00696d;
 }
 
-.dark-mode hr {
-	background-color: #999;
-}
-
-.dark-mode blockquote {
-	color: #999;
-	border-left: 0.32813rem solid #999;
+.dark-mode .bannerImg {
+	opacity: 0.8;
 }
 
 .dark-mode #gh path {

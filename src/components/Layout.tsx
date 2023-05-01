@@ -1,13 +1,18 @@
 import React from 'react';
 import {navigate} from 'gatsby';
-import {createTheme, ThemeProvider} from '@mui/material';
 import styled from '@emotion/styled';
+import {createTheme, ThemeProvider, Stack} from '@mui/material';
+import CopyrightIcon from '@mui/icons-material/Copyright';
+import RssFeedIcon from '@mui/icons-material/RssFeedRounded';
+import FriendsIcon from '@mui/icons-material/Diversity3Rounded';
+
 import DarkModeButton from './DarkModeButton';
 import {useSiteMetadata} from '../utils/hooks';
 import {useDarkModeValue} from '../utils/darkMode';
+import {Link} from './Links';
 
 type LayoutProps = {
-	isIndex?: boolean;
+	isArticle?: boolean;
 	children: React.ReactNode;
 };
 
@@ -38,14 +43,27 @@ const Header = styled.header`
 
 const Footer = styled.footer`
 	display: flex;
+	background-color: var(--md-sys-color-surface-container);
+	color: var(--md-sys-color-on-surface);
 	flex-direction: column;
 	align-items: center;
+	position: relative;
 	text-align: center;
 	font-size: 0.8rem;
-	margin: 1rem;
+	overflow: hidden;
+	padding: 3rem 0 2rem;
+	:before {
+		content: '';
+		background-color: var(--md-sys-color-surface);
+		border-radius: 24px;
+		position: absolute;
+		height: 48px;
+		width: 100%;
+		top: -24px;
+	}
 `;
 
-export default function Layout({isIndex = false, children}: LayoutProps) {
+export default function Layout({isArticle = false, children}: LayoutProps) {
 	const darkMode = useDarkModeValue();
 	const siteMetadata = useSiteMetadata();
 
@@ -56,10 +74,25 @@ export default function Layout({isIndex = false, children}: LayoutProps) {
 		() =>
 			createTheme({
 				components: {
+					MuiPaper: {
+						styleOverrides: {
+							root: {
+								backgroundColor: 'var(--md-sys-color-surface)',
+								borderRadius: '16px',
+							},
+						},
+					},
+					MuiButton: {
+						styleOverrides: {
+							root: {
+								borderRadius: '24px',
+							},
+						},
+					},
 					MuiAlert: {
 						styleOverrides: {
 							root: {
-								borderRadius: '12px',
+								borderRadius: '24px',
 							},
 						},
 					},
@@ -68,6 +101,9 @@ export default function Layout({isIndex = false, children}: LayoutProps) {
 					primary: {
 						main: '#009ba1',
 					},
+					secondary: {
+						main: '#cce8e9',
+					},
 					mode: darkMode ? 'dark' : 'light',
 				},
 			}),
@@ -75,51 +111,40 @@ export default function Layout({isIndex = false, children}: LayoutProps) {
 	);
 
 	return (
-		<Root>
-			<ThemeProvider theme={theme}>
-				<Header>
-					{isIndex ? (
-						<h1>{title}</h1>
-					) : (
-						<h2 onClick={() => navigate(rootPath)}>{title}</h2>
+		<>
+			<Root>
+				<ThemeProvider theme={theme}>
+					{isArticle && (
+						<Header>
+							<h2 onClick={() => navigate(rootPath)}>{title}</h2>
+							<DarkModeButton />
+						</Header>
 					)}
-					<DarkModeButton />
-				</Header>
-				<main>{children}</main>
-				<Footer>
-					<span>
-						© {new Date().getFullYear()} {author.name}
-					</span>
-					<a
-						target="_blank"
-						rel="noopener noreferrer"
-						href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-						CC BY-NC-SA 4.0
-					</a>
-					<span>
-						由&nbsp;
-						<a
-							target="_blank"
-							rel="noopener noreferrer"
-							href="https://www.gatsbyjs.org">
-							Gatsby
-						</a>
-						&nbsp;强力驱动
-					</span>
-					<span>
-						<a target="_blank" href="/rss/">
-							RSS 订阅
-						</a>
-						<svg
-							style={{height: '0.8rem', fill: '#009ba1'}}
-							viewBox="0 0 512 512">
-							<path d="M108.56 342.78a60.34 60.34 0 1060.56 60.44 60.63 60.63 0 00-60.56-60.44z" />
-							<path d="M48 186.67v86.55c52 0 101.94 15.39 138.67 52.11s52 86.56 52 138.67h86.66c0-151.56-125.66-277.33-277.33-277.33z" />
-							<path d="M48 48v86.56c185.25 0 329.22 144.08 329.22 329.44H464C464 234.66 277.67 48 48 48z" />
-						</svg>
-					</span>
-				</Footer>
-			</ThemeProvider>
-		</Root>
+					<main>{children}</main>
+				</ThemeProvider>
+			</Root>
+			<Footer>
+				<Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
+					<Link
+						icon={<FriendsIcon />}
+						url="/friends/"
+						text="友情链接"
+						inner
+					/>
+					<Link
+						icon={<RssFeedIcon />}
+						title="RSS Feed"
+						url="/rss/"
+						text="RSS 订阅"
+					/>
+					<Link
+						icon={<CopyrightIcon />}
+						title="CC BY-NC-SA 4.0"
+						url="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+						text={`${new Date().getFullYear()} ${author.name}`}
+					/>
+				</Stack>
+			</Footer>
+		</>
 	);
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link as GatsbyLink} from 'gatsby';
 import styled from '@emotion/styled';
 import {
 	SiPixiv,
@@ -8,90 +9,128 @@ import {
 	SiTelegram,
 } from '@icons-pack/react-simple-icons';
 
-const Svg = styled.svg`
-	width: 24px;
-	height: 24px;
+const LinkRoot = styled.a`
+	display: flex;
+	padding: 0.8rem 1rem;
+	overflow: hidden;
+	align-items: center;
+	border-radius: 16px;
+	text-decoration: none;
+	transition: var(--sys-transition);
+	color: var(--md-sys-color-on-surface);
+	background-color: var(--md-sys-color-surface-container);
+	:hover {
+		border-radius: 24px;
+		text-decoration: none;
+	}
 `;
 
-// Twitter icon from: https://simpleicons.org/
-export function Twitter({id = ''}) {
+const InnerLinkRoot = styled(GatsbyLink)`
+	display: flex;
+	padding: 0.8rem 1rem;
+	overflow: hidden;
+	align-items: center;
+	border-radius: 16px;
+	text-decoration: none;
+	transition: var(--sys-transition);
+	color: var(--md-sys-color-on-surface);
+	background-color: var(--md-sys-color-surface-container);
+	:hover {
+		border-radius: 24px;
+		text-decoration: none;
+	}
+`;
+
+const LinkContent = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin-left: 0.6rem;
+	.link-site {
+		font-weight: bold;
+		color: var(--md-sys-color-primary);
+	}
+	.link-user {
+		font-size: 0.8em;
+	}
+`;
+
+const links = {
+	twitter: {
+		name: 'Twitter',
+		url: 'https://twitter.com/',
+		icon: <SiTwitter color="#1DA1F2" size={28} />,
+	},
+	github: {
+		name: 'GitHub',
+		url: 'https://github.com/',
+		icon: <SiGithub id="gh" color="#181717" size={28} />,
+	},
+	pixiv: {
+		name: 'Pixiv',
+		url: 'https://pixiv.me/',
+		icon: <SiPixiv color="#0096FA" size={28} />,
+	},
+	youtube: {
+		name: 'YouTube',
+		url: 'https://www.youtube.com/@',
+		icon: <SiYoutube color="#FF0000" size={28} />,
+	},
+	telegram: {
+		name: 'Telegram',
+		url: 'https://t.me/',
+		icon: <SiTelegram color="#26A5E4" size={28} />,
+	},
+};
+
+type Site = 'twitter' | 'github' | 'pixiv' | 'youtube' | 'telegram';
+
+interface SiteLinkProps {
+	id: string;
+	site: Site;
+	name: string;
+}
+
+interface LinkProps {
+	icon: React.ReactNode;
+	title?: string;
+	inner?: boolean;
+	text: string;
+	url: string;
+}
+
+export function SiteLink({id, site, name}: SiteLinkProps) {
 	return (
-		<a
+		<LinkRoot
 			rel="nofollow"
 			target="_blank"
-			title="Twitter"
-			href={`https://twitter.com/${id}`}>
-			<SiTwitter color="#1DA1F2" size={24} />
-		</a>
+			title={links[site].name}
+			href={links[site].url + id}>
+			{links[site].icon}
+			<LinkContent>
+				<span className="link-site">{links[site].name}</span>
+				<span className="link-user">{name}</span>
+			</LinkContent>
+		</LinkRoot>
 	);
 }
 
-// GitHub icon from: https://simpleicons.org/
-export function Github({id = ''}) {
+export function Link({icon, title, text, url, inner = false}: LinkProps) {
+	if (inner) {
+		return (
+			<InnerLinkRoot title={title || text} to={url}>
+				{icon}
+				<LinkContent>{text}</LinkContent>
+			</InnerLinkRoot>
+		);
+	}
 	return (
-		<a
-			rel="nofollow"
-			title="GitHub"
-			target="_blank"
-			href={`https://github.com/${id}`}>
-			<SiGithub id="gh" color="#181717" size={24} />
-		</a>
-	);
-}
-
-// Pixiv icon from: https://simpleicons.org/
-export function Pixiv({id = ''}) {
-	return (
-		<a
-			rel="nofollow"
-			title="Pixiv"
-			target="_blank"
-			href={`https://pixiv.me/${id}`}>
-			<SiPixiv color="#0096FA" size={24} />
-		</a>
-	);
-}
-
-// YouTube icon from: https://simpleicons.org/
-export function YouTube({id = ''}) {
-	return (
-		<a
-			rel="nofollow"
-			title="YouTube"
-			target="_blank"
-			href={`https://www.youtube.com/@${id}`}>
-			<SiYoutube color="#FF0000" size={24} />
-		</a>
-	);
-}
-
-// Telegram icon from: https://simpleicons.org/
-export function Telegram({id = ''}) {
-	return (
-		<a
+		<LinkRoot
 			rel="nofollow"
 			target="_blank"
-			title="Telegram"
-			href={`https://t.me/${id}`}>
-			<SiTelegram color="#26A5E4" size={24} />
-		</a>
-	);
-}
-
-// Link icon from: @mui/icons-material
-export function Link() {
-	return (
-		<a href="/friends/" title="友链">
-			<Svg id="fl" viewBox="0 0 512 512">
-				<path
-					fill="none"
-					stroke="#A0A0A0"
-					strokeLinecap="round"
-					strokeLinejoin="round"
-					strokeWidth="48"
-					d="M200.66 352H144a96 96 0 010-192h55.41M312.59 160H368a96 96 0 010 192h-56.66M169.07 256h175.86"
-				/>
-			</Svg>
-		</a>
+			title={title || text}
+			href={url}>
+			{icon}
+			<LinkContent>{text}</LinkContent>
+		</LinkRoot>
 	);
 }

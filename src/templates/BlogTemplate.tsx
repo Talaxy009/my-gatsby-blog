@@ -1,19 +1,23 @@
 import React from 'react';
-import {Slice, graphql} from 'gatsby';
+import {graphql} from 'gatsby';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import Alert from '@mui/material/Alert';
 import Waline from 'gatsby-plugin-waline';
 import {GatsbyImage, getImage, getSrc} from 'gatsby-plugin-image';
+
 import {formatTime} from '../utils/dataUtils';
 import {H1, P, Hr, Section, Pagination} from '../components/Typography';
 import PostNavigation from '../components/PostNavigation';
+import InfoBar from '../components/InfoBar';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 
 import type {HeadProps, PageProps} from 'gatsby';
 
-export default function BlogTemplate({data, children}: PageProps<Queries.BlogDataQuery>) {
+export default function BlogTemplate({
+	data,
+	children,
+}: PageProps<Queries.BlogDataQuery>) {
 	const modifiedTime = data.file?.modifiedTime;
 	const {post, previous, next} = data;
 
@@ -21,19 +25,21 @@ export default function BlogTemplate({data, children}: PageProps<Queries.BlogDat
 	const image = getImage(post.frontmatter.img?.childImageSharp || null);
 
 	return (
-		<Layout>
+		<Layout isArticle>
 			<article>
 				<header>
 					{image && (
 						<GatsbyImage
 							image={image}
-							alt={post.frontmatter.title || post.fields.slug}
+							alt={post.frontmatter.title}
 						/>
 					)}
 					<H1>{post.frontmatter.title}</H1>
 					<P>
 						{post.frontmatter.date}
-						{` • ${formatTime(post.fields.timeToRead?.minutes || 1)}`}
+						{` • ${formatTime(
+							post.fields.timeToRead?.minutes || 1,
+						)}`}
 					</P>
 					<Stack direction="row" spacing={1}>
 						{post.frontmatter.tags.map((tag) => (
@@ -48,15 +54,12 @@ export default function BlogTemplate({data, children}: PageProps<Queries.BlogDat
 				</header>
 				<Section>{children}</Section>
 				{post.frontmatter.tags.includes('技术') && (
-					<Alert severity="info">
+					<InfoBar>
 						本文最后于<strong>{modifiedTime}</strong>
 						更新，一些操作可能已经过时
-					</Alert>
+					</InfoBar>
 				)}
 				<Hr />
-				<footer>
-					<Slice alias="bio" />
-				</footer>
 			</article>
 			<Pagination>
 				<PostNavigation post={previous} />
@@ -112,6 +115,7 @@ export const pageQuery = graphql`
 			}
 			frontmatter {
 				title
+				description
 				img {
 					childImageSharp {
 						gatsbyImageData(width: 400)
@@ -125,6 +129,7 @@ export const pageQuery = graphql`
 			}
 			frontmatter {
 				title
+				description
 				img {
 					childImageSharp {
 						gatsbyImageData(width: 400)

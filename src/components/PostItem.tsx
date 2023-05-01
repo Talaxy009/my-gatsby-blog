@@ -1,9 +1,12 @@
 import React from 'react';
 import {Link} from 'gatsby';
+import styled from '@emotion/styled';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import {GatsbyImage, getImage} from 'gatsby-plugin-image';
-import styled from '@emotion/styled';
+import TimeIcon from '@mui/icons-material/AccessTimeOutlined';
+import CalendarIcon from '@mui/icons-material/CalendarMonthOutlined';
+
 import {formatTime} from '../utils/dataUtils';
 
 type Post = Queries.PostQuery['allMdx']['posts'][0]['node'];
@@ -11,18 +14,21 @@ type Post = Queries.PostQuery['allMdx']['posts'][0]['node'];
 const PostItemBody = styled(Link)`
 	width: 100%;
 	display: flex;
-	color: inherit;
 	margin: 1rem 0;
 	overflow: hidden;
-	border-radius: 12px;
+	border-radius: 24px;
 	text-decoration: none;
-	background-color: rgba(150, 180, 180, 0.05);
-	box-shadow: 0 2px 5px rgba(10, 20, 20, 0.2);
-	transition: all 0.6s cubic-bezier(0, 0, 0.4, 1);
+	background-color: var(--md-sys-color-surface-container);
+	/* border: 1px solid var(--md-sys-color-outline-variant); */
+	transition: var(--sys-transition);
+	.gatsby-image-wrapper {
+		flex: 1;
+		border-radius: 24px;
+		background-color: var(--md-sys-color-surface-container);
+	}
 	:hover {
+		border-radius: 48px;
 		text-decoration: none;
-		background-color: rgba(150, 180, 180, 0.1);
-		box-shadow: 0 6px 10px rgba(10, 20, 20, 0.2);
 	}
 	@media (max-width: 700px) {
 		flex-direction: column;
@@ -38,32 +44,13 @@ const PostItemContent = styled.div`
 	}
 `;
 
-const Title = styled.p`
+const Title = styled.h2`
 	margin: 0.8rem 0;
-	font-size: 1.5rem;
-	color: #009ba1;
 `;
 
-const Line = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	line-height: 2em;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	@media (max-width: 890px) {
-		flex-direction: column;
-		align-items: flex-start;
-	}
-`;
-
-const Section = styled.section`
+const Description = styled.p`
 	font-size: 1.05rem;
-`;
-
-const Skeleton = styled.div`
-	flex: 1;
-	background-color: rgba(150, 180, 180, 0.05);
+	color: var(--md-sys-color-on-surface);
 `;
 
 export default function PostItem({post}: {post: Post}) {
@@ -72,39 +59,28 @@ export default function PostItem({post}: {post: Post}) {
 
 	return (
 		<PostItemBody to={post.fields.slug}>
-			{image ? (
-				<GatsbyImage
-					style={{flex: 1}}
-					image={image}
-					alt={post.frontmatter.title}
-				/>
-			) : (
-				<Skeleton />
+			{image && (
+				<GatsbyImage image={image} alt={post.frontmatter.title} />
 			)}
 			<PostItemContent>
-				<header>
-					<Title>{post.frontmatter.title}</Title>
-					<Line>
-						<span>
-							{`${post.frontmatter.date} • ${formatTime(
-								post.fields.timeToRead?.minutes || 1,
-							)}`}
-						</span>
-						<Stack direction="row" spacing={1}>
-							{post.frontmatter.tags.map((tag) => (
-								<Chip
-									key={tag}
-									label={tag}
-									variant="outlined"
-									color="primary"
-									size="small"
-								/>
-							))}
-						</Stack>
-					</Line>
-				</header>
-				<hr />
-				<Section>{post.frontmatter.description}</Section>
+				<Title>{post.frontmatter.title}</Title>
+				<Stack direction="row" spacing={1}>
+					<Chip
+						size="small"
+						color="info"
+						variant="outlined"
+						icon={<CalendarIcon />}
+						label={post.frontmatter.date}
+					/>
+					<Chip
+						size="small"
+						color="info"
+						variant="outlined"
+						icon={<TimeIcon />}
+						label={formatTime(post.fields.timeToRead?.minutes || 1)}
+					/>
+				</Stack>
+				<Description>{post.frontmatter.description}</Description>
 			</PostItemContent>
 		</PostItemBody>
 	);

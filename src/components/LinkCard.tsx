@@ -3,7 +3,7 @@ import React from 'react';
 export default function LinkCard({
 	link = '',
 	title = '',
-	descripition = '',
+	description = '',
 	img = '',
 }) {
 	return (
@@ -15,9 +15,9 @@ export default function LinkCard({
 			<div className="link-card-wrapper">
 				<div className="link-card-text">
 					<div className="link-card-title">{title}</div>
-					{descripition && (
+					{description && (
 						<div className="link-card-description">
-							{descripition}
+							{description}
 						</div>
 					)}
 				</div>

@@ -83,17 +83,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
 	actions,
 	reporter,
 }) => {
-	const {createPage, createSlice} = actions;
+	const {createPage} = actions;
 
-	const bioSlice = path.resolve('./src/slices/Bio.tsx');
 	const blogTemplate = path.resolve('./src/templates/BlogTemplate.tsx');
 	const pageTemplate = path.resolve('./src/templates/PageTemplate.tsx');
-
-	// bio slice
-	createSlice({
-		id: 'bio',
-		component: bioSlice,
-	});
 
 	const result = await graphql<Queries.PagesDataQuery>(`
 		query PagesData {
