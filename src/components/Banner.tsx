@@ -2,16 +2,20 @@ import React from 'react';
 import {navigate} from 'gatsby';
 import styled from '@emotion/styled';
 import Button from '@mui/material/Button';
-import {StaticImage} from 'gatsby-plugin-image';
 
 import DarkModeButton from './DarkModeButton';
 import {useSiteMetadata} from '../utils/hooks';
+import BannerImg from '../assets/images/banner.svg';
 
 const BannerRoot = styled.div`
 	border-radius: 24px;
 	position: relative;
+	aspect-ratio: 1.6;
 	overflow: hidden;
 	color: #e5ffff;
+	.bannerImg {
+		width: 100%;
+	}
 `;
 
 const BannerContainer = styled.div`
@@ -66,10 +70,10 @@ export default function Banner({title, description}: BannerProps) {
 
 	return (
 		<BannerRoot>
-			<StaticImage
+			<img
 				alt="banner"
 				className="bannerImg"
-				src="../assets/images/banner.png"
+				src={BannerImg}
 			/>
 			<BannerContainer>
 				<h1>{title || siteTitle}</h1>
