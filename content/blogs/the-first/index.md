@@ -71,3 +71,5 @@ img: "img.jpg"
 - 2022/11/14——抛弃 VPS 并投入 Netlify 的怀抱
 - 2022/11/19——使用 GitHub Actions 进行构建并部署至 Netlify
 - 2023/03/01——切换至 Waline 评论系统
+- 2023/04/20——将 Markdown 迁移至 MDX
+- 2023/05/01——尝试将界面风格贴近 Material YOU 设计
