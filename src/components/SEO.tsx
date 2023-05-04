@@ -10,7 +10,7 @@ type SEOProps = {
 export default function SEO({
 	title = null,
 	description = null,
-	image = '/site-image.jpg',
+	image = '/site-image.png',
 }: SEOProps) {
 	const siteMetadata = useSiteMetadata();
 
@@ -18,7 +18,7 @@ export default function SEO({
 		title: siteName,
 		siteUrl,
 		description: siteDescription,
-		social,
+		author,
 	} = siteMetadata;
 
 	const metaTitle = title ? `${title} | ${siteName}` : siteName;
@@ -37,7 +37,7 @@ export default function SEO({
 			<meta property="og:url" content={siteUrl} />
 			<meta name="twitter:image" content={metaImage} />
 			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:creator" content={`@${social.twitter}`} />
+			<meta name="twitter:creator" content={`@${author.twitter}`} />
 			<meta name="twitter:description" content={metaDescription} />
 		</React.Fragment>
 	);

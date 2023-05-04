@@ -49,19 +49,12 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       			title: String!
 				siteUrl: String!
 				description: String!
-				social: Social!
 				author: Author!
-			}
-			type Social {
-				telegram: String!
-				youtube: String!
-				twitter: String!
-				github: String!
-				pixiv: String!
 			}
 			type Author {
 				name: String!
 				summary: String!
+				twitter: String!
 			}
 			type Mdx implements Node {
 				frontmatter: Frontmatter!

@@ -7,15 +7,9 @@ const config: GatsbyConfig = {
 		author: {
 			name: 'Talaxy',
 			summary: '普通大学生，无所事事中······',
+			twitter: 'Taozc009',
 		},
 		description: '一个个人博客，记录所思所想',
-		social: {
-			twitter: 'Taozc009',
-			github: 'Talaxy009',
-			pixiv: '009ba1',
-			youtube: 'taozc009',
-			telegram: 'x009ba1',
-		},
 	},
 	graphqlTypegen: true,
 	plugins: [

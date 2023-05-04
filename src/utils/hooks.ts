@@ -28,12 +28,7 @@ export function useSiteMetadata(): Queries.SiteMetadata {
 					author {
 						name
 						summary
-					}
-					social {
 						twitter
-						github
-						pixiv
-						youtube
 					}
 				}
 			}
