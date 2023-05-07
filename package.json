@@ -37,7 +37,6 @@
     "gatsby-plugin-mdx": "~5.9.0",
     "gatsby-plugin-sharp": "~5.9.0",
     "gatsby-plugin-sitemap": "~6.9.0",
-    "gatsby-plugin-twitter": "~5.9.0",
     "gatsby-plugin-use-dark-mode": "^2.0.1",
     "gatsby-plugin-waline": "latest",
     "gatsby-remark-autolink-headers": "~6.9.0",
@@ -50,6 +49,7 @@
     "prismjs": "1.29.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-tweet": "^2.0.1",
     "reading-time": "^1.5.0",
     "recoil": "0.7.7",
     "remark-gfm": "1.0.0"

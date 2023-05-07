@@ -27,10 +27,6 @@ header img {
 	border-radius: 24px;
 }
 
-.twitter-tweet {
-	margin: 10px auto;
-}
-
 a {
 	color: var(--md-sys-color-primary);
 	box-shadow: none;

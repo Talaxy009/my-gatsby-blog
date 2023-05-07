@@ -3667,7 +3667,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/helpers@npm:^0.4.12":
+"@swc/helpers@npm:^0.4.12, @swc/helpers@npm:^0.4.14":
   version: 0.4.14
   resolution: "@swc/helpers@npm:0.4.14"
   dependencies:
@@ -6733,6 +6733,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns@npm:^2.9.0":
+  version: 2.30.0
+  resolution: "date-fns@npm:2.30.0"
+  dependencies:
+    "@babel/runtime": ^7.21.0
+  checksum: f7be01523282e9bb06c0cd2693d34f245247a29098527d4420628966a2d9aad154bd0e90a6b1cf66d37adcb769cd108cf8a7bd49d76db0fb119af5cdd13644f4
+  languageName: node
+  linkType: hard
+
 "debug@npm:2, debug@npm:2.6.9, debug@npm:^2.6.0":
   version: 2.6.9
   resolution: "debug@npm:2.6.9"
@@ -9076,17 +9085,6 @@ __metadata:
     react: ^18.0.0 || ^0.0.0
     react-dom: ^18.0.0 || ^0.0.0
   checksum: 773244cadee43c51f73c882d4ee40a3fcc4581150c2b8a00ac625dea19ceea6be91983432b8612ecb050dfb66cccc047736ff8e77ca7b053e34e5d7d34df70d1
-  languageName: node
-  linkType: hard
-
-"gatsby-plugin-twitter@npm:~5.9.0":
-  version: 5.9.0
-  resolution: "gatsby-plugin-twitter@npm:5.9.0"
-  dependencies:
-    "@babel/runtime": ^7.20.13
-  peerDependencies:
-    gatsby: ^5.0.0-next
-  checksum: 0a2dd8d0d047012c0019d5dd045cfdda03dcacb6042b32318f1de1077e36b25b7cb508bf2605c35efa80b4074378fbef4a9cba7c69bb153effc592447cf5d878
   languageName: node
   linkType: hard
 
@@ -12810,7 +12808,6 @@ __metadata:
     gatsby-plugin-mdx: ~5.9.0
     gatsby-plugin-sharp: ~5.9.0
     gatsby-plugin-sitemap: ~6.9.0
-    gatsby-plugin-twitter: ~5.9.0
     gatsby-plugin-use-dark-mode: ^2.0.1
     gatsby-plugin-waline: latest
     gatsby-remark-autolink-headers: ~6.9.0
@@ -12823,6 +12820,7 @@ __metadata:
     prismjs: 1.29.0
     react: 18.2.0
     react-dom: 18.2.0
+    react-tweet: ^2.0.1
     reading-time: ^1.5.0
     recoil: 0.7.7
     remark-gfm: 1.0.0
@@ -14620,6 +14618,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-tweet@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "react-tweet@npm:2.0.1"
+  dependencies:
+    "@swc/helpers": ^0.4.14
+    clsx: ^1.2.1
+    date-fns: ^2.9.0
+    swr: ^2.1.0
+  peerDependencies:
+    react: ">= 18.0.0"
+    react-dom: ">= 18.0.0"
+  checksum: 26ab192a573b4ecd7412ba4faadc3236f52cfeaab73f220bb055b49aab5196c757b5968c72a8d4b4f0e89a789bebc883b5a19f502484d176662548a390efdb24
+  languageName: node
+  linkType: hard
+
 "react@npm:18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
@@ -16113,6 +16126,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"swr@npm:^2.1.0":
+  version: 2.1.5
+  resolution: "swr@npm:2.1.5"
+  dependencies:
+    use-sync-external-store: ^1.2.0
+  peerDependencies:
+    react: ^16.11.0 || ^17.0.0 || ^18.0.0
+  checksum: f2ef9b83ec4b2ebf4d520578ab847307700db01ffcab64b3aec6ea94feaf96ca10e38e8b08bc8adfab8eaa6ec1bdfd64f82b6f5c14cc4cb5cf11e6fd22b405a4
+  languageName: node
+  linkType: hard
+
 "table@npm:^6.0.9":
   version: 6.8.1
   resolution: "table@npm:6.8.1"
@@ -16831,6 +16855,15 @@ __metadata:
     file-loader:
       optional: true
   checksum: c1122a992c6cff70a7e56dfc2b7474534d48eb40b2cc75467cde0c6972e7597faf8e43acb4f45f93c2473645dfd803bcbc20960b57544dd1e4c96e77f72ba6fd
+  languageName: node
+  linkType: hard
+
+"use-sync-external-store@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "use-sync-external-store@npm:1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 5c639e0f8da3521d605f59ce5be9e094ca772bd44a4ce7322b055a6f58eeed8dda3c94cabd90c7a41fb6fa852210092008afe48f7038792fd47501f33299116a
   languageName: node
   linkType: hard
 

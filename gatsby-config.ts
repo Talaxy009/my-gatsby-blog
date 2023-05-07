@@ -26,7 +26,6 @@ const config: GatsbyConfig = {
 			},
 		},
 		'gatsby-plugin-sitemap',
-		'gatsby-plugin-twitter',
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
@@ -43,7 +42,6 @@ const config: GatsbyConfig = {
 		{
 			resolve: 'gatsby-plugin-waline',
 			options: {
-				dark: 'body[class="dark-mode"]',
 				serverURL: 'https://comment.talaxy.site',
 				emoji: ['https://unpkg.com/@waline/emojis@1.1.0/tieba'],
 			},
@@ -92,7 +90,7 @@ const config: GatsbyConfig = {
 								? ['--no-first-run']
 								: [
 										'--no-first-run',
-										'--proxy-server=clash.io:7890',
+										'--proxy-server=localhost:7890',
 								  ],
 						},
 					},

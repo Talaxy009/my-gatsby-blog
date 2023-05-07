@@ -6,9 +6,11 @@ tags: ['Gatsby', '技术', '记录']
 img: 'img.png'
 ---
 
+import {Tweet} from 'react-tweet'
+
 今年春节期间我开始着手实现去年的一个想法：
 
-<blockquote className="twitter-tweet"><p lang="zh" dir="ltr">刚刚洗澡的时候我突发奇想！能不能让鼠标悬浮在网页链接的时候用小窗把这个页面加载出来，起到预览的效果，项目名我都想好了，就叫 link-preview。然后出来在 GitHub 上搜了下，发现已经有一堆这样的项目了🥴</p>&mdash; 鲮鱼罐头 009 (@Taozc009) <a href="https://twitter.com/Taozc009/status/1470383727100710916?ref_src=twsrc%5Etfw">December 13, 2021</a></blockquote>
+<Tweet id="1470383727100710916" />
 
 很长一段时间里我都没有实现的思路，我曾试过在页面中加入 `iframe` 来预览目标网页，但可惜的是很多站点都不允许被以这种方式嵌入，加之 `iframe` 也有一些问题，所以我放弃了这条路。直到春节期间，我实在是闲着没事，才最终发现了一个可以实现的思路：
 

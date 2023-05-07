@@ -34,8 +34,8 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({
 		createNodeField({
 			node,
 			name: 'timeToRead',
-			value: readingTime(node.body as string)
-		  })
+			value: readingTime(node.body as string),
+		});
 	}
 };
 
@@ -147,4 +147,27 @@ export const createPages: GatsbyNode['createPages'] = async ({
 			},
 		});
 	});
+};
+
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
+	actions,
+	getConfig,
+}) => {
+	const config = getConfig();
+
+	config.module.rules.forEach((rule) => {
+		rule.oneOf?.forEach((rule) => {
+			rule.use?.forEach((plugin) => {
+				if (
+					plugin.loader.includes('css-loader') ||
+					plugin.loader.includes('mini-css-extract-plugin')
+				) {
+					if (plugin.options.modules?.namedExport) {
+						plugin.options.modules.namedExport = false;
+					}
+				}
+			});
+		});
+	});
+	actions.replaceWebpackConfig(config);
 };

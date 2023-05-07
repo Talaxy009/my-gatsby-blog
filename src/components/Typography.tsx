@@ -36,11 +36,11 @@ export const Pagination = styled.nav`
 export const Section = styled.section`
 	font-size: 1.1em;
 	counter-reset: section;
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
+	& > h2,
+	& > h3,
+	& > h4,
+	& > h5,
+	& > h6 {
 		margin-top: 1.6em;
 		margin-bottom: 0.8em;
 		::before {
@@ -48,14 +48,14 @@ export const Section = styled.section`
 			color: var(--md-sys-color-outline);
 		}
 	}
-	h2 {
+	& > h2 {
 		counter-reset: subSection;
 		::before {
 			counter-increment: section;
 			content: counter(section);
 		}
 	}
-	h3::before {
+	& > h3::before {
 		counter-increment: subSection;
 		content: counter(section) '.' counter(subSection);
 	}
