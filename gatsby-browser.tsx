@@ -2,8 +2,9 @@ import NProgress from 'nprogress';
 import GatsbyRecoil from './src/components/GatsbyRecoil';
 import PageRoot from './src/components/PageRoot';
 
-import '@waline/client/dist/waline.css';
+import './src/styles/waline.css';
 import './src/styles/style.css';
+import './src/styles/tweet.css';
 import './src/styles/code.css';
 import './src/styles/link.css';
 
