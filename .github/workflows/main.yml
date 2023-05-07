@@ -48,6 +48,7 @@ jobs:
         with:
           publish-dir: './public'
           production-branch: main
+          functions-dir: './functions'
           deploy-message: ${{ github.event.head_commit.message }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
