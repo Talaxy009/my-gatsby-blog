@@ -4,4 +4,4 @@
 /rss  /rss.xml  200!
 
 # api
-/api/*  /.netlify/functions/:splat 200
+/api/*  /.netlify/functions/:splat  200
