@@ -16,6 +16,7 @@ const config: GatsbyConfig = {
 		'gatsby-plugin-emotion',
 		'gatsby-plugin-material-ui',
 		'gatsby-plugin-image',
+		'gatsby-plugin-netlify',
 		{
 			resolve: 'gatsby-plugin-google-gtag',
 			options: {
