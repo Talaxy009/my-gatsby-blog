@@ -12,6 +12,9 @@ const config: GatsbyConfig = {
 		description: '一个个人博客，记录所思所想',
 	},
 	graphqlTypegen: true,
+	flags: {
+		FAST_DEV: true,
+	},
 	plugins: [
 		'gatsby-plugin-emotion',
 		'gatsby-plugin-material-ui',

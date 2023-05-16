@@ -76,7 +76,14 @@ export const createPages: GatsbyNode['createPages'] = async ({
 	actions,
 	reporter,
 }) => {
-	const {createPage} = actions;
+	const {createPage, createRedirect} = actions;
+
+	createRedirect({fromPath: '/rss', toPath: '/rss.xml', statusCode: 200});
+	createRedirect({
+		fromPath: '/api/*',
+		toPath: '/.netlify/functions/*',
+		statusCode: 200,
+	});
 
 	const blogTemplate = path.resolve('./src/templates/BlogTemplate.tsx');
 	const pageTemplate = path.resolve('./src/templates/PageTemplate.tsx');
@@ -155,9 +162,9 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
 }) => {
 	const config = getConfig();
 
-	config.module.rules.forEach((rule) => {
-		rule.oneOf?.forEach((rule) => {
-			rule.use?.forEach((plugin) => {
+	config.module.rules.forEach((rule: any) => {
+		rule.oneOf?.forEach((rule: any) => {
+			rule.use?.forEach((plugin: any) => {
 				if (
 					plugin.loader.includes('css-loader') ||
 					plugin.loader.includes('mini-css-extract-plugin')

@@ -1,7 +1,0 @@
-# For Netlify
-
-# rss
-/rss  /rss.xml  200!
-
-# api
-/api/*  /.netlify/functions/:splat  200
