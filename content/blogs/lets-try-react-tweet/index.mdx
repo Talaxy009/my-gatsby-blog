@@ -117,7 +117,7 @@ import 'react-tweet/theme.css';
 
 同样因为众所周知的原因 Vercel 在内地也是无法访问的，为此可以选择自行部署一个 Vercel Function 并使用自己的域名进行访问，开发者也给出了示例代码，你可以在 [apps/vite-app/api/tweet/](https://github.com/vercel-labs/react-tweet/blob/main/apps/vite-app/api/tweet/%5Btweet%5D.ts) 找到。
 
-由于我的博客是部署在 Netlify 上的，因此实现一个 Netlify Function 会是更好的选择，我的实现如下：
+我的博客是部署在 Netlify 上的，因此实现一个 Netlify Function 会是更好的选择，我的实现如下：
 
 ```ts
 import {
@@ -168,7 +168,7 @@ export const handler: Handler = async (
 };
 ```
 
-由于 Netlify Cli 在 yarn berry 下使用有点问题，因此我把 Function 部分独立打包后再部署，你可以在这里找到所需的代码：
+我在 yarn berry 的 pnp 模式下使用 Netlify Cli 有点问题，因此单独建了一个仓库用于放置 Function 的代码以便单独打包后再部署。
 
 [$card](https://github.com/Talaxy009/react-tweet-netlify)
 
