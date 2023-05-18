@@ -51,7 +51,7 @@ const Footer = styled.footer`
 	text-align: center;
 	font-size: 0.8rem;
 	overflow: hidden;
-	padding: 3rem 0 2rem;
+	padding: 3rem 1rem 1rem;
 	:before {
 		content: '';
 		background-color: var(--md-sys-color-surface);
