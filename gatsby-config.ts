@@ -1,4 +1,13 @@
+import {getSrc} from 'gatsby-plugin-image';
+
 import type {GatsbyConfig} from 'gatsby';
+
+type SerializeProps = {
+	query: {
+		site: Queries.Site;
+		allMdx: Queries.MdxConnection;
+	};
+};
 
 const config: GatsbyConfig = {
 	siteMetadata: {
@@ -55,9 +64,7 @@ const config: GatsbyConfig = {
 			options: {
 				extensions: ['.md', '.mdx'],
 				mdxOptions: {
-					remarkPlugins: [
-						require(`remark-gfm`),
-					],
+					remarkPlugins: [require(`remark-gfm`)],
 				},
 				gatsbyRemarkPlugins: [
 					{
@@ -155,27 +162,25 @@ const config: GatsbyConfig = {
 						}
 				  	}
 				}`,
+				setup: (options: SerializeProps) => ({
+					...options,
+					image_url:
+						options.query.site.siteMetadata.siteUrl +
+						'/icons/icon-96x96.png',
+				}),
 				feeds: [
 					{
-						serialize: ({query: {site, allMdx}}) => {
-							return allMdx.edges.map((edge) => {
-								return Object.assign(
-									{},
-									edge.node.frontmatter,
-									{
-										description:
-											edge.node.frontmatter.description,
-										date: edge.node.frontmatter.date,
-										url:
-											site.siteMetadata.siteUrl +
-											edge.node.fields.slug,
-										guid:
-											site.siteMetadata.siteUrl +
-											edge.node.fields.slug,
-									},
-								);
-							});
-						},
+						serialize: ({query: {site, allMdx}}: SerializeProps) =>
+							allMdx.edges.map((edge) => {
+								const url =
+									site.siteMetadata.siteUrl +
+									edge.node.fields.slug;
+								return {
+									...edge.node.frontmatter,
+									guid: url,
+									url,
+								};
+							}),
 						query: `
 						{
 					  		allMdx(
