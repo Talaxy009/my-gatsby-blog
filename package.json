@@ -20,12 +20,12 @@
     "dlx": "yarn dlx @yarnpkg/sdks vscode"
   },
   "dependencies": {
-    "@emotion/react": "~11.10.8",
-    "@emotion/styled": "~11.10.8",
-    "@icons-pack/react-simple-icons": "~7.2.0",
+    "@emotion/react": "~11.11.1",
+    "@emotion/styled": "~11.11.0",
+    "@icons-pack/react-simple-icons": "~8.0.1",
     "@mdx-js/react": "^2.3.0",
     "@mui/icons-material": "^5.11.16",
-    "@mui/material": "~5.13.3",
+    "@mui/material": "~5.13.5",
     "@mui/styled-engine": "~5.13.2",
     "gatsby": "~5.11.0",
     "gatsby-plugin-emotion": "~8.11.0",
@@ -59,9 +59,9 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "@waline/client": "^2.15.4",
+    "@waline/client": "^2.15.5",
     "eslint": "latest",
     "eslint-plugin-react": "latest",
-    "typescript": "~5.0.3"
+    "typescript": "~5.1.3"
   }
 }
