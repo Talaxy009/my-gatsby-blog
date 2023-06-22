@@ -10,7 +10,7 @@
 [![GitHub Actions](https://github.com/Talaxy009/my-gatsby-blog/actions/workflows/main.yml/badge.svg)](https://github.com/Talaxy009/my-gatsby-blog/actions)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1ed8533f-3036-495f-9492-303beab16c85/deploy-status)](https://app.netlify.com/sites/talaxy-site/deploys)
 
-由 [Gatsby](https://www.gatsbyjs.com/) 强力驱动，排版基本上源自旧的的 [博客](https://github.com/Talaxy009/My-blog)
+本站由 [Gatsby](https://www.gatsbyjs.com/) 强力驱动，从旧的 [博客](https://github.com/Talaxy009/My-blog) 发展而来。
 
 ## 目录
 
@@ -18,8 +18,9 @@
 ├── content    # 页面内容
 │   ├── blogs  # markdown 博客
 │   └── pages  # markdown 页面
+├── functions  # 打包好的 Netlify Serverless 函数
 ├── src        # 源码
-│   ├── assets # 资源
+│   ├── assets   # 资源
 │   │   ├── images # 图片
 │   │   └── fonts  # 字体
 │   ├── components # 组件
@@ -28,6 +29,7 @@
 │   ├── templates  # 模板
 │   └── utils      # 工具函数
 └── static     # 静态资源
+    └─── videos   # 视频资源
 ```
 
 ## 版权
