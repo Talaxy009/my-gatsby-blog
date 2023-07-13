@@ -32,9 +32,6 @@ const Header = styled.header`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	h1 {
-		font-size: 2.5rem;
-	}
 	h2 {
 		font-size: 1.7rem;
 		cursor: pointer;
