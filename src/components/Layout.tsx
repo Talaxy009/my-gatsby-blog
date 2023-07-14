@@ -1,13 +1,14 @@
 import React from 'react';
-import {navigate} from 'gatsby';
 import styled from '@emotion/styled';
+import {graphql, navigate, useStaticQuery} from 'gatsby';
 import {createTheme, ThemeProvider, Stack} from '@mui/material';
+import SyncIcon from '@mui/icons-material/SyncRounded';
 import CopyrightIcon from '@mui/icons-material/Copyright';
 import RssFeedIcon from '@mui/icons-material/RssFeedRounded';
 import FriendsIcon from '@mui/icons-material/Diversity3Rounded';
 
 import DarkModeButton from './DarkModeButton';
-import {useSiteMetadata} from '../utils/hooks';
+import {getTimeDiff} from '../utils/dataUtils';
 import {useDarkModeValue} from '../utils/darkMode';
 import {Link} from './Links';
 
@@ -62,10 +63,23 @@ const Footer = styled.footer`
 
 export default function Layout({isArticle = false, children}: LayoutProps) {
 	const darkMode = useDarkModeValue();
-	const siteMetadata = useSiteMetadata();
+	const data = useStaticQuery(graphql`
+		query {
+			site {
+				buildTime
+				siteMetadata {
+					title
+					author {
+						name
+					}
+				}
+			}
+		}
+	`);
 
 	const rootPath = '/';
-	const {title, author} = siteMetadata;
+	const {title, author} = data.site.siteMetadata;
+	const buildTimeDiff = getTimeDiff(new Date(data.site.buildTime));
 
 	const theme = React.useMemo(
 		() =>
@@ -133,6 +147,12 @@ export default function Layout({isArticle = false, children}: LayoutProps) {
 						title="RSS Feed"
 						url="/rss/"
 						text="RSS 订阅"
+					/>
+					<Link
+						icon={<SyncIcon />}
+						title="本站构建时间"
+						url="https://github.com/Talaxy009/my-gatsby-blog/actions"
+						text={buildTimeDiff}
 					/>
 					<Link
 						icon={<CopyrightIcon />}

@@ -1,10 +1,22 @@
 /**
  * 格式化时间
  * @param {number} minutes
- * @returns 包含 emoji 和文字的字符串
+ * @returns 包含已取整时间的字符串
  */
 export function formatTime(minutes: number): string {
 	return `${Math.round(minutes)} 分钟`;
+}
+
+/**
+ * 计算时间差
+ * @param {Date} date
+ * @returns 时间差
+ */
+export function getTimeDiff(date: Date): string {
+	const daysAgo = Math.round(
+		(Date.now() - date.getTime()) / (1000 * 60 * 60 * 24),
+	);
+	return daysAgo < 1 ? '今天内' : `${daysAgo}天前`;
 }
 
 /**
