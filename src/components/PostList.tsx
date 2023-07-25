@@ -10,8 +10,8 @@ import PostItem from './PostItem';
 import {useHasMounted} from '../utils/hooks';
 
 type Props = {
-	allPosts: Queries.PostQuery['allMdx']['posts'][][];
-	allTags: string[];
+	postMap: Map<string, Post>;
+	tags: TagInfo[];
 };
 
 interface tagMenu {
@@ -51,7 +51,7 @@ const tagMenuState = atom({
 	default: {index: 0, anchorEl: null} as tagMenu,
 });
 
-export default function PostList({allPosts, allTags}: Props) {
+export default function PostList({postMap, tags}: Props) {
 	const hasMounted = useHasMounted();
 	const [page, setPage] = useRecoilState(pageState);
 	const [tagMenu, setTagMenu] = useRecoilState(tagMenuState);
@@ -89,7 +89,7 @@ export default function PostList({allPosts, allTags}: Props) {
 				aria-controls="tag-menu"
 				aria-expanded={tagMenu.anchorEl !== null ? 'true' : 'false'}
 				onClick={handleClickMenuButton}>
-				{allTags[tagMenu.index]}
+				{tags[tagMenu.index].name}
 			</Button>
 			<Menu
 				keepMounted
@@ -100,27 +100,27 @@ export default function PostList({allPosts, allTags}: Props) {
 				MenuListProps={{
 					'aria-labelledby': 'menu-button',
 				}}>
-				{allTags.map((tag, index) => (
+				{tags.map((tag, index) => (
 					<MenuItem key={index} onClick={() => handleClickTag(index)}>
-						{tag}
+						{tag.name}
 					</MenuItem>
 				))}
 			</Menu>
-			{allPosts[tagMenu.index][page - 1].map(({node}) => (
-				<PostItem key={node.fields.slug} post={node} />
+			{tags[tagMenu.index].slugs[page - 1].map((slug) => (
+				<PostItem key={slug} post={postMap.get(slug)} />
 			))}
 			{hasMounted ? (
 				<Pagination
 					size="large"
-					count={allPosts[tagMenu.index].length}
 					page={page}
 					onChange={handleChangePage}
+					count={tags[tagMenu.index].slugs.length}
 				/>
 			) : (
 				// 根据当前页数生成对应骨架数
 				<SkeletonList>
 					<Skeleton variant="circular" width={40} height={40} />
-					{allPosts[0].map((_v, i) => (
+					{tags[0].slugs.map((_v, i) => (
 						<Skeleton
 							key={i}
 							width={40}

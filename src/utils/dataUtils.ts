@@ -1,3 +1,8 @@
+type PostGroup = {
+	tags: TagInfo[];
+	postMap: Map<string, Post>;
+};
+
 /**
  * 格式化时间
  * @param {number} minutes
@@ -34,14 +39,34 @@ export function splitArray<T>(arr: readonly T[], size: number): T[][] {
 }
 
 /**
- * 提取标签
- * @param {array} tagsGroup 标签列表
- * @returns 包含标签的数组
+ * 文章分组
+ * @param {array} tagList 标签列表
+ * @param {array} postList 文章列表
  */
-export function getTags(
-	tagsGroup: Queries.PostQuery['allMdx']['tagsGroup'],
-): string[] {
-	const tags = tagsGroup.map((item) => item.tag || '');
-	tags.unshift('全部');
-	return tags;
+export function getPostGroup(
+	tagList: Queries.PostQuery['allMdx']['tagList'],
+	postList: Queries.PostQuery['allMdx']['postList'],
+	groupSize: number,
+): PostGroup {
+	const postMap = new Map<string, Post>();
+	const tags = tagList.map(({tagName, totalCount, edges}) => ({
+		name: tagName ?? '',
+		count: totalCount,
+		slugs: splitArray(
+			edges.map(({node}) => node.fields.slug),
+			groupSize,
+		),
+	}));
+	tags.unshift({
+		name: '全部',
+		count: postList.length,
+		slugs: splitArray(
+			postList.map(({node}) => {
+				postMap.set(node.fields.slug, node);
+				return node.fields.slug;
+			}),
+			groupSize,
+		),
+	});
+	return {tags, postMap};
 }

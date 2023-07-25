@@ -9,7 +9,9 @@ import CalendarIcon from '@mui/icons-material/CalendarMonthOutlined';
 
 import {formatTime} from '../utils/dataUtils';
 
-type Post = Queries.PostQuery['allMdx']['posts'][0]['node'];
+type Props = {
+	post?: Post;
+};
 
 const PostItemBody = styled(Link)`
 	width: 100%;
@@ -53,7 +55,7 @@ const Description = styled.p`
 	color: var(--md-sys-color-on-surface);
 `;
 
-export default function PostItem({post}: {post: Post}) {
+export default function PostItem({post}: Props) {
 	if (!post) return null;
 	const image = getImage(post.frontmatter.img?.childImageSharp || null);
 

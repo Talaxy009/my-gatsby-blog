@@ -4,24 +4,21 @@ import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 import SEO from '../components/SEO';
 import Banner from '../components/Banner';
-import {splitArray, getTags} from '../utils/dataUtils';
+import {getPostGroup} from '../utils/dataUtils';
 
 import type {PageProps} from 'gatsby';
 
-export default function IndexPage({data}: PageProps<Queries.PostQuery>) {
-	const {posts, tagsGroup} = data.allMdx;
-	const pageSize = 6;
+const PAGE_SIZE = 6;
 
-	const allPosts = [
-		splitArray(posts, pageSize),
-		...tagsGroup.map(({edges}) => splitArray(edges, pageSize)),
-	];
-	const allTags = getTags(tagsGroup);
+export default function IndexPage({data}: PageProps<Queries.PostQuery>) {
+	const {postList, tagList} = data.allMdx;
+
+	const {tags, postMap} = getPostGroup(tagList, postList, PAGE_SIZE);
 
 	return (
 		<Layout>
 			<Banner />
-			<PostList allPosts={allPosts} allTags={allTags} />
+			<PostList postMap={postMap} tags={tags} />
 		</Layout>
 	);
 }
@@ -36,32 +33,18 @@ export const pageQuery = graphql`
 			filter: {internal: {contentFilePath: {regex: "/blogs/"}}}
 			sort: {frontmatter: {date: DESC}}
 		) {
-			tagsGroup: group(field: {frontmatter: {tags: SELECT}}) {
-				tag: fieldValue
+			tagList: group(field: {frontmatter: {tags: SELECT}}) {
+				tagName: fieldValue
 				totalCount
 				edges {
 					node {
 						fields {
 							slug
-							timeToRead {
-								minutes
-							}
-						}
-						frontmatter {
-							date(formatString: "YYYY.MM.DD")
-							title
-							tags
-							description
-							img {
-								childImageSharp {
-									gatsbyImageData(width: 400)
-								}
-							}
 						}
 					}
 				}
 			}
-			posts: edges {
+			postList: edges {
 				node {
 					fields {
 						slug
