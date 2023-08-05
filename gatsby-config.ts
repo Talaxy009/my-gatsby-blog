@@ -1,5 +1,3 @@
-import {getSrc} from 'gatsby-plugin-image';
-
 import type {GatsbyConfig} from 'gatsby';
 
 type SerializeProps = {
@@ -101,7 +99,7 @@ const config: GatsbyConfig = {
 								? ['--no-first-run']
 								: [
 										'--no-first-run',
-										'--proxy-server=localhost:7890',
+										'--proxy-server=192.168.31.33:7890',
 								  ],
 						},
 					},
@@ -145,7 +143,6 @@ const config: GatsbyConfig = {
 			options: {
 				name: 'mdPages',
 				path: './content/pages/',
-				fastHash: true,
 			},
 		},
 		{
