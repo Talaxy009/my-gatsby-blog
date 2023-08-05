@@ -42,7 +42,7 @@
     "gatsby-plugin-waline": "latest",
     "gatsby-remark-autolink-headers": "~6.11.0",
     "gatsby-remark-images": "~7.11.0",
-    "gatsby-remark-link-beautify": "latest",
+    "gatsby-remark-link-beautify": "beta",
     "gatsby-remark-prismjs": "~7.11.0",
     "gatsby-source-filesystem": "~5.11.0",
     "gatsby-transformer-sharp": "~5.11.0",
