@@ -1,5 +1,5 @@
 ---
-title: 编译 Adnroid GSI 简易上手
+title: 编译 Android GSI 简易上手
 date: '2023-08-14T21:00:06.010Z'
 description: '作为一名前端工程师，我真的太讨厌编译了！但是我写了这篇文章？因为我喜欢折腾~'
 tags: ['技术']
@@ -28,7 +28,7 @@ Generic System Image(GSI) 通用系统镜像，是一种通用的 Android 系统
 
 Github 上已有大量的官方/非官方 GSI，完全可以下载、解压、刷机、双清、开机一气呵成，为什么还要自己编译呢？
 
-这是因为 GSI 仍然不是那么“通用”，我在平板上前前后后刷了 Pixel Experience Plus、EvoluationX、crDroid、Project Elixir 和 DrepFest。一些 Rom 会保留你的设备型号和制造商，一些则会修改为；Google Treble vanilla；一些能正常显示平板的 UI（如分栏的设置界面），一些则不行。
+这是因为 GSI 仍然不是那么“通用”，我在平板上前前后后刷了 Pixel Experience Plus、EvoluationX、crDroid、Project Elixir 和 DrepFest。一些 Rom 会保留你的设备型号和制造商，一些则会修改为：Google Treble vanilla；一些能正常显示平板的 UI（如分栏的设置界面），一些则不行。
 
 为了解决这些问题，就需要我们自己修改源码和编译了。
 
@@ -264,7 +264,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 ### 修改设备制造商和设备名
 
-统一目录下还有一个叫 `generate.sh` 的文件，查看它，我们会发现在接近 90 行左右的地方有以下代码：
+同一目录下还有一个叫 `generate.sh` 的文件，查看它，我们会发现在接近 90 行左右的地方有以下代码：
 
 ```makefile
 PRODUCT_NAME := $target
