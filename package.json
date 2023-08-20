@@ -1,6 +1,6 @@
 {
   "name": "my-gatsby-blog",
-  "packageManager": "yarn@3.6.1",
+  "packageManager": "yarn@3.6.2",
   "version": "1.0.0",
   "private": true,
   "description": "My Gatsby Blog",
@@ -42,7 +42,7 @@
     "gatsby-plugin-waline": "latest",
     "gatsby-remark-autolink-headers": "~6.11.0",
     "gatsby-remark-images": "~7.11.0",
-    "gatsby-remark-link-beautify": "beta",
+    "gatsby-remark-link-beautify": "latest",
     "gatsby-remark-prismjs": "~7.11.0",
     "gatsby-source-filesystem": "~5.11.0",
     "gatsby-transformer-sharp": "~5.11.0",
