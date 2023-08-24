@@ -3620,12 +3620,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/helpers@npm:^0.4.12, @swc/helpers@npm:^0.4.14":
+"@swc/helpers@npm:^0.4.12":
   version: 0.4.14
   resolution: "@swc/helpers@npm:0.4.14"
   dependencies:
     tslib: ^2.4.0
   checksum: 273fd3f3fc461a92f3790cc551ea054745c6d6959afbe1232e6d7aa1c722bbc114d308aab96bef5c78fc0303c85c7b472ef00e2253251cc89737f3b1af56e5a5
+  languageName: node
+  linkType: hard
+
+"@swc/helpers@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@swc/helpers@npm:0.5.1"
+  dependencies:
+    tslib: ^2.4.0
+  checksum: 71e0e27234590435e4c62b97ef5e796f88e786841a38c7116a5e27a3eafa7b9ead7cdec5249b32165902076de78446945311c973e59bddf77c1e24f33a8f272a
   languageName: node
   linkType: hard
 
@@ -6046,6 +6055,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"client-only@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "client-only@npm:0.0.1"
+  checksum: 0c16bf660dadb90610553c1d8946a7fdfb81d624adea073b8440b7d795d5b5b08beb3c950c6a2cf16279365a3265158a236876d92bce16423c485c322d7dfaf8
+  languageName: node
+  linkType: hard
+
 "clipboardy@npm:^2.3.0":
   version: 2.3.0
   resolution: "clipboardy@npm:2.3.0"
@@ -6761,7 +6777,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:^2.30.0, date-fns@npm:^2.9.0":
+"date-fns@npm:^2.30.0":
   version: 2.30.0
   resolution: "date-fns@npm:2.30.0"
   dependencies:
@@ -13041,7 +13057,7 @@ __metadata:
     prismjs: 1.29.0
     react: 18.2.0
     react-dom: 18.2.0
-    react-tweet: ^2.0.1
+    react-tweet: ^3.1.1
     reading-time: ^1.5.0
     recoil: 0.7.7
     remark-gfm: 1.0.0
@@ -14931,18 +14947,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-tweet@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "react-tweet@npm:2.0.1"
+"react-tweet@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "react-tweet@npm:3.1.1"
   dependencies:
-    "@swc/helpers": ^0.4.14
+    "@swc/helpers": ^0.5.1
     clsx: ^1.2.1
-    date-fns: ^2.9.0
-    swr: ^2.1.0
+    date-fns: ^2.30.0
+    swr: ^2.2.0
   peerDependencies:
     react: ">= 18.0.0"
     react-dom: ">= 18.0.0"
-  checksum: 26ab192a573b4ecd7412ba4faadc3236f52cfeaab73f220bb055b49aab5196c757b5968c72a8d4b4f0e89a789bebc883b5a19f502484d176662548a390efdb24
+  checksum: 331ba6ccccdcfec16ab910935203f7682f6d58b27c90000b61bd693f17e60b55a097ae4b0d694739554734026ee5bfe1fa0e15f4c5015c22a90e24b11e94795f
   languageName: node
   linkType: hard
 
@@ -16479,14 +16495,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swr@npm:^2.1.0":
-  version: 2.1.5
-  resolution: "swr@npm:2.1.5"
+"swr@npm:^2.2.0":
+  version: 2.2.1
+  resolution: "swr@npm:2.2.1"
   dependencies:
+    client-only: ^0.0.1
     use-sync-external-store: ^1.2.0
   peerDependencies:
     react: ^16.11.0 || ^17.0.0 || ^18.0.0
-  checksum: f2ef9b83ec4b2ebf4d520578ab847307700db01ffcab64b3aec6ea94feaf96ca10e38e8b08bc8adfab8eaa6ec1bdfd64f82b6f5c14cc4cb5cf11e6fd22b405a4
+  checksum: 62ff1b8132966fc977df192cf4452bab94c73dbea304a1438745f27041917154dad32448d8a65fb40d5e3de0b1751ef3fd57b1d71ba450e031517f009d0fc052
   languageName: node
   linkType: hard
 
