@@ -1,3 +1,5 @@
+import adapter from 'gatsby-adapter-netlify';
+
 import type {GatsbyConfig} from 'gatsby';
 
 type SerializeProps = {
@@ -22,11 +24,11 @@ const config: GatsbyConfig = {
 	flags: {
 		FAST_DEV: true,
 	},
+	adapter: adapter(),
 	plugins: [
 		'gatsby-plugin-emotion',
 		'gatsby-plugin-material-ui',
 		'gatsby-plugin-image',
-		'gatsby-plugin-netlify',
 		{
 			resolve: 'gatsby-plugin-google-gtag',
 			options: {
