@@ -43,12 +43,15 @@ jobs:
       - name: Build site
         run: yarn build
 
+      - name: Build Netlify serverless functions
+        run: yarn build:fn
+
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2
         with:
           publish-dir: './public'
           production-branch: main
-          functions-dir: './functions'
+          functions-dir: './.netlify/functions'
           deploy-message: ${{ github.event.head_commit.message }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
