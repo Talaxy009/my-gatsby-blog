@@ -14,7 +14,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "new": "node ./new.js",
-    "build:fn": "netlify function:build -s netlify/functions -f .netlify/functions",
+    "build:fn": "netlify functions:build -s netlify/functions -f .netlify/functions",
     "nolyfill": "yarn dlx nolyfill install",
     "link:LB": "yarn link ../gatsby-remark-link-beautify",
     "link:W": "yarn link ../gatsby-plugin-waline",
