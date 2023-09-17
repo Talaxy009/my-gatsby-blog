@@ -4,4 +4,4 @@ type TagInfo = {
 	slugs: string[][];
 };
 
-type Post = Queries.PostQuery['allMdx']['posts'][0]['node'];
+type Post = Queries.PostQuery['allMdx']['postList'][0]['node'];

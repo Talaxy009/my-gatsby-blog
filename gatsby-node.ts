@@ -64,6 +64,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     			title: String!
 				tags: [String!]!
     			description: String!
+				date: Date! @dateformat
 			}
 			type Fields {
 				slug: String!
