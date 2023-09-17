@@ -1,13 +1,13 @@
 import React from 'react';
 import {Tweet as ReactTweet, TweetSkeleton} from 'react-tweet';
-import {useHasMounted, useSiteMetadata} from '../utils/hooks';
+import {useHasMounted, useSiteInfo} from '../utils/hooks';
 
 export default function Tweet({id = ''}) {
-	const siteMetaData = useSiteMetadata();
+	const {siteMetadata} = useSiteInfo();
 	const hasMounted = useHasMounted();
 
 	return hasMounted ? (
-		<ReactTweet apiUrl={`${siteMetaData.siteUrl}/api/tweet/${id}`} />
+		<ReactTweet apiUrl={`${siteMetadata.siteUrl}/api/tweet/${id}`} />
 	) : (
 		<TweetSkeleton />
 	);

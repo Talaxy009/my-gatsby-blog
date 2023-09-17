@@ -1,5 +1,5 @@
 import React from 'react';
-import {useSiteMetadata} from '../utils/hooks';
+import {useSiteInfo} from '../utils/hooks';
 
 type SEOProps = {
 	title?: string | undefined | null;
@@ -12,7 +12,7 @@ export default function SEO({
 	description = null,
 	image = '/site-image.png',
 }: SEOProps) {
-	const siteMetadata = useSiteMetadata();
+	const {siteMetadata} = useSiteInfo();
 
 	const {
 		title: siteName,

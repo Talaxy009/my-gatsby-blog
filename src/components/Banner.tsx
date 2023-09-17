@@ -3,8 +3,8 @@ import {navigate} from 'gatsby';
 import styled from '@emotion/styled';
 import Button from '@mui/material/Button';
 
+import {useSiteInfo} from '../utils/hooks';
 import DarkModeButton from './DarkModeButton';
-import {useSiteMetadata} from '../utils/hooks';
 import BannerImg from '../assets/images/banner.svg';
 
 const BannerRoot = styled.div`
@@ -66,15 +66,12 @@ interface BannerProps {
 }
 
 export default function Banner({title, description}: BannerProps) {
-	const {title: siteTitle, description: siteDescription} = useSiteMetadata();
+	const {siteMetadata} = useSiteInfo();
+	const {title: siteTitle, description: siteDescription} = siteMetadata;
 
 	return (
 		<BannerRoot>
-			<img
-				alt="banner"
-				className="bannerImg"
-				src={BannerImg}
-			/>
+			<img alt="banner" className="bannerImg" src={BannerImg} />
 			<BannerContainer>
 				<h1>{title || siteTitle}</h1>
 				<Description>{description || siteDescription}</Description>

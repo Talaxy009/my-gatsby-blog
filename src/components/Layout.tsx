@@ -7,10 +7,11 @@ import CopyrightIcon from '@mui/icons-material/Copyright';
 import RssFeedIcon from '@mui/icons-material/RssFeedRounded';
 import FriendsIcon from '@mui/icons-material/Diversity3Rounded';
 
+import {Link} from './Links';
 import DarkModeButton from './DarkModeButton';
+import { useSiteInfo } from '../utils/hooks';
 import {getTimeDiff} from '../utils/dataUtils';
 import {useDarkModeValue} from '../utils/darkMode';
-import {Link} from './Links';
 
 type LayoutProps = {
 	isArticle?: boolean;
@@ -63,23 +64,11 @@ const Footer = styled.footer`
 
 export default function Layout({isArticle = false, children}: LayoutProps) {
 	const darkMode = useDarkModeValue();
-	const data = useStaticQuery(graphql`
-		query {
-			site {
-				buildTime
-				siteMetadata {
-					title
-					author {
-						name
-					}
-				}
-			}
-		}
-	`);
+	const {buildTime, siteMetadata} = useSiteInfo();
 
 	const rootPath = '/';
-	const {title, author} = data.site.siteMetadata;
-	const buildTimeDiff = getTimeDiff(new Date(data.site.buildTime));
+	const {title, author} = siteMetadata;
+	const buildTimeDiff = getTimeDiff(new Date(buildTime));
 
 	const theme = React.useMemo(
 		() =>

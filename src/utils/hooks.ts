@@ -1,6 +1,11 @@
 import React from 'react';
 import {graphql, useStaticQuery} from 'gatsby';
 
+type SiteInfo = {
+	buildTime: string,
+	siteMetadata: Queries.SiteMetadata,
+}
+
 /**
  * 当页面加载完成时由 false 变为 true
  * @returns {boolean} hasMounted
@@ -14,13 +19,14 @@ export function useHasMounted(): boolean {
 }
 
 /**
- * 获取 siteMetadata
- * @returns {object} siteMetadata
+ * 获取网站信息的 GraphQL 钩子
+ * @returns {SiteInfo} siteInfo
  */
-export function useSiteMetadata(): Queries.SiteMetadata {
+export function useSiteInfo(): SiteInfo {
 	const data = useStaticQuery(graphql`
-		query {
+		query SiteInfo {
 			site {
+				buildTime
 				siteMetadata {
 					title
 					siteUrl
@@ -34,5 +40,5 @@ export function useSiteMetadata(): Queries.SiteMetadata {
 			}
 		}
 	`);
-	return data.site.siteMetadata;
+	return data.site;
 }
