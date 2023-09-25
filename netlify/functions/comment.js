@@ -5,9 +5,9 @@ const Waline = require('@waline/vercel');
 const serverless = require('serverless-http');
 
 const app = Waline({
-	async postSave(comment) {
+	async postSave() {
 		// do what ever you want after save comment
-		console.log(`New comment: ${comment}`);
+
 	},
 });
 
