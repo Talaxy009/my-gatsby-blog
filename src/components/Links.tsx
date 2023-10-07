@@ -4,9 +4,9 @@ import styled from '@emotion/styled';
 import {
 	SiPixiv,
 	SiGithub,
-	SiTwitter,
 	SiYoutube,
 	SiTelegram,
+	SiX,
 } from '@icons-pack/react-simple-icons';
 
 const LinkRoot = styled.a`
@@ -55,15 +55,15 @@ const LinkContent = styled.div`
 `;
 
 const links = {
-	twitter: {
-		name: 'Twitter',
+	x: {
+		name: 'X / Twitter',
 		url: 'https://twitter.com/',
-		icon: <SiTwitter color="#1DA1F2" size={28} />,
+		icon: <SiX id="ic-x" color="#000" size={28} />,
 	},
 	github: {
 		name: 'GitHub',
 		url: 'https://github.com/',
-		icon: <SiGithub id="gh" color="#181717" size={28} />,
+		icon: <SiGithub id="ic-gh" color="#181717" size={28} />,
 	},
 	pixiv: {
 		name: 'Pixiv',
@@ -82,7 +82,7 @@ const links = {
 	},
 };
 
-type Site = 'twitter' | 'github' | 'pixiv' | 'youtube' | 'telegram';
+type Site = 'x' | 'github' | 'pixiv' | 'youtube' | 'telegram';
 
 interface SiteLinkProps {
 	id: string;

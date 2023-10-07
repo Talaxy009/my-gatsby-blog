@@ -178,7 +178,8 @@ body.dark-mode {
 	opacity: 0.8;
 }
 
-.dark-mode #gh path {
+.dark-mode #ic-gh path,
+.dark-mode #ic-x path {
 	fill: #fff;
 }
 
