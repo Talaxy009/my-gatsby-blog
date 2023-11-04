@@ -18,7 +18,8 @@
 ├── content    # 页面内容
 │   ├── blogs  # markdown 博客
 │   └── pages  # markdown 页面
-├── functions  # 打包好的 Netlify Serverless 函数
+├── netlify    # Netlify 相关
+│   └── functions  # Serverless 函数
 ├── src        # 源码
 │   ├── assets   # 资源
 │   │   ├── images # 图片
