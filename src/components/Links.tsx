@@ -18,8 +18,11 @@ const LinkRoot = styled.a`
 	text-decoration: none;
 	transition: var(--sys-transition);
 	color: var(--md-sys-color-on-surface);
+	-webkit-tap-highlight-color: transparent;
 	background-color: var(--md-sys-color-surface-container);
-	:hover {
+	:hover,
+	:focus,
+	:active {
 		border-radius: 24px;
 		text-decoration: none;
 	}
@@ -34,8 +37,11 @@ const InnerLinkRoot = styled(GatsbyLink)`
 	text-decoration: none;
 	transition: var(--sys-transition);
 	color: var(--md-sys-color-on-surface);
+	-webkit-tap-highlight-color: transparent;
 	background-color: var(--md-sys-color-surface-container);
-	:hover {
+	:hover,
+	:focus,
+	:active {
 		border-radius: 24px;
 		text-decoration: none;
 	}

@@ -20,6 +20,7 @@ const PostItemBody = styled(Link)`
 	overflow: hidden;
 	border-radius: 24px;
 	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
 	background-color: var(--md-sys-color-surface-container);
 	/* border: 1px solid var(--md-sys-color-outline-variant); */
 	transition: var(--sys-transition);
@@ -28,7 +29,9 @@ const PostItemBody = styled(Link)`
 		border-radius: 24px;
 		background-color: var(--md-sys-color-surface-container);
 	}
-	:hover {
+	:hover,
+	:focus,
+	:active {
 		border-radius: 48px;
 		text-decoration: none;
 	}

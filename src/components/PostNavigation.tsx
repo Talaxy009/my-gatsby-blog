@@ -15,13 +15,16 @@ const NavItem = styled(Link)`
 	text-decoration: none;
 	flex-direction: column;
 	transition: var(--sys-transition);
+	-webkit-tap-highlight-color: transparent;
 	background-color: var(--md-sys-color-surface-container);
 	.gatsby-image-wrapper {
 		width: 100%;
 		border-radius: 24px;
 		background-color: var(--md-sys-color-surface-container);
 	}
-	:hover {
+	:hover,
+	:focus,
+	:active {
 		border-radius: 48px;
 		text-decoration: none;
 	}

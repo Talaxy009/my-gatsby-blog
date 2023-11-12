@@ -49,9 +49,7 @@ const Topbar = styled.div`
 	top: 0;
 	h2 {
 		margin: 8px;
-		:hover {
-			cursor: pointer;
-		}
+		cursor: pointer;
 	}
 `;
 
