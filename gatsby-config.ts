@@ -71,6 +71,7 @@ const config: GatsbyConfig = {
 						resolve: 'gatsby-remark-images',
 						options: {
 							maxWidth: 800,
+							quality: 85,
 						},
 					},
 					{
@@ -113,7 +114,7 @@ const config: GatsbyConfig = {
 			options: {
 				defaults: {
 					placeholder: 'blurred',
-					quality: 80,
+					quality: 85,
 				},
 			},
 		},
