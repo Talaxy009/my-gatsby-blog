@@ -8,7 +8,7 @@
 </h1>
 
 [![GitHub Actions](https://github.com/Talaxy009/my-gatsby-blog/actions/workflows/main.yml/badge.svg)](https://github.com/Talaxy009/my-gatsby-blog/actions)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1ed8533f-3036-495f-9492-303beab16c85/deploy-status)](https://app.netlify.com/sites/talaxy-site/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1ed8533f-3036-495f-9492-303beab16c85/deploy-status)](https://app.netlify.com/sites/talaxy/deploys)
 
 本站由 [Gatsby](https://www.gatsbyjs.com/) 强力驱动，从旧的 [博客](https://github.com/Talaxy009/My-blog) 发展而来。
 
