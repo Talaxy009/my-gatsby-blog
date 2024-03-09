@@ -36,12 +36,12 @@ jobs:
         run: yarn install --immutable
 
       - name: Cache build data
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: .cache
-          key: build-cache-v3-${{ hashFiles('**/yarn.lock') }}
+          key: build-cache-v4-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            build-cache-v3-
+            build-cache-v4-
 
       - name: Build site
         run: yarn build
