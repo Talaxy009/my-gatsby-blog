@@ -1,7 +1,7 @@
 body {
 	--waline-font-size: 1rem;
 	--waline-active-color: #009ba1;
-	--waline-code-bgcolor: #282828;
+	--waline-code-bg-color: #282828;
 	--waline-avatar-size: 3.25rem;
 	--waline-m-avatar-size: calc(var(--waline-avatar-size) * 9 / 13);
 	--waline-badge-font-size: 0.75em;
@@ -911,7 +911,7 @@ body {
 	margin: 0.75rem 0;
 	padding: 1rem 1.25rem;
 	border-radius: 6px;
-	background: var(--waline-code-bgcolor);
+	background: var(--waline-code-bg-color);
 	line-height: 1.4;
 }
 .wl-content pre code,
@@ -927,7 +927,7 @@ body {
 	background: none;
 	color: #ccc;
 	font-size: 1em;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-family: JetBrains Mono, Consolas, monospace;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -1054,17 +1054,17 @@ body {
 	margin: 10px 0;
 }
 .wl-user-list .wl-user-item:nth-child(1) .wl-user-badge {
-	background: var(--waline-rank-gold-bgcolor, #fa3939);
+	background: var(--waline-rank-gold-bg-color, #fa3939);
 	color: var(--md-sys-color-on-primary);
 	font-weight: bold;
 }
 .wl-user-list .wl-user-item:nth-child(2) .wl-user-badge {
-	background: var(--waline-rank-silver-bgcolor, #fb811c);
+	background: var(--waline-rank-silver-bg-color, #fb811c);
 	color: var(--md-sys-color-on-primary);
 	font-weight: bold;
 }
 .wl-user-list .wl-user-item:nth-child(3) .wl-user-badge {
-	background: var(--waline-rank-copper-bgcolor, #feb207);
+	background: var(--waline-rank-copper-bg-color, #feb207);
 	color: var(--md-sys-color-on-primary);
 }
 .wl-user-list .wl-user-meta {
@@ -1135,4 +1135,4 @@ body {
 .wl-user-wall .wl-user-item img {
 	width: var(--waline-user-avatar-size, 48px);
 	height: var(--waline-user-avatar-size, 48px);
-} /*# sourceMappingURL=waline.css.map */
+}
