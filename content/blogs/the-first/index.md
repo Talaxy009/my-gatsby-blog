@@ -73,3 +73,6 @@ img: "img.jpg"
 - 2023/03/01——切换至 Waline 评论系统
 - 2023/04/20——将 Markdown 迁移至 MDX
 - 2023/05/01——尝试将界面风格贴近 Material YOU 设计
+- 2023/05/07——添加推特卡片和对应的 Netlify Function 用于获取推文信息
+- 2023/05/16——使用 ViewTransition API 添加夜间模式动画
+- 2023/09/10——将所有 Serverless Function 迁移至本地打包并部署至 Netlify
