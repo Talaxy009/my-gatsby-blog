@@ -1,7 +1,7 @@
 ---
 title: 编译 Android GSI 简易上手
 date: '2023-08-14T21:00:06.010Z'
-description: '作为一名前端工程师，我真的太讨厌编译了！但是我写了这篇文章？因为我喜欢折腾~'
+description: '作为一名前端开发，我真的太讨厌编译了！但是我写了这篇文章？因为我喜欢折腾~'
 tags: ['技术']
 img: 'img.png'
 ---
@@ -43,6 +43,8 @@ Github 上已有大量的官方/非官方 GSI，完全可以下载、解压、�
 - 基础的计算机知识
 - Linux 操作
 - Git 使用
+
+本文以安卓 13 为例，目前 DerpFest GSI 已更新至安卓 14，若想编译安卓 14 则需修改文中的 git/repo 指令来拉取对应的分支（你应该知道怎么做😋）。
 
 ### 软硬件需求
 
@@ -169,7 +171,7 @@ repo init -u https://github.com/DerpFest-AOSP/manifest.git -b 13
 #### 拉取 GSI 仓库
 
 ```shell
-git clone https://github.com/KoysX/treble_DerpFest_GSI.git
+git clone https://github.com/KoysX/treble_DerpFest_GSI.git -b 13
 ```
 
 由于 GSI 一般是第三方开发者维护的且为了避免影响正常的系统源码，因此 GSI 部分源码都是放置在独立的一个仓库，通过打 patch 的方式来进行合并。仓库内还有一个 manifest.xml 文件，需要拷贝至 `.repo/local_manifests` 来让 repo 拉取 treble 部分的代码。
@@ -311,6 +313,25 @@ bash ./treble_DerpFest_GSI/apply-patches.sh ~/DerpFest/treble_DerpFest_GSI pre
 
 即可将 `treble_DerpFest_GSI/patches` 下对应的 patches 都合并到源码中。
 
+### 打 Patch 小技巧
+
+值得一提的是，打 Patch 这一步经常出错，原因不限于源码太新或太久而产生冲突。因此在 `repo sync` 后你可以手动将源码回退到 patch 更新的日期。比如这样：
+
+```shell
+repo forall -c 'commitID=`git log --before "2024-01-08 16:00" -1 --pretty=format:"%H"`; git reset --hard $commitID'
+```
+
+即可将 repo 下的所有 git 仓库回退到 2024-01-08 16:00 前的最后一个提交。但有时候即便源码时间都尽可能一致也还是会有失败的情况，为了防止一两个 Patch 打失败就全部中断（有些 Patch 不会影响系统运行），可以修改 `treble_DerpFest_GSI/apply-patches.sh` 的第 15 行：
+
+```diff
+for patch in $patches/patches/$tree/$project/*.patch; do
+-   git am $patch || exit
++   git am $patch || true
+done
+```
+
+这样便能无视打失败的 Patch 了。
+
 ## 开始打包
 
 终于到了最后的打包步骤了，不过在每次打包前还要再配置下：
@@ -338,3 +359,16 @@ make -j$(nproc --all) systemimage
 ![JAVA 爆堆](./failed.png)
 
 编译时的 metalava 过程会吃掉大量内存，稍有不慎就会爆堆，且由于其一般都在 95% 左右时进行，经常打包打了一个小时后报错，让人血压拉满，可以尝试一下 XDA 论坛上的[这个办法](https://forum.xda-developers.com/t/guide-how-to-build-android-11-with-low-ram.4298483/#post-86771209)。
+
+## GSI 分享
+
+下面是我编译的 DerpFest GSI，有安卓 13 和 14，都是基于文中提到的仓库和方法编译的，有需要可以自取。再次提醒：刷机有风险！搞机需谨慎！本人不为此造成的任何损失负责。
+
+<LinkCard
+  title="ALLDOCUBE_ZhangwanMini_GSI"
+  img="https://mega.nz/rich-folder.png"
+  description="个人编译的酷比魔方掌玩 Mini 的 DerpFest GSI"
+  link="https://mega.nz/folder/LFsRjBAA#p9Jkeu9e4lJNhcZXK5fcgQ"
+/>
+
+此外酷安上也有一些大佬们制作的系统，比如 MIUI 和 LineagesOS······可以去看看。
