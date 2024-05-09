@@ -2079,19 +2079,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/cache@npm:^11.4.0":
-  version: 11.10.5
-  resolution: "@emotion/cache@npm:11.10.5"
-  dependencies:
-    "@emotion/memoize": "npm:^0.8.0"
-    "@emotion/sheet": "npm:^1.2.1"
-    "@emotion/utils": "npm:^1.2.0"
-    "@emotion/weak-memoize": "npm:^0.3.0"
-    stylis: "npm:4.1.3"
-  checksum: 10/6af9a9ea3ccac3fba54ac9e3f0df3bd97c16d790048b516bd53e12ff8337eb88a278c84fd8b979224b49e1f4038e00cc882e7626289137f2e684cd3657e2b7eb
-  languageName: node
-  linkType: hard
-
 "@emotion/hash@npm:^0.9.1":
   version: 0.9.1
   resolution: "@emotion/hash@npm:0.9.1"
@@ -2105,13 +2092,6 @@ __metadata:
   dependencies:
     "@emotion/memoize": "npm:^0.8.1"
   checksum: 10/0fa3960abfbe845d40cc230ab8c9408e1f33d3c03b321980359911c7212133cdcb0344d249e9dab23342b304567eece7a10ec44b986f7230e0640ba00049dceb
-  languageName: node
-  linkType: hard
-
-"@emotion/memoize@npm:^0.8.0":
-  version: 0.8.0
-  resolution: "@emotion/memoize@npm:0.8.0"
-  checksum: 10/c87bb110b829edd8e1c13b90a6bc37cebc39af29c7599a1e66a48e06f9bec43e8e53495ba86278cc52e7589549492c8dfdc81d19f4fdec0cee6ba13d2ad2c928
   languageName: node
   linkType: hard
 
@@ -2182,11 +2162,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/server@npm:^11.4.0":
-  version: 11.10.0
-  resolution: "@emotion/server@npm:11.10.0"
+"@emotion/server@npm:^11.11.0":
+  version: 11.11.0
+  resolution: "@emotion/server@npm:11.11.0"
   dependencies:
-    "@emotion/utils": "npm:^1.2.0"
+    "@emotion/utils": "npm:^1.2.1"
     html-tokenize: "npm:^2.0.0"
     multipipe: "npm:^1.0.2"
     through: "npm:^2.3.8"
@@ -2195,14 +2175,7 @@ __metadata:
   peerDependenciesMeta:
     "@emotion/css":
       optional: true
-  checksum: 10/7338f3d82992814b0c32f2ec8e06beadb812210e801e1afd4f860ea38f5bf25471eeec08a83acdb3d2779265460e8504cf40e127aed97258492451ac6582f3b4
-  languageName: node
-  linkType: hard
-
-"@emotion/sheet@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@emotion/sheet@npm:1.2.1"
-  checksum: 10/c1140f7ad74c992ac410c3aa0a795e2a47269e7ebf9886dc120ff0b72c55531239f0b5c495438549ef33689f501df73f1787cfaff41e62a76bdfbc04236adf1d
+  checksum: 10/c958a460ec83353122ddc1f1f72db89582454c1004ffd2d60b69cce6e7dab7fa820b948c3540129fd087cfa781b1126e02df3d9535bd19f098f5b7b230994f57
   languageName: node
   linkType: hard
 
@@ -2249,24 +2222,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/utils@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@emotion/utils@npm:1.2.0"
-  checksum: 10/21826f95e2cfe7b185d4e7151f02d891682cd32d98b4c5f8c202bca7771e219472677c8ebca82f5bc26fc0098073af6814361bbfcea0de3aac1925d8198985b3
-  languageName: node
-  linkType: hard
-
 "@emotion/utils@npm:^1.2.1":
   version: 1.2.1
   resolution: "@emotion/utils@npm:1.2.1"
   checksum: 10/472fa529c64a13edff80aa11698092e8841c1ffb5001c739d84eb9d0fdd6d8e1cd1848669310578ccfa6383b8601132eca54f8749fca40af85d21fdfc9b776c4
-  languageName: node
-  linkType: hard
-
-"@emotion/weak-memoize@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@emotion/weak-memoize@npm:0.3.0"
-  checksum: 10/f43ef4c8b7de70d9fa5eb3105921724651e4188e895beb71f0c5919dc899a7b8743e1fdd99d38b9092dd5722c7be2312ebb47fbdad0c4e38bea58f6df5885cc0
   languageName: node
   linkType: hard
 
@@ -13922,19 +13881,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-material-ui@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "gatsby-plugin-material-ui@npm:4.1.0"
-  dependencies:
-    "@emotion/cache": "npm:^11.4.0"
-    "@emotion/server": "npm:^11.4.0"
-  peerDependencies:
-    "@emotion/react": ^11.4.0
-    gatsby: ^3.0.0 || ^4.0.0
-  checksum: 10/cded8b209e0dd5b73e61b9726e2af0c53f309bfc10b3c44ab78155a191ac32acedfdc157d1bca4b285b6459f5df94b5ade94b4898437a548532ff00ca477b927
-  languageName: node
-  linkType: hard
-
 "gatsby-plugin-mdx@npm:~5.13.1":
   version: 5.13.1
   resolution: "gatsby-plugin-mdx@npm:5.13.1"
@@ -14139,16 +14085,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-remark-link-beautify@npm:beta":
-  version: 2.3.0-beta.2
-  resolution: "gatsby-remark-link-beautify@npm:2.3.0-beta.2"
+"gatsby-remark-link-beautify@npm:latest":
+  version: 2.3.0
+  resolution: "gatsby-remark-link-beautify@npm:2.3.0"
   dependencies:
     puppeteer: "npm:^22.7.1"
     unique-slug: "npm:^4.0.0"
     unist-util-visit: "npm:^2.0.3"
   peerDependencies:
     gatsby-plugin-sharp: ">=5.0.0"
-  checksum: 10/e4667de4ec684cae960330db8ad3a4a29e825c8f01986a39fd76da73fe07408370637af4d6d3602532e4824b4cb70d1ac49c451e327f292dcd59b4e173b2ad6e
+  checksum: 10/481134f4caff6364142426c025f6f4d7196c6df3d2adaae6fd21e4e03726b4b01498aaf9d7244e23734e7fffd2e2d0836b16a8146ecf2916affd822338f233cf
   languageName: node
   linkType: hard
 
@@ -19676,6 +19622,7 @@ __metadata:
   resolution: "my-gatsby-blog@workspace:."
   dependencies:
     "@emotion/react": "npm:~11.11.4"
+    "@emotion/server": "npm:^11.11.0"
     "@emotion/styled": "npm:~11.11.5"
     "@icons-pack/react-simple-icons": "npm:~9.4.1"
     "@mdx-js/react": "npm:^2.3.0"
@@ -19697,7 +19644,6 @@ __metadata:
     gatsby-plugin-google-gtag: "npm:~5.13.1"
     gatsby-plugin-image: "npm:~3.13.1"
     gatsby-plugin-manifest: "npm:~5.13.1"
-    gatsby-plugin-material-ui: "npm:^4.1.0"
     gatsby-plugin-mdx: "npm:~5.13.1"
     gatsby-plugin-sharp: "npm:~5.13.1"
     gatsby-plugin-sitemap: "npm:~6.13.1"
@@ -19705,7 +19651,7 @@ __metadata:
     gatsby-plugin-waline: "npm:latest"
     gatsby-remark-autolink-headers: "npm:~6.13.1"
     gatsby-remark-images: "npm:~7.13.1"
-    gatsby-remark-link-beautify: "npm:beta"
+    gatsby-remark-link-beautify: "npm:latest"
     gatsby-remark-prismjs: "npm:~7.13.1"
     gatsby-source-filesystem: "npm:~5.13.1"
     gatsby-transformer-sharp: "npm:~5.13.1"
@@ -25192,13 +25138,6 @@ __metadata:
   peerDependencies:
     postcss: ^8.2.15
   checksum: 10/bddce1f5a8ba5a129995fc5585fa59fda6c8c580a8b39631955ee03810957eea62d13c7711a61f3a4f3bc2f9a4a9e019846f73b669c4aa0b5c52cd0198824b5c
-  languageName: node
-  linkType: hard
-
-"stylis@npm:4.1.3":
-  version: 4.1.3
-  resolution: "stylis@npm:4.1.3"
-  checksum: 10/0065b6954f7007ded81598d8390c92682dd312f4d9a7f928e70190f716ee4019e29f5dd364016f8428b8ef9b5b6b950b2be717d76a7d813302cdbf1321084374
   languageName: node
   linkType: hard
 

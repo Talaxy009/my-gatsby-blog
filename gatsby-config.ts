@@ -27,7 +27,6 @@ const config: GatsbyConfig = {
 	adapter: adapter(),
 	plugins: [
 		'gatsby-plugin-emotion',
-		'gatsby-plugin-material-ui',
 		'gatsby-plugin-image',
 		{
 			resolve: 'gatsby-plugin-google-gtag',
