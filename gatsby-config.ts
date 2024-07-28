@@ -55,7 +55,7 @@ const config: GatsbyConfig = {
 			resolve: 'gatsby-plugin-waline',
 			options: {
 				serverURL: 'https://www.talaxy.site/.netlify/functions/comment',
-				emoji: ['https://unpkg.com/@waline/emojis@1.1.0/tieba'],
+				emoji: ['https://unpkg.com/@waline/emojis@1.2.0/tieba'],
 			},
 		},
 		{
