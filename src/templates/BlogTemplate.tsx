@@ -24,6 +24,29 @@ export default function BlogTemplate({
 	if (!post) return null;
 	const image = getImage(post.frontmatter.img?.childImageSharp || null);
 
+	React.useEffect(() => {
+		if (window.location.hash) {
+			const targetDomId = window.location.hash.split('#')[1];
+			const checkExist = setInterval(() => {
+				const target = document.getElementById(targetDomId);
+				if (target) {
+					target.scrollIntoView({
+						behavior: 'smooth',
+						block: 'center',
+					});
+					clearInterval(checkExist);
+				}
+			}, 800);
+			const timeout = setTimeout(() => {
+				clearInterval(checkExist);
+			}, 2e4); // 20s
+			return () => {
+				clearInterval(checkExist);
+				clearTimeout(timeout);
+			};
+		}
+	}, []);
+
 	return (
 		<Layout isArticle>
 			<article>
