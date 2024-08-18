@@ -4,6 +4,7 @@ export default function LinkCard({
 	link = '',
 	title = '',
 	description = '',
+	friendsLink = false,
 	img = '',
 }) {
 	return (
@@ -26,7 +27,12 @@ export default function LinkCard({
 				</div>
 			</div>
 			{img && (
-				<div className="link-card-image-wrapper">
+				<div
+					className={
+						friendsLink
+							? 'link-card-friend-image-wrapper'
+							: 'link-card-image-wrapper'
+					}>
 					<img
 						className="link-card-image"
 						alt={`${title}-image`}

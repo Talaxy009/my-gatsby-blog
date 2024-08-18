@@ -107,6 +107,13 @@
 	position: relative;
 }
 
+.link-card-friend-image-wrapper {
+	flex: 1 1 80px;
+	min-height: 80px;
+	display: block;
+	position: relative;
+}
+
 .link-card-image {
 	display: block;
 	object-fit: cover;
