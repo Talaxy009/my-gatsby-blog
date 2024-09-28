@@ -1,0 +1,166 @@
+---
+title: '使用安卓增量 OTA 包提取出 boot.img'
+date: '2024-09-25T23:27:01.175Z'
+description: '最近摸索了下：如何使用 payload.bin 和旧版本的 boot 提取出新 boot'
+tags: ['技术', '记录']
+img: 'img.png'
+---
+
+## 前言
+
+昨天我的 Moto S30Pro 终于推了安卓 14，由于我需要使用 root 来让手机正常连接 Pixel Watch，因此需要更新后还能保持 root（准确来说是 Apatch）。
+
+互联网上流传着一种“招式”：
+
+1. 用 Apatch 还原系统 boot 镜像，不重启
+2. 正常进行系统更新，不重启
+3. 刷写修补后的 boot 镜像到另一个槽位
+4. 重启，成功保 root 更新
+
+但是我在步骤 2 便无法进行了——更新一直无法通过校验。只好 fastboot 写入原厂 boot 再更新了，这样一来重启后 root 就掉了。
+
+重新 root 需要安卓 14 的原厂 boot 来进行修补，但这一时半会官方还没放出全量包，因此得想别的办法提取一个。
+
+## 现有的资源
+
+目前手上只有一个安卓 13 的原厂 boot 镜像，根本无从下手。因此虽然不知道是否有用，但还是搞来了这次更新的 OTA 包。
+
+解压后有以下文件：
+
+```txt
+Ota_Version.31.0.3.tundra_cn.china.Hans.CN.zip
+├── META-INF
+├── payload_properties.txt
+├── payload.bin
+├── metadata.json
+├── care_map.pb
+└── apex_info.pb
+```
+
+`payload.bin` 的大小最大，一看就是好东西，上网一搜，果然有通过 payload 提取 boot 镜像的方式：
+
+[$card](https://magiskcn.com/payload-dumper-go-boot)
+
+只可惜，生活总是不会那么一番风顺，手上的这个是增量 OTA 包不适用上述办法。
+
+## 使用 payload_dumper 进行解包
+
+通过增量 OTA 包的 payload 文件获取 boot 的唯一方式就是使用 payload_dumper 了：
+
+[$card](https://github.com/vm03/payload_dumper)
+
+前置条件是需要上一版本的 boot.img，既然这个已经有了，那就立马开干！
+
+### 软件需求
+
+- Python3
+- Git
+
+### 前置工作
+
+克隆 payload_dumper 到本地：
+
+```shell
+git clone https://github.com/vm03/payload_dumper
+```
+
+安装依赖：
+
+```shell
+python -m pip install -r requirements.txt
+```
+
+之后，将上一版本的原厂 boot.img 放置在 old 文件夹内，payload.bin 放置在根目录下，一切结束后文件结构大概如下：
+
+```txt
+payload_dumper
+├── old
+│   └── boot.img
+├── output
+├── ...
+├── payload.bin
+├── payload_dumper.py
+└── requirements.txt
+```
+
+可以开始下一步了。
+
+### 开始导出
+
+执行以下命令：
+
+```shell
+python payload_dumper.py --diff payload.bin --images boot
+```
+
+如果一切顺利，控制台应该没有任何报错，并且 output 文件夹下就有一个崭新的 `boot.img` 在等着我们，可以拿着去刷、去修补了。如果控制台有任何报错，即便 output 下有 boot 文件，也不要刷写！否则可能会因为刷入无效 boot 而进不去系统。
+
+如果很不幸的像我一样遇到了如下报错：
+
+```txt
+Unsupported type = 9
+```
+
+那就得用下面这种方法了。
+
+## 使用 update_payload_extractor 进行解包
+
+通过这个 issue 得知，`Type 9` 是一种叫 `PUFFDIFF` 的数据格式。
+
+[$card](https://github.com/vm03/payload_dumper/issues/10)
+
+虽然 payload_dumper 目前并不支持该格式的 payload，但是伟大的开源社区已经为我们指明方向了😌。其便是支持 `PUFFDIFF` 的 update_payload_extractor:
+
+[$card](https://github.com/mrslezak/update_payload_extractor)
+
+开干！
+
+### 软件需求
+
+- Linux
+- Python3
+- Git
+
+是的，这个仓库需要在 Linux 下才能跑得起来。
+
+### 前置工作
+
+克隆 update_payload_extractor 到本地：
+
+```shell
+git clone update_payload_extractor
+```
+
+安装依赖：
+
+```shell
+pip3 install protobuf==3.20
+```
+
+之后，将上一版本的原厂 boot.img 重命名为 boot 并放置在 old 文件夹内（也可以直接移过去再用仓库内的 `remove_img_extension_old.sh` 脚本批量去掉扩展名），payload.bin 放置在根目录下，一切结束后文件结构大概如下：
+
+```txt
+update_payload_extractor
+├── old
+│   └── boot
+├── output
+├── ...
+├── payload.bin
+└── extract.py
+```
+
+### 开始导出
+
+分别执行以下命令：
+
+```shell
+LD_LIBRARY_PATH=./lib64/ ./extract.py --output_dir output/ --old_dir old/ payload.bin --partitions boot
+
+./add_img_extension_output.sh
+```
+
+一样的，如果一切顺利，控制台应该没有任何报错提示，并且 output 文件夹下就有一个崭新的 `boot.img`，将其拷出来就能拿着去刷、去修补了。而我也通过这个 boot 镜像成功恢复了 Apatch 🥳。
+
+## 最后
+
+这次也是学到了很多，摸索中途还无视报错把 boot 刷了进去，导致手机反复重启进不去系统，差点就回退安卓 13 了😭。好在最后柳暗花明又一村！找到了路子，提取出了 boot 文件。
