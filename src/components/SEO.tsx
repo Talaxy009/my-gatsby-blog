@@ -39,6 +39,7 @@ export default function SEO({
 			<meta name="twitter:card" content="summary_large_image" />
 			<meta name="twitter:creator" content={`@${author.twitter}`} />
 			<meta name="twitter:description" content={metaDescription} />
+			<meta name="baidu-site-verification" content="codeva-MZLWOUY24O" />
 		</React.Fragment>
 	);
 }
