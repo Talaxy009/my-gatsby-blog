@@ -1,6 +1,6 @@
 {
   "name": "my-gatsby-blog",
-  "packageManager": "yarn@4.2.2",
+  "packageManager": "yarn@4.5.1",
   "version": "1.0.0",
   "private": true,
   "description": "My Gatsby Blog",
@@ -58,17 +58,17 @@
     "remark-gfm": "^1.0.0"
   },
   "devDependencies": {
-    "@netlify/functions": "^2.8.1",
+    "@netlify/functions": "^2.8.2",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "@waline/client": "^3.3.0",
-    "@waline/vercel": "^1.32.0",
+    "@waline/client": "^3.3.2",
+    "@waline/vercel": "^1.32.1",
     "eslint": "latest",
     "eslint-plugin-react": "latest",
-    "netlify-cli": "^17.33.4",
+    "netlify-cli": "^17.37.2",
     "serverless-http": "^3.2.0",
-    "typescript": "~5.5.4"
+    "typescript": "~5.6.3"
   },
   "resolutions": {
     "array-includes": "npm:@nolyfill/array-includes@^1",
