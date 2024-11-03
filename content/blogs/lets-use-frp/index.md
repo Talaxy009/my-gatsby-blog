@@ -90,4 +90,4 @@ Linux: frp 解压后有一份 service 文件，可以添加至系统服务中。
 
 ## 最后
 
-frp 能做的事有很多，你可以查看 [这里](https://gofrp.org/docs/examples/) 学习更多操作，比如把内网的 ssh 放到公网上，或是用来给游戏服务器做内网穿透。
+frp 能做的事有很多，你可以查看 [这里](https://gofrp.org/zh-cn/docs/examples/) 学习更多操作，比如把内网的 ssh 放到公网上，或是用来给游戏服务器做内网穿透。
