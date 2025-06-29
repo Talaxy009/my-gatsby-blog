@@ -1,6 +1,6 @@
 {
   "name": "my-gatsby-blog",
-  "packageManager": "yarn@4.5.1",
+  "packageManager": "yarn@4.9.2",
   "version": "1.0.0",
   "private": true,
   "description": "My Gatsby Blog",
@@ -22,14 +22,14 @@
     "sdk": "yarn dlx @yarnpkg/sdks vscode"
   },
   "dependencies": {
-    "@emotion/react": "~11.13.3",
+    "@emotion/react": "~11.14.0",
     "@emotion/server": "^11.11.0",
-    "@emotion/styled": "~11.13.0",
+    "@emotion/styled": "~11.14.1",
     "@icons-pack/react-simple-icons": "~9.7.0",
     "@mdx-js/react": "^2.3.0",
     "@mui/icons-material": "^5.16.7",
-    "@mui/material": "~5.16.7",
-    "@mui/styled-engine": "~5.16.6",
+    "@mui/material": "~5.17.1",
+    "@mui/styled-engine": "~5.16.14",
     "gatsby": "~5.14.0",
     "gatsby-adapter-netlify": "^1.2.0",
     "gatsby-plugin-emotion": "~8.14.0",
@@ -58,7 +58,7 @@
     "remark-gfm": "^1.0.0"
   },
   "devDependencies": {
-    "@netlify/functions": "^2.8.2",
+    "@netlify/functions": "^4.1.8",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
@@ -66,9 +66,9 @@
     "@waline/vercel": "^1.32.1",
     "eslint": "latest",
     "eslint-plugin-react": "latest",
-    "netlify-cli": "^17.37.2",
+    "netlify-cli": "^22.2.1",
     "serverless-http": "^3.2.0",
-    "typescript": "~5.6.3"
+    "typescript": "~5.8.3"
   },
   "resolutions": {
     "array-includes": "npm:@nolyfill/array-includes@^1",
