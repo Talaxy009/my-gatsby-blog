@@ -106,7 +106,7 @@ const config: GatsbyConfig = {
 								? ['--no-first-run']
 								: [
 										'--no-first-run',
-										'--proxy-server=192.168.31.33:7890',
+										'--proxy-server=192.168.1.33:7890',
 								  ],
 						},
 					},
