@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {graphql, navigate, useStaticQuery} from 'gatsby';
+import {navigate} from 'gatsby';
 import {createTheme, ThemeProvider, Stack} from '@mui/material';
 import SyncIcon from '@mui/icons-material/SyncRounded';
 import CopyrightIcon from '@mui/icons-material/Copyright';
